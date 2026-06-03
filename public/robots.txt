@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /therapy
+Allow: /community
+Allow: /privacy
+Allow: /terms
+
+Sitemap: https://brainheal.in/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1

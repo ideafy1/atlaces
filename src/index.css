@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "./styles/theme.css";
+
+@theme {
+  --font-instrument: "Instrument Serif", serif;
+  --font-inter: "Inter", sans-serif;
+  
+  --color-brand-black: #000000;
+  --color-brand-gray: #6F6F6F;
+  --color-brand-white: #FFFFFF;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
