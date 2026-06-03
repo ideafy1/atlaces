@@ -130,7 +130,7 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
           setFinalPrice(selected.duration === '30 Min' ? Math.floor(price / 2) : price);
           setIsNewUser(false);
         } else {
-          const baseFirstPrice = firstSessionPrice || 111;
+          const baseFirstPrice = firstSessionPrice || 11;
           setFinalPrice(selected.duration === '30 Min' ? baseFirstPrice : baseFirstPrice * 2);
           setIsNewUser(true);
         }

@@ -40,23 +40,25 @@ export default function Providers() {
               {therapists.map((therapist: any, index: number) => (
                 <div 
                   key={index} 
-                  className="bg-gray-50 rounded-3xl p-6 group cursor-pointer hover:bg-gray-100 transition-colors duration-300 scroll-reveal"
+                  className="bg-gray-50 rounded-3xl p-6 group cursor-pointer hover:bg-gray-100 transition-colors duration-300 scroll-reveal flex flex-col justify-between h-full"
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gray-200">
-                      <img 
-                        src={therapist.image}
-                        alt={therapist.name} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="font-instrument text-2xl text-brand-black">{therapist.name}</h3>
-                      <p className="text-brand-gray text-sm">{therapist.role}</p>
+                  <div>
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 rounded-2xl overflow-hidden bg-gray-200">
+                        <img 
+                          src={therapist.image}
+                          alt={therapist.name} 
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="font-instrument text-2xl text-brand-black">{therapist.name}</h3>
+                        <p className="text-brand-gray text-sm">{therapist.role}</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between text-sm text-brand-black font-medium">
+                  <div className="flex items-center justify-between text-sm text-brand-black font-medium mt-auto pt-4 border-t border-gray-100/50">
                     <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-brand-black" /> 5.0</span>
                     <span>{therapist.exp}</span>
                   </div>

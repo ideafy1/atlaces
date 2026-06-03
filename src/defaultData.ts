@@ -1,5 +1,5 @@
 export const defaultData = {
-  firstSessionPrice: 111,
+  firstSessionPrice: 11,
   hero: {
     title: "Awaken",
     subtitle: "the best version of",

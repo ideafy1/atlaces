@@ -459,7 +459,7 @@ export default function TherapistProfile() {
           therapistImage={t.image}
           therapistTitle={t.title}
           price={t.price || 1500}
-          firstSessionPrice={data?.firstSessionPrice || 111}
+          firstSessionPrice={data?.firstSessionPrice || 11}
           therapistTelegramId={t.telegramId}
           therapistMeetLink={t.meetLink}
           therapistEmail={t.email}

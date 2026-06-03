@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Clock, ChevronRight, Search, SlidersHorizontal, Heart, Sparkles, MapPin, ArrowRight, Eye, Calendar } from 'lucide-react';
+import { Star, Clock, ChevronRight, Search, SlidersHorizontal, Heart, Sparkles, Globe, ArrowRight, Eye, Calendar } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useData } from '../DataContext';
 
@@ -127,71 +127,73 @@ export default function TherapyPage() {
           {filtered.map((t: any, i: number) => (
             <div
               key={i}
-              className="therapy-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-gray-200 transition-all duration-500 group"
+              className="therapy-card bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:border-gray-200 transition-all duration-500 group flex flex-col h-full"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              <div className="p-5 md:p-6">
-                {/* Top row */}
-                <div className="flex gap-4">
-                  {/* Profile image */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden bg-gray-100 ring-2 ring-gray-50 group-hover:ring-4 group-hover:ring-gray-100 transition-all duration-500">
-                      <img src={t.image} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
-                    </div>
-                    {t.online && (
-                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-[2.5px] border-white flex items-center justify-center">
-                        <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <div className="p-5 md:p-6 flex-1 flex flex-col justify-between h-full">
+                <div className="flex-grow">
+                  {/* Top row */}
+                  <div className="flex gap-4">
+                    {/* Profile image */}
+                    <div className="relative flex-shrink-0">
+                      <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden bg-gray-100 ring-2 ring-gray-50 group-hover:ring-4 group-hover:ring-gray-100 transition-all duration-500">
+                        <img src={t.image} alt={t.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
                       </div>
+                      {t.online && (
+                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-[2.5px] border-white flex items-center justify-center">
+                          <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Info */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className="font-inter font-semibold text-base md:text-lg text-brand-black leading-tight group-hover:text-gray-900 transition-colors">{t.name}</h3>
+                          <p className="text-xs md:text-sm text-brand-gray mt-0.5">{t.title}</p>
+                          <p className="text-[11px] text-brand-gray/60 mt-0.5 font-medium">{t.credentials}</p>
+                        </div>
+                        <button
+                          onClick={(e) => { e.stopPropagation(); toggleLike(i); }}
+                          className="p-2 rounded-xl hover:bg-red-50 active:scale-90 transition-all duration-300"
+                        >
+                          <Heart className={`w-5 h-5 transition-all duration-500 ${likedIds.includes(i) ? 'fill-red-500 text-red-500 scale-110 drop-shadow-sm' : 'text-gray-300 hover:text-red-400'}`} />
+                        </button>
+                      </div>
+
+                      {/* Rating */}
+                      <div className="flex items-center gap-2 mt-2.5">
+                        <div className="flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-lg group-hover:bg-emerald-100 transition-colors duration-300">
+                          <Star className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
+                          <span className="text-xs font-bold text-emerald-700">{t.rating}</span>
+                        </div>
+                        <span className="text-[11px] text-brand-gray">({t.reviews} reviews)</span>
+                        <span className="w-1 h-1 rounded-full bg-gray-300" />
+                        <span className="text-[11px] text-brand-gray">{t.experience}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Languages */}
+                  <div className="flex items-center gap-1.5 mt-4">
+                    <Globe className="w-3.5 h-3.5 text-brand-gray/40" />
+                    <span className="text-[11px] text-brand-gray font-medium">{(t.languages || []).join(', ')}</span>
+                  </div>
+
+                  {/* Specialties */}
+                  <div className="flex flex-wrap gap-1.5 mt-3">
+                    {(t.specialties || []).slice(0, 6).map((spec: string) => (
+                      <span key={spec} className="specialty-chip px-2.5 py-1 rounded-lg bg-gray-50 text-[10px] md:text-[11px] font-medium text-brand-gray border border-gray-100 group-hover:bg-gray-100 group-hover:border-gray-200 transition-all duration-300">
+                        {spec}
+                      </span>
+                    ))}
+                    {(t.specialties || []).length > 6 && (
+                      <span className="px-2.5 py-1 rounded-lg bg-gray-50 text-[10px] md:text-[11px] font-medium text-brand-gray/60 border border-gray-100">
+                        +{(t.specialties || []).length - 6} more
+                      </span>
                     )}
                   </div>
-
-                  {/* Info */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 className="font-inter font-semibold text-base md:text-lg text-brand-black leading-tight group-hover:text-gray-900 transition-colors">{t.name}</h3>
-                        <p className="text-xs md:text-sm text-brand-gray mt-0.5">{t.title}</p>
-                        <p className="text-[11px] text-brand-gray/60 mt-0.5 font-medium">{t.credentials}</p>
-                      </div>
-                      <button
-                        onClick={(e) => { e.stopPropagation(); toggleLike(i); }}
-                        className="p-2 rounded-xl hover:bg-red-50 active:scale-90 transition-all duration-300"
-                      >
-                        <Heart className={`w-5 h-5 transition-all duration-500 ${likedIds.includes(i) ? 'fill-red-500 text-red-500 scale-110 drop-shadow-sm' : 'text-gray-300 hover:text-red-400'}`} />
-                      </button>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mt-2.5">
-                      <div className="flex items-center gap-1 bg-emerald-50 px-2.5 py-1 rounded-lg group-hover:bg-emerald-100 transition-colors duration-300">
-                        <Star className="w-3.5 h-3.5 fill-emerald-600 text-emerald-600" />
-                        <span className="text-xs font-bold text-emerald-700">{t.rating}</span>
-                      </div>
-                      <span className="text-[11px] text-brand-gray">({t.reviews} reviews)</span>
-                      <span className="w-1 h-1 rounded-full bg-gray-300" />
-                      <span className="text-[11px] text-brand-gray">{t.experience}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Languages */}
-                <div className="flex items-center gap-1.5 mt-4">
-                  <MapPin className="w-3 h-3 text-brand-gray/40" />
-                  <span className="text-[11px] text-brand-gray font-medium">{(t.languages || []).join(', ')}</span>
-                </div>
-
-                {/* Specialties */}
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {(t.specialties || []).slice(0, 6).map((spec: string) => (
-                    <span key={spec} className="specialty-chip px-2.5 py-1 rounded-lg bg-gray-50 text-[10px] md:text-[11px] font-medium text-brand-gray border border-gray-100 group-hover:bg-gray-100 group-hover:border-gray-200 transition-all duration-300">
-                      {spec}
-                    </span>
-                  ))}
-                  {(t.specialties || []).length > 6 && (
-                    <span className="px-2.5 py-1 rounded-lg bg-gray-50 text-[10px] md:text-[11px] font-medium text-brand-gray/60 border border-gray-100">
-                      +{(t.specialties || []).length - 6} more
-                    </span>
-                  )}
                 </div>
 
                 {/* Pricing bar */}
@@ -203,7 +205,7 @@ export default function TherapyPage() {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="text-xs font-medium text-gray-400 line-through">Rs.{(t.price || 0).toLocaleString()}</span>
-                      <span className="text-lg font-bold font-inter text-brand-black">Rs.11</span>
+                      <span className="text-lg font-bold font-inter text-brand-black">Rs.{data?.firstSessionPrice || 11}</span>
                       <span className="offer-badge text-[8px] font-extrabold text-white bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 px-2 py-0.5 rounded-full uppercase tracking-widest shadow-sm">
                         1st Session
                       </span>
