@@ -304,14 +304,6 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
     { label: 'Evening', icon: '\uD83C\uDF19', slots: filteredEvening },
   ];
 
-  const confettiColors = [
-    '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#3b82f6',
-    '#a855f7', '#f472b6', '#fbbf24', '#34d399', '#60a5fa',
-    '#c084fc', '#fb7185', '#fcd34d', '#6ee7b7', '#93c5fd',
-    '#7c3aed', '#e11d48', '#d97706', '#059669', '#2563eb',
-  ];
-
-  const floatingEmojis = ['💜', '✨', '⭐', '💖', '🌟', '💫', '❤️', '🎉', '🌸', '💛', '💗', '⚡'];
 
   return (
     <div className="fixed inset-0 z-[99999] flex items-end sm:items-center justify-center" style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(8px)' }}>
@@ -735,174 +727,148 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
               </div>
             )}
 
-            {/* Step 7: INSANELY BEAUTIFUL Celebration */}
+            {/* Step 7: Premium Confirmation */}
             {step === 7 && (
-              <div className="relative text-center py-4 overflow-hidden celebration-container">
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 celebration-bg-gradient" style={{ borderRadius: '24px', opacity: 0.3 }} />
+              <div className="relative overflow-hidden confirmation-root" style={{ animation: 'confirmFadeIn 0.5s ease both' }}>
+                {/* Subtle background pattern — animated dot grid */}
+                <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.04, backgroundImage: 'radial-gradient(circle, #0d9488 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
-                {/* CSS Confetti particles */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {confettiColors.map((color, i) => (
-                    <div
-                      key={`confetti-${i}`}
-                      className="absolute confetti-particle"
-                      style={{
-                        left: `${5 + (i * 4.5) % 90}%`,
-                        top: '-5%',
-                        width: i % 3 === 0 ? '10px' : i % 3 === 1 ? '8px' : '6px',
-                        height: i % 3 === 0 ? '10px' : i % 3 === 1 ? '14px' : '8px',
-                        backgroundColor: color,
-                        borderRadius: i % 2 === 0 ? '50%' : '2px',
-                        animation: `confettiFall ${2.5 + (i % 5) * 0.4}s ease-in ${i * 0.12}s both`,
-                        transform: `rotate(${i * 37}deg)`,
-                      } as React.CSSProperties}
-                    />
-                  ))}
-                </div>
-
-                {/* Floating emoji particles */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                  {floatingEmojis.map((emoji, i) => (
-                    <div
-                      key={`emoji-${i}`}
-                      className="absolute text-lg"
-                      style={{
-                        left: `${8 + (i * 7.5) % 84}%`,
-                        bottom: '-10%',
-                        animation: `emojiFloat ${4 + (i % 4) * 1.2}s ease-out ${0.5 + i * 0.35}s infinite`,
-                        opacity: 0,
-                      }}
-                    >
-                      {emoji}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Animated checkmark with gradient circle */}
-                <div className="relative w-28 h-28 mx-auto mb-5">
-                  <svg viewBox="0 0 120 120" className="w-full h-full animate-celebrationPop">
-                    <defs>
-                      <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#8b5cf6" />
-                        <stop offset="33%" stopColor="#ec4899" />
-                        <stop offset="66%" stopColor="#f59e0b" />
-                        <stop offset="100%" stopColor="#10b981" />
-                      </linearGradient>
-                    </defs>
-                    <circle cx="60" cy="60" r="50" fill="none" stroke="url(#circleGrad)" strokeWidth="4" className="animate-drawCircle" />
-                    <path d="M35 62 L52 78 L85 42" fill="none" stroke="url(#circleGrad)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" className="animate-drawCheck" />
-                  </svg>
-                  {/* Sparkle ring */}
-                  {[...Array(10)].map((_, i) => (
-                    <div key={i} className="absolute w-2 h-2 rounded-full" style={{
-                      top: '50%', left: '50%',
-                      background: confettiColors[i % confettiColors.length],
-                      animation: `sparkle 1s ease-out ${i * 0.08}s both`,
-                      '--angle': `${i * 36}deg`, '--dist': '65px',
-                    } as React.CSSProperties} />
-                  ))}
-                </div>
-
-                {/* Price with sparkle effect */}
-                <div className="relative inline-block mb-3">
-                  <div className="celebration-price-badge inline-flex items-center gap-2 px-5 py-2 rounded-full text-white font-bold text-lg" style={{
-                    background: 'linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b)',
-                    backgroundSize: '200% 200%',
-                    animation: 'gradientShift 3s ease infinite',
-                  }}>
-                    <Sparkles className="w-4 h-4 animate-sparkleRotate" />
-                    <span>Rs.{finalPrice}</span>
-                    <Sparkles className="w-4 h-4 animate-sparkleRotate" style={{ animationDelay: '0.5s' }} />
+                {/* ── Top Section ── */}
+                <div className="relative z-10 text-center pt-8 pb-5 px-5">
+                  {/* Animated checkmark */}
+                  <div className="relative w-20 h-20 mx-auto mb-5">
+                    <svg viewBox="0 0 100 100" className="w-full h-full" style={{ animation: 'confirmPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both' }}>
+                      <defs>
+                        <linearGradient id="confirmGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#0d9488" />
+                          <stop offset="100%" stopColor="#14b8a6" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx="50" cy="50" r="46" fill="none" stroke="#e5e7eb" strokeWidth="3" />
+                      <circle cx="50" cy="50" r="46" fill="none" stroke="url(#confirmGrad)" strokeWidth="3" strokeLinecap="round" className="confirm-circle-draw" />
+                      <path d="M30 52 L44 66 L72 36" fill="none" stroke="url(#confirmGrad)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="confirm-check-draw" />
+                    </svg>
+                    {/* Pulse ring */}
+                    <div className="absolute inset-0 rounded-full" style={{ border: '2px solid #0d9488', animation: 'confirmPulseRing 2s ease-out 0.8s both', opacity: 0 }} />
                   </div>
-                  {isNewUser && (
-                    <div className="absolute -top-2 -right-3 bg-emerald-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-full animate-badgeBounce" style={{ animation: 'badgeBounce 2s ease infinite' }}>
-                      NEW
-                    </div>
-                  )}
+
+                  {/* Title + Subtitle */}
+                  <h2 className="font-instrument text-[22px] sm:text-2xl font-bold text-brand-black mb-1.5 tracking-tight" style={{ animation: 'confirmSlideUp 0.6s ease-out 0.35s both' }}>
+                    Session Confirmed
+                  </h2>
+                  <p className="text-sm text-gray-500 leading-relaxed" style={{ animation: 'confirmSlideUp 0.6s ease-out 0.5s both' }}>
+                    Your session with <span className="font-semibold text-brand-black">{therapistName}</span> is booked
+                  </p>
+
+                  {/* Price chip */}
+                  <div className="mt-4" style={{ animation: 'confirmSlideUp 0.6s ease-out 0.6s both' }}>
+                    <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-bold text-teal-700 bg-teal-50 border border-teal-100">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
+                      Rs.{finalPrice}
+                      {isNewUser && <span className="text-[10px] font-bold text-teal-500 uppercase tracking-wider ml-1">First Session</span>}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Main title */}
-                <h2 className="font-instrument text-2xl text-brand-black mb-2 relative z-10" style={{ animation: 'titleReveal 0.8s ease-out 0.4s both' }}>
-                  Your healing journey begins now
-                </h2>
-                <p className="text-sm text-brand-gray mb-5 relative z-10" style={{ animation: 'titleReveal 0.8s ease-out 0.6s both' }}>
-                  Your session with <span className="font-semibold text-brand-black">{therapistName}</span> is confirmed
-                </p>
-
-                {/* First session celebration badge */}
-                {isNewUser && (
-                  <div className="relative z-10 mb-5 inline-block" style={{ animation: 'titleReveal 0.8s ease-out 0.7s both' }}>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200">
-                      <span className="text-sm">🎉</span>
-                      <span className="text-xs font-semibold text-emerald-700">First session at just Rs.{finalPrice}</span>
-                      <span className="text-sm">🎉</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Glassmorphism session details card */}
-                <div className="relative z-10 mb-6" style={{ animation: 'cardSlideUp 0.8s ease-out 0.8s both' }}>
-                  <div className="celebration-card-glow rounded-2xl p-[2px]" style={{
-                    background: 'linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6)',
-                    backgroundSize: '300% 300%',
-                    animation: 'gradientShift 4s ease infinite',
-                  }}>
-                    <div className="rounded-2xl p-5 text-left" style={{
-                      background: 'rgba(255,255,255,0.92)',
-                      backdropFilter: 'blur(20px)',
-                    }}>
-                      <p className="text-[10px] font-bold text-brand-gray uppercase tracking-widest mb-3">Session Details</p>
-                      <div className="space-y-2.5">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-violet-50 flex items-center justify-center text-sm">👤</div>
-                          <div>
-                            <p className="text-[10px] text-brand-gray">Therapist</p>
-                            <p className="text-sm font-semibold text-brand-black">{therapistName}</p>
-                          </div>
+                {/* ── Session Details Card ── */}
+                <div className="relative z-10 mx-4 mb-4" style={{ animation: 'confirmSlideUp 0.7s ease-out 0.7s both' }}>
+                  <div className="rounded-2xl border border-gray-100 bg-white overflow-hidden" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)' }}>
+                    {/* Detail rows — desktop: 2x2 grid, mobile: list */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-gray-50">
+                      {/* Therapist */}
+                      <div className="p-4 sm:p-5 flex flex-col items-center text-center border-b border-gray-50 sm:border-b-0">
+                        <div className="w-9 h-9 rounded-xl bg-teal-50 flex items-center justify-center mb-2.5">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2" strokeLinecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-pink-50 flex items-center justify-center text-sm">📅</div>
-                          <div>
-                            <p className="text-[10px] text-brand-gray">Date</p>
-                            <p className="text-sm font-semibold text-brand-black">{days[selected.date]?.label}</p>
-                          </div>
+                        <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">Therapist</span>
+                        <span className="text-[13px] font-semibold text-brand-black leading-tight">{therapistName}</span>
+                      </div>
+                      {/* Date */}
+                      <div className="p-4 sm:p-5 flex flex-col items-center text-center border-b border-gray-50 sm:border-b-0">
+                        <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center mb-2.5">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /><circle cx="12" cy="16" r="1.5" fill="#3b82f6" /></svg>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-sm">🕐</div>
-                          <div>
-                            <p className="text-[10px] text-brand-gray">Time</p>
-                            <p className="text-sm font-semibold text-brand-black">{selected.time}</p>
-                          </div>
+                        <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">Date</span>
+                        <span className="text-[13px] font-semibold text-brand-black">{days[selected.date]?.label}</span>
+                      </div>
+                      {/* Time */}
+                      <div className="p-4 sm:p-5 flex flex-col items-center text-center">
+                        <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center mb-2.5">
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-sm">
-                            {selected.format === 'video' ? '📹' : selected.format === 'voice' ? '📞' : '💬'}
-                          </div>
-                          <div>
-                            <p className="text-[10px] text-brand-gray">Format</p>
-                            <p className="text-sm font-semibold text-brand-black capitalize">{selected.format}</p>
-                          </div>
+                        <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">Time</span>
+                        <span className="text-[13px] font-semibold text-brand-black">{selected.time}</span>
+                      </div>
+                      {/* Format */}
+                      <div className="p-4 sm:p-5 flex flex-col items-center text-center">
+                        <div className="w-9 h-9 rounded-xl bg-purple-50 flex items-center justify-center mb-2.5">
+                          {selected.format === 'video' ? (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round"><polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" /></svg>
+                          ) : selected.format === 'voice' ? (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>
+                          ) : (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" /></svg>
+                          )}
                         </div>
+                        <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider mb-1">Format</span>
+                        <span className="text-[13px] font-semibold text-brand-black capitalize">{selected.format}</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Confirmation sent */}
-                <div className="relative z-10 bg-gray-50 rounded-2xl p-4 text-left mb-5 border border-gray-100" style={{ animation: 'cardSlideUp 0.8s ease-out 1s both' }}>
-                  <p className="text-xs text-brand-gray mb-0.5">Confirmation sent to</p>
-                  <p className="text-sm font-semibold text-brand-black">{selected.email}</p>
+                {/* ── Confirmation email notice ── */}
+                <div className="relative z-10 mx-4 mb-4" style={{ animation: 'confirmSlideUp 0.6s ease-out 0.9s both' }}>
+                  <div className="flex items-center gap-3 px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-100">
+                    <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center flex-shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2" strokeLinecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-[11px] text-gray-400 font-medium leading-none mb-0.5">Confirmation sent to</p>
+                      <p className="text-[13px] font-semibold text-brand-black truncate">{selected.email}</p>
+                    </div>
+                    <div className="ml-auto flex-shrink-0">
+                      <div className="w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"><polyline points="20 6 9 17 4 12" /></svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Done button with heartbeat */}
-                <button
-                  onClick={onClose}
-                  className="relative z-10 w-full bg-brand-black text-white rounded-2xl py-4 text-sm font-bold flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-transform celebration-done-btn"
-                  style={{ transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)', animation: 'cardSlideUp 0.8s ease-out 1.1s both, heartbeat 1.5s ease-in-out 2s infinite' }}
-                >
-                  <Heart className="w-4 h-4 celebration-heart-icon" style={{ animation: 'heartbeat 1.5s ease-in-out 2s infinite' }} /> Done
-                </button>
+                {/* ── Tips Card ── */}
+                <div className="relative z-10 mx-4 mb-5" style={{ animation: 'confirmSlideUp 0.6s ease-out 1s both' }}>
+                  <div className="rounded-xl border border-teal-100 bg-teal-50/50 px-4 py-3.5">
+                    <p className="text-[11px] font-bold text-teal-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0d9488" strokeWidth="2.5" strokeLinecap="round"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                      Before your session
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2.5">
+                        <span className="w-[18px] h-[18px] rounded-full bg-teal-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                        <span className="text-[12px] text-gray-600 leading-[18px]">Find a quiet space with no interruptions</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <span className="w-[18px] h-[18px] rounded-full bg-teal-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                        <span className="text-[12px] text-gray-600 leading-[18px]">Test your mic and internet beforehand</span>
+                      </div>
+                      <div className="flex items-start gap-2.5">
+                        <span className="w-[18px] h-[18px] rounded-full bg-teal-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">3</span>
+                        <span className="text-[12px] text-gray-600 leading-[18px]">Join 2–3 minutes early to settle in</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ── Done Button ── */}
+                <div className="relative z-10 px-4 pb-6" style={{ animation: 'confirmSlideUp 0.6s ease-out 1.1s both' }}>
+                  <button
+                    onClick={onClose}
+                    className="w-full py-4 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95"
+                    style={{ background: 'linear-gradient(135deg, #0d9488, #14b8a6)', color: '#fff', boxShadow: '0 4px 14px rgba(13, 148, 136, 0.3)', transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)' }}
+                  >
+                    <Check className="w-4 h-4" /> Done
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -963,124 +929,40 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
           from { opacity: 0; transform: translateX(var(--step-dir, 24px)); }
           to { opacity: 1; transform: translateX(0); }
         }
-        @keyframes celebrationPop {
+
+        /* ── Confirmation screen animations ── */
+        @keyframes confirmFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes confirmPop {
           0% { transform: scale(0); opacity: 0; }
-          50% { transform: scale(1.15); }
+          60% { transform: scale(1.1); }
           100% { transform: scale(1); opacity: 1; }
         }
-        .animate-celebrationPop { animation: celebrationPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both; }
-        @keyframes drawCircle {
-          from { stroke-dashoffset: 314; }
-          to { stroke-dashoffset: 0; }
-        }
-        .animate-drawCircle { stroke-dasharray: 314; animation: drawCircle 0.8s ease-out 0.3s both; }
-        @keyframes drawCheck {
-          from { stroke-dashoffset: 80; }
-          to { stroke-dashoffset: 0; }
-        }
-        .animate-drawCheck { stroke-dasharray: 80; animation: drawCheck 0.5s ease-out 0.8s both; }
-        @keyframes sparkle {
-          0% { transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(0) scale(0); opacity: 1; }
-          100% { transform: translate(-50%, -50%) rotate(var(--angle, 0deg)) translateY(calc(-1 * var(--dist, 60px))) scale(1); opacity: 0; }
-        }
-
-        /* Confetti falling */
-        @keyframes confettiFall {
-          0% {
-            transform: translateY(0) rotate(0deg) scale(0);
-            opacity: 1;
-          }
-          10% {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg) scale(1);
-          }
-          100% {
-            transform: translateY(600px) rotate(720deg) scale(0.3);
-            opacity: 0;
-          }
-        }
-
-        /* Floating emoji */
-        @keyframes emojiFloat {
-          0% {
-            transform: translateY(0) scale(0) rotate(0deg);
-            opacity: 0;
-          }
-          10% {
-            opacity: 0.8;
-            transform: translateY(-20px) scale(1) rotate(10deg);
-          }
-          50% {
-            opacity: 0.6;
-          }
-          100% {
-            transform: translateY(-350px) scale(0.5) rotate(-20deg);
-            opacity: 0;
-          }
-        }
-
-        /* Gradient shift for badges and borders */
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-
-        /* Title reveal */
-        @keyframes titleReveal {
-          from { opacity: 0; transform: translateY(16px); }
+        @keyframes confirmSlideUp {
+          from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Card slide up */
-        @keyframes cardSlideUp {
-          from { opacity: 0; transform: translateY(24px) scale(0.96); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
+        @keyframes confirmPulseRing {
+          0% { transform: scale(0.8); opacity: 0.6; }
+          100% { transform: scale(1.4); opacity: 0; }
         }
-
-        /* Heartbeat for done button */
-        @keyframes heartbeat {
-          0% { transform: scale(1); }
-          14% { transform: scale(1.08); }
-          28% { transform: scale(1); }
-          42% { transform: scale(1.05); }
-          56% { transform: scale(1); }
-          100% { transform: scale(1); }
+        .confirm-circle-draw {
+          stroke-dasharray: 290;
+          stroke-dashoffset: 290;
+          animation: confirmDrawCircle 0.8s ease-out 0.2s forwards;
         }
-
-        /* Sparkle rotate */
-        .animate-sparkleRotate {
-          animation: sparkleRotate 2s linear infinite;
+        @keyframes confirmDrawCircle {
+          to { stroke-dashoffset: 0; }
         }
-        @keyframes sparkleRotate {
-          0% { transform: rotate(0deg) scale(1); }
-          25% { transform: rotate(90deg) scale(1.2); }
-          50% { transform: rotate(180deg) scale(1); }
-          75% { transform: rotate(270deg) scale(1.2); }
-          100% { transform: rotate(360deg) scale(1); }
+        .confirm-check-draw {
+          stroke-dasharray: 80;
+          stroke-dashoffset: 80;
+          animation: confirmDrawCheck 0.4s ease-out 0.7s forwards;
         }
-
-        /* Badge bounce */
-        @keyframes badgeBounce {
-          0%, 100% { transform: scale(1) rotate(-6deg); }
-          50% { transform: scale(1.15) rotate(-6deg); }
-        }
-
-        /* Celebration background gradient */
-        .celebration-bg-gradient {
-          background: linear-gradient(135deg, #ede9fe, #fce7f3, #fef3c7, #d1fae5, #dbeafe);
-          background-size: 400% 400%;
-          animation: gradientShift 8s ease infinite;
-        }
-
-        /* Pulsing glow on celebration card */
-        .celebration-card-glow {
-          box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 0 40px rgba(236, 72, 153, 0.1);
-          animation: cardGlow 3s ease-in-out infinite;
-        }
-        @keyframes cardGlow {
-          0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 0 40px rgba(236, 72, 153, 0.1); }
-          50% { box-shadow: 0 0 30px rgba(139, 92, 246, 0.25), 0 0 60px rgba(236, 72, 153, 0.2); }
+        @keyframes confirmDrawCheck {
+          to { stroke-dashoffset: 0; }
         }
 
         /* Green glow for pay button (new user) */
