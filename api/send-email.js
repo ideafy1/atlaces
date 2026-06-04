@@ -208,11 +208,6 @@ body { margin: 0; padding: 0; width: 100%; background-color: #f8f9fa; font-famil
         replyTo: `"BrainHeal Support" <${process.env.EMAIL_USER}>`,
         to: toEmail,
         subject: `New Session Booking — ${name} on ${date}`,
-        headers: {
-          'Precedence': 'bulk',
-          'X-Mailer': 'BrainHeal Notification System',
-          'X-Entity-Ref-ID': `brainheal-booking-${Date.now()}`,
-        },
         text: plainText,
         html: html,
       });
@@ -412,11 +407,6 @@ ${meetLink ? `<!-- CTA Button -->
       replyTo: `"BrainHeal Support" <${process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: `Your session with ${therapistName} is confirmed`,
-      headers: {
-        'Precedence': 'bulk',
-        'X-Mailer': 'BrainHeal Notification System',
-        'X-Entity-Ref-ID': `brainheal-booking-${Date.now()}`,
-      },
       text: plainText,
       html: html,
     });
