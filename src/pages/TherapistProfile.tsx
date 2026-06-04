@@ -22,11 +22,11 @@ export default function TherapistProfile() {
   const [hasRated, setHasRated] = useState(false);
   const [localRating, setLocalRating] = useState<number | null>(null);
   const [localReviews, setLocalReviews] = useState<number | null>(null);
-  
+
   const [ratingStep, setRatingStep] = useState<'initial' | 'checking' | 'verified'>('initial');
   const [ratingPhone, setRatingPhone] = useState('');
   const [ratingError, setRatingError] = useState('');
-  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#FAFAFA]">
@@ -34,7 +34,7 @@ export default function TherapistProfile() {
       </div>
     );
   }
-  
+
   const therapist = therapists.find((t: any) => (t.slug && t.slug === slug) || toSlug(t.name) === slug);
 
   if (!therapist) {
@@ -79,7 +79,7 @@ export default function TherapistProfile() {
         console.error("Error rating in db:", err);
       }
     }
-    
+
     setLocalRating(finalRating);
     setLocalReviews(newReviews);
     setHasRated(true);
@@ -99,10 +99,10 @@ export default function TherapistProfile() {
       const bookingsRef = collection(db, 'bookings');
       const phone1 = ratingPhone.startsWith('+') ? ratingPhone : `+91${ratingPhone}`;
       const phone2 = ratingPhone;
-      
+
       const q1 = query(bookingsRef, where('therapist', '==', t.name), where('phone', '==', phone1));
       const q2 = query(bookingsRef, where('therapist', '==', t.name), where('phone', '==', phone2));
-      
+
       const [snap1, snap2] = await Promise.all([getDocs(q1), getDocs(q2)]);
       if (!snap1.empty || !snap2.empty) {
         setRatingStep('verified');
@@ -128,7 +128,7 @@ export default function TherapistProfile() {
   const profileUrl = `https://brainheal.in/therapist/${slug}`;
   const specsList = (t.specialties || []).join(', ');
   const langsList = (t.languages || []).join(', ');
-  
+
   // Social links array for UI and SEO
   const ensureUrl = (url: string) => url.startsWith('http') ? url : `https://${url}`;
   const socialLinks = [];
@@ -176,16 +176,16 @@ export default function TherapistProfile() {
   return (
     <>
       <SEOHead title={seoTitle} description={seoDesc} keywords={seoKeywords} image={t.image} url={profileUrl} jsonLd={jsonLd} />
-      
+
       <div className="min-h-screen bg-[#FAFAFA] font-inter pb-20">
         {/* Dynamic Blur Background Hero */}
         <div className="relative h-[250px] md:h-[300px] w-full overflow-hidden bg-brand-black">
-          <div 
-            className="absolute inset-0 opacity-40 blur-3xl scale-110" 
+          <div
+            className="absolute inset-0 opacity-40 blur-3xl scale-110"
             style={{ backgroundImage: `url(${t.image})`, backgroundPosition: 'center', backgroundSize: 'cover' }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] to-transparent" />
-          
+
           <div className="absolute top-0 left-0 w-full z-10 px-5 md:px-8 py-6 flex items-center justify-between">
             <button onClick={() => navigate('/therapy')} className="flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 bg-black/20 px-4 py-2 rounded-full backdrop-blur-md transition-all hover:scale-105">
               <ArrowLeft className="w-4 h-4" /> Back
@@ -195,10 +195,10 @@ export default function TherapistProfile() {
         </div>
 
         <div className="max-w-5xl mx-auto px-5 md:px-8 -mt-24 md:-mt-32 relative z-20">
-          
+
           {/* Main Hero Card */}
           <div className="bg-white/80 backdrop-blur-xl rounded-[2.5rem] border border-white p-6 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start text-center md:text-left transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.08)]">
-            
+
             {/* Image Container with floating badge */}
             <div className="relative flex-shrink-0 group">
               <div className="w-40 h-40 md:w-56 md:h-56 rounded-[2.5rem] overflow-hidden bg-gray-100 shadow-xl ring-4 ring-white transition-transform duration-500 group-hover:scale-[1.02]">
@@ -227,11 +227,11 @@ export default function TherapistProfile() {
               <p className="text-sm text-brand-gray/60 font-medium mb-6">{t.credentials}</p>
 
               {/* Action Button - Top */}
-              <button 
+              <button
                 onClick={() => setShowBooking(true)}
                 className="w-full md:w-auto px-8 py-4 rounded-2xl bg-brand-black text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_-10px_rgba(0,0,0,0.4)] hover:scale-[1.02] active:scale-95 group"
               >
-                <Sparkles className="w-4 h-4 text-amber-300 group-hover:animate-spin" /> 
+                <Sparkles className="w-4 h-4 text-amber-300 group-hover:animate-spin" />
                 Book Session - Rs.{t.price || 0}
               </button>
 
@@ -277,10 +277,10 @@ export default function TherapistProfile() {
 
           {/* Main Content Grid */}
           <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+
             {/* Left Column (Content) */}
             <div className="lg:col-span-2 space-y-8">
-              
+
               {/* About Section */}
               <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
                 <div className="flex items-center gap-3 mb-6">
@@ -301,7 +301,7 @@ export default function TherapistProfile() {
                     <p className="text-brand-gray leading-relaxed">{t.education}</p>
                   </div>
                 )}
-                
+
                 {t.approach && (
                   <div className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 duration-300">
                     <div className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
@@ -350,7 +350,7 @@ export default function TherapistProfile() {
                 <h3 className="font-bold text-brand-black text-lg mb-6 flex items-center gap-2">
                   <Calendar className="w-5 h-5 text-brand-black" /> Session Details
                 </h3>
-                
+
                 <div className="bg-gray-50 rounded-[2rem] p-6 mb-6">
                   <p className="text-sm font-semibold text-brand-gray uppercase tracking-widest mb-1">Pricing</p>
                   <div className="flex items-end gap-1 mb-2">
@@ -372,8 +372,8 @@ export default function TherapistProfile() {
                   </div>
                 </div>
 
-                <button 
-                  onClick={() => setShowBooking(true)} 
+                <button
+                  onClick={() => setShowBooking(true)}
                   className="w-full bg-brand-black text-white rounded-[1.5rem] py-5 text-base font-bold flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-95 transition-all shadow-xl hover:shadow-2xl"
                 >
                   Book Session Now <ChevronRight className="w-5 h-5" />
@@ -387,7 +387,7 @@ export default function TherapistProfile() {
           <div className="mt-12 max-w-2xl mx-auto bg-white rounded-[2.5rem] border border-gray-100 p-8 md:p-12 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] text-center">
             <h2 className="font-instrument text-3xl text-brand-black mb-2">Rate your experience</h2>
             <p className="text-sm text-brand-gray mb-8">Your feedback is 100% anonymous and helps others.</p>
-            
+
             {hasRated ? (
               <div className="bg-emerald-50 text-emerald-700 p-6 rounded-3xl animate-stepIn">
                 <p className="text-4xl mb-3">🙏</p>
@@ -419,7 +419,7 @@ export default function TherapistProfile() {
                 <div className="text-7xl transition-all duration-300 transform scale-110">
                   {getEmoji(sliderVal)}
                 </div>
-                
+
                 <div className="relative px-4">
                   <input
                     type="range"
@@ -459,7 +459,7 @@ export default function TherapistProfile() {
           therapistImage={t.image}
           therapistTitle={t.title}
           price={t.price || 1500}
-          firstSessionPrice={data?.firstSessionPrice || 11}
+          firstSessionPrice={data?.firstSessionPrice || 111}
           therapistTelegramId={t.telegramId}
           therapistMeetLink={t.meetLink}
           therapistEmail={t.email}

@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   if (isTherapistEmail) {
     const tPlain = `Hello ${therapistName},
 
-You have a new therapy session booking via Atlaces.
+You have a new therapy session booking via BrainHeal.
 
 ----- CLIENT DETAILS -----
 Name: ${name}
@@ -45,12 +45,12 @@ Please use your standard Google Meet link to host this session:
 ${meetLink}
 ` : ''}
 Best regards,
-The Atlaces Team
-atlaces.in`;
+The BrainHeal Team
+brainheal.in`;
 
     try {
       await transporter.sendMail({
-        from: `"Atlaces" <${process.env.EMAIL_USER}>`,
+        from: `"BrainHeal" <${process.env.EMAIL_USER}>`,
         to: toEmail,
         subject: `New Session Booking: ${name} on ${date}`,
         text: tPlain
@@ -85,12 +85,12 @@ ${meetLink}
 If you need to reschedule or have any questions, simply reply directly to this email.
 
 Warm regards,
-Team Atlaces
-atlaces.in`;
+Team BrainHeal
+brainheal.in`;
 
   try {
     await transporter.sendMail({
-      from: `"Atlaces" <${process.env.EMAIL_USER}>`,
+      from: `"BrainHeal" <${process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: `Confirmed: Your therapy session with ${therapistName}`,
       text: plainText
