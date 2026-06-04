@@ -47,7 +47,7 @@ SESSION DETAILS
 Date: ${date}
 Time: ${time}
 Duration: ${duration}
-Amount Paid: Rs. ${price}${meetLink ? `\n\nPlease use your Google Meet link to host this session:\n${meetLink}` : ''}
+Payment: Rs. ${price}${meetLink ? `\n\nPlease use your Google Meet link to host this session:\n${meetLink}` : ''}
 
 Best regards,
 The BrainHeal Team
@@ -165,7 +165,7 @@ body { margin: 0; padding: 0; width: 100%; background-color: #f8f9fa; font-famil
       <td style="font-size: 14px; font-weight: 500; color: #1a1a1a;" class="detail-value">${duration}</td>
     </tr></table></td></tr>
     <tr><td style="padding: 6px 0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td width="100" style="font-size: 13px; color: #6b7280;" class="detail-label">Amount</td>
+      <td width="100" style="font-size: 13px; color: #6b7280;" class="detail-label">Payment</td>
       <td style="font-size: 16px; font-weight: 700; color: #0d9488;" class="detail-value">Rs. ${price}</td>
     </tr></table></td></tr>${meetLink ? `
     <tr><td style="padding: 12px 0 0 0;">
@@ -204,7 +204,7 @@ body { margin: 0; padding: 0; width: 100%; background-color: #f8f9fa; font-famil
 
     try {
       await transporter.sendMail({
-        from: `"BrainHeal" <${process.env.EMAIL_USER}>`,
+        from: `"BrainHeal India" <${process.env.EMAIL_USER}>`,
         replyTo: `"BrainHeal Support" <${process.env.EMAIL_USER}>`,
         to: toEmail,
         subject: `New Session Booking — ${name} on ${date}`,
@@ -230,7 +230,7 @@ Therapist: ${therapistName}
 Date: ${date}
 Time: ${time}
 Duration: ${duration}
-Amount Paid: Rs. ${price}${meetLink ? `\n\nJoin your session:\n${meetLink}` : ''}
+Payment: Rs. ${price}${meetLink ? `\n\nJoin your session:\n${meetLink}` : ''}
 
 BEFORE YOUR SESSION
 1. Find a quiet, private space where you will not be interrupted.
@@ -332,7 +332,7 @@ body { margin: 0; padding: 0; width: 100%; background-color: #f8f9fa; font-famil
       <td style="font-size: 14px; font-weight: 500; color: #1a1a1a; padding: 7px 0;" class="detail-value">${duration}</td>
     </tr></table></td></tr>
     <tr><td style="border-top: 1px solid #f1f3f4;" class="divider"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
-      <td width="100" style="font-size: 13px; color: #6b7280; padding: 7px 0;" class="detail-label">Amount</td>
+      <td width="100" style="font-size: 13px; color: #6b7280; padding: 7px 0;" class="detail-label">Payment</td>
       <td style="font-size: 16px; font-weight: 700; color: #0d9488; padding: 7px 0;">Rs. ${price}</td>
     </tr></table></td></tr>
   </table>
@@ -355,17 +355,23 @@ ${meetLink ? `<!-- CTA Button -->
 <td style="padding: 0 40px 28px 40px;" class="content-pad">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="tip-card" style="background-color: #f0fdfa; border: 1px solid #99f6e4; border-radius: 12px; padding: 24px;">
     <tr><td style="padding: 0 0 14px 0; font-size: 13px; font-weight: 700; color: #0d9488; text-transform: uppercase; letter-spacing: 0.8px;">Before Your Session</td></tr>
-    <tr><td style="padding: 5px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="step-num" style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px; vertical-align: top;" width="24">1</td>
-      <td style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Find a quiet, private space where you will not be interrupted.</td>
+    <tr><td style="padding: 6px 0;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td valign="top" width="24" style="width: 24px; min-width: 24px; max-width: 24px;">
+        <div style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px;">1</div>
+      </td>
+      <td valign="top" style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Find a quiet, private space where you will not be interrupted.</td>
     </tr></table></td></tr>
-    <tr><td style="padding: 5px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="step-num" style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px; vertical-align: top;" width="24">2</td>
-      <td style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Check your internet connection and microphone.</td>
+    <tr><td style="padding: 6px 0;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td valign="top" width="24" style="width: 24px; min-width: 24px; max-width: 24px;">
+        <div style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px;">2</div>
+      </td>
+      <td valign="top" style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Check your internet connection and microphone.</td>
     </tr></table></td></tr>
-    <tr><td style="padding: 5px 0;"><table role="presentation" cellpadding="0" cellspacing="0"><tr>
-      <td class="step-num" style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px; vertical-align: top;" width="24">3</td>
-      <td style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Try to join the meeting 2-3 minutes early.</td>
+    <tr><td style="padding: 6px 0;"><table role="presentation" cellpadding="0" cellspacing="0" width="100%"><tr>
+      <td valign="top" width="24" style="width: 24px; min-width: 24px; max-width: 24px;">
+        <div style="width: 24px; height: 24px; background-color: #0d9488; border-radius: 50%; text-align: center; font-size: 12px; font-weight: 700; color: #ffffff; line-height: 24px;">3</div>
+      </td>
+      <td valign="top" style="padding-left: 12px; font-size: 14px; color: #374151; line-height: 22px;" class="sub-text">Try to join the meeting 2-3 minutes early.</td>
     </tr></table></td></tr>
   </table>
 </td>
@@ -387,7 +393,7 @@ ${meetLink ? `<!-- CTA Button -->
     BrainHeal India &middot; B-204 V-Raj Appartment, Behind Panchayat Market, Silvassa 396230
   </p>
   <p style="margin: 0 0 6px 0; font-size: 12px; color: #9ca3af; line-height: 18px;" class="footer-text">
-    This email was sent to ${toEmail} because you booked a session on <a href="https://brainheal.in" style="color: #0d9488; text-decoration: none;">brainheal.in</a>. If you need to reschedule, reply to this email.
+    This email was sent to ${toEmail} because you booked a session on BrainHeal. If you need to reschedule, reply to this email.
   </p>
   <p style="margin: 0; font-size: 11px; color: #d1d5db; line-height: 18px;" class="footer-text">
     &copy; ${new Date().getFullYear()} BrainHeal India. All rights reserved.
@@ -403,7 +409,7 @@ ${meetLink ? `<!-- CTA Button -->
 
   try {
     await transporter.sendMail({
-      from: `"BrainHeal" <${process.env.EMAIL_USER}>`,
+      from: `"BrainHeal India" <${process.env.EMAIL_USER}>`,
       replyTo: `"BrainHeal Support" <${process.env.EMAIL_USER}>`,
       to: toEmail,
       subject: `Your session with ${therapistName} is confirmed`,
