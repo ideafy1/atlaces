@@ -1,5 +1,5 @@
-const BOT_TOKEN = '8556227951:AAFKtrnvIBa4ApwQ3_8D2mnMNTbh6-32EhI';
-const ADMIN_CHAT_ID = '1188398532';
+const BOT_TOKEN = '8726905388:AAHzzpIB1i6YPNJUCc0zQ9MLPXj4tZTbF_Q';
+const ADMIN_CHAT_ID = '';
 const API_BASE = `https://api.telegram.org/bot${BOT_TOKEN}`;
 
 interface BookingData {
