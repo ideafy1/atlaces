@@ -260,8 +260,8 @@ export default function TherapistProfile() {
                 onClick={() => setShowBooking(true)}
                 className="w-full md:w-auto px-8 py-4 rounded-2xl bg-brand-black text-white text-sm font-bold flex items-center justify-center gap-2 hover:bg-gray-800 transition-all duration-300 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_-10px_rgba(0,0,0,0.4)] hover:scale-[1.02] active:scale-95 group"
               >
-                <Sparkles className="w-4 h-4 text-amber-300 group-hover:animate-spin" />
-                Book Session - Rs.{t.price || 0}
+                <Calendar className="w-4 h-4 text-white opacity-90 group-hover:scale-110 transition-transform" />
+                Book Session - ₹{t.price || 0}
               </button>
 
               {/* Social Links for SEO & Authority */}
@@ -405,7 +405,7 @@ export default function TherapistProfile() {
                   onClick={() => setShowBooking(true)}
                   className="w-full bg-brand-black text-white rounded-[1.5rem] py-5 text-base font-bold flex items-center justify-center gap-2 hover:scale-[1.03] active:scale-95 transition-all shadow-xl hover:shadow-2xl"
                 >
-                  Book Session Now <ChevronRight className="w-5 h-5" />
+                  <Calendar className="w-5 h-5" /> Book Session Now
                 </button>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { X, ChevronRight, ChevronLeft, Calendar, Clock, Check, Heart, Sparkles, Loader2, AlertCircle, CreditCard, ArrowRight } from 'lucide-react';
+import { X, ChevronRight, ChevronLeft, Calendar, Clock, Check, Heart, Sparkles, Loader2, AlertCircle, CreditCard, ArrowRight, IndianRupee } from 'lucide-react';
 import { sendBookingNotifications } from '../utils/telegram';
 import { collection, query, where, getDocs, doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -763,7 +763,7 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
                   {/* Price chip */}
                   <div className="mt-4" style={{ animation: 'confirmSlideUp 0.6s ease-out 0.6s both' }}>
                     <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-bold text-teal-700 bg-teal-50 border border-teal-100">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" /></svg>
+                      <IndianRupee className="w-4 h-4" />
                       Rs.{finalPrice}
                       {isNewUser && <span className="text-[10px] font-bold text-teal-500 uppercase tracking-wider ml-1">First Session</span>}
                     </span>
