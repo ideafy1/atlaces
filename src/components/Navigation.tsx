@@ -65,9 +65,10 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
           {tabs.map((tab, i) => {
             const isActive = activePage === i;
             return (
-              <button
+              <a
                 key={i}
-                onClick={() => handleNav(i)}
+                href={tab.path}
+                onClick={(e) => { e.preventDefault(); handleNav(i); }}
                 className={`w-full flex items-center gap-4 px-6 py-5 rounded-2xl text-left transition-all duration-300 ${
                   isActive
                     ? 'bg-brand-black text-white shadow-lg'
@@ -79,18 +80,19 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
                   <tab.Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-brand-black'}`} fill={isActive ? 'currentColor' : 'none'} />
                 </div>
                 <span className="font-instrument text-2xl">{tab.label}</span>
-              </button>
+              </a>
             );
           })}
 
-          <button
+          <a
+            href="/therapy"
             className="w-full mt-4 bg-brand-black text-white rounded-2xl px-8 py-5 text-lg font-medium flex items-center justify-center gap-3 active:scale-95 transition-transform duration-200"
-            onClick={() => handleNav(1)}
+            onClick={(e) => { e.preventDefault(); handleNav(1); }}
             style={{ animation: 'menuSlideIn 0.3s ease-out 0.24s both' }}
           >
             Start Healing
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
 
@@ -138,9 +140,10 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
             {tabs.map((tab, i) => {
               const isActive = activePage === i;
               return (
-                <button
+                <a
                   key={i}
-                  onClick={() => handleNav(i)}
+                  href={tab.path}
+                  onClick={(e) => { e.preventDefault(); handleNav(i); }}
                   className={`relative flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium ${
                     isActive
                       ? 'bg-brand-black text-white shadow-md'
@@ -150,19 +153,20 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
                 >
                   <tab.Icon className="w-4 h-4" strokeWidth={isActive ? 2.2 : 1.8} fill={isActive ? 'currentColor' : 'none'} />
                   {tab.label}
-                </button>
+                </a>
               );
             })}
           </div>
 
           {/* Desktop CTA */}
-          <button
-            onClick={() => handleNav(1)}
+          <a
+            href="/therapy"
+            onClick={(e) => { e.preventDefault(); handleNav(1); }}
             className="hidden md:flex items-center gap-2 bg-brand-black text-white rounded-full pl-6 pr-5 py-2.5 text-sm font-medium hover:gap-3 transition-all duration-300 group"
           >
             Start Healing
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-300" />
-          </button>
+          </a>
 
           {/* Mobile Hamburger */}
           <button

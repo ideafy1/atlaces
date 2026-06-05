@@ -7,9 +7,10 @@ interface SEOHeadProps {
   image?: string;
   url: string;
   jsonLd?: object;
+  type?: string;
 }
 
-export default function SEOHead({ title, description, keywords, image, url, jsonLd }: SEOHeadProps) {
+export default function SEOHead({ title, description, keywords, image, url, jsonLd, type = 'website' }: SEOHeadProps) {
   useEffect(() => {
     const prevTitle = document.title;
     document.title = title;
@@ -31,7 +32,7 @@ export default function SEOHead({ title, description, keywords, image, url, json
     setMeta('og:title', title, true);
     setMeta('og:description', description, true);
     setMeta('og:url', url, true);
-    setMeta('og:type', 'profile', true);
+    setMeta('og:type', type, true);
     if (image) {
       setMeta('og:image', image, true);
       setMeta('twitter:image', image);

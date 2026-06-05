@@ -214,21 +214,23 @@ export default function TherapyPage() {
 
                   {/* Side-by-side buttons */}
                   <div className="grid grid-cols-2 gap-2.5">
-                    <button
-                      onClick={() => navigate(`/therapist/${t.slug || toSlug(t.name)}`)}
+                    <a
+                      href={`/therapist/${t.slug || toSlug(t.name)}`}
+                      onClick={(e) => { e.preventDefault(); navigate(`/therapist/${t.slug || toSlug(t.name)}`); }}
                       className="group/btn relative overflow-hidden flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-gray-200 text-[13px] font-semibold text-brand-black hover:border-brand-black hover:bg-gray-50 active:scale-[0.97] transition-all duration-300"
                     >
                       <Eye className="w-4 h-4 text-brand-gray group-hover/btn:text-brand-black transition-colors duration-300" />
                       <span>View Profile</span>
-                    </button>
-                    <button
-                      onClick={() => navigate(`/therapist/${t.slug || toSlug(t.name)}`)}
+                    </a>
+                    <a
+                      href={`/therapist/${t.slug || toSlug(t.name)}`}
+                      onClick={(e) => { e.preventDefault(); navigate(`/therapist/${t.slug || toSlug(t.name)}`); }}
                       className="group/btn relative overflow-hidden flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-black text-white text-[13px] font-bold hover:bg-gray-900 active:scale-[0.97] transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       <Calendar className="w-4 h-4 opacity-80 group-hover/btn:opacity-100 transition-opacity" />
                       <span>Book Session</span>
                       <ArrowRight className="w-3.5 h-3.5 opacity-0 -ml-2 group-hover/btn:opacity-100 group-hover/btn:ml-0 transition-all duration-300" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

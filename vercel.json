@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/therapist/:slug", "destination": "/api/seo?slug=:slug" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/(.*)", "destination": "/" }
   ],
   "headers": [

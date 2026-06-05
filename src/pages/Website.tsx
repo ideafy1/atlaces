@@ -15,6 +15,7 @@ import BottomNav from '../components/BottomNav';
 import Navigation from '../components/Navigation';
 import TherapyPage from './TherapyPage';
 import CommunityPage from './CommunityPage';
+import SEOHead from '../components/SEOHead';
 
 const paths = ['/', '/therapy', '/community'];
 
@@ -45,8 +46,59 @@ export default function Website({ initialPage = 0 }: WebsiteProps) {
     setTimeout(() => setTransitioning(false), 500);
   };
 
+  const getSeoProps = () => {
+    switch (activePage) {
+      case 1:
+        return {
+          title: "Find a Therapist | BrainHeal India",
+          description: "Browse verified clinical psychologists, couples therapists, and counsellors in India. ₹0 switching fees. Match within 2 hours.",
+          url: "https://brainheal.in/therapy",
+          jsonLd: {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Therapy Services",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Online Therapy" },
+              { "@type": "ListItem", "position": 2, "name": "Couples Counseling" },
+              { "@type": "ListItem", "position": 3, "name": "Psychiatry" }
+            ]
+          }
+        };
+      case 2:
+        return {
+          title: "Mental Health Community | BrainHeal India",
+          description: "Join India's safest anonymous mental health community. Share your story, find support, and realize you are not alone.",
+          url: "https://brainheal.in/community"
+        };
+      case 0:
+      default:
+        return {
+          title: "BrainHeal - India's Premium Online Therapy Platform",
+          description: "India's first premium therapist collective. We connect you with verified clinical experts for meaningful, long-term healing.",
+          url: "https://brainheal.in/",
+          jsonLd: {
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": "BrainHeal India",
+            "url": "https://brainheal.in/",
+            "logo": "https://brainheal.in/logo.png",
+            "image": "https://brainheal.in/logo.png",
+            "description": "Premium online therapy and counseling services in India.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            }
+          }
+        };
+    }
+  };
+
+  const seoProps = getSeoProps();
+
   return (
     <div className="bg-brand-white font-inter text-brand-black relative overflow-hidden">
+      <SEOHead {...seoProps} />
+      
       {/* Desktop-only sticky nav for Therapy/Community */}
       {activePage !== 0 && (
         <div className="hidden md:block sticky top-0 z-[100] bg-white/90 backdrop-blur-xl border-b border-gray-100/50">
@@ -58,6 +110,7 @@ export default function Website({ initialPage = 0 }: WebsiteProps) {
         {/* Home */}
         <div
           className="w-full"
+          aria-hidden={activePage !== 0}
           style={{
             opacity: activePage === 0 ? 1 : 0,
             transform: activePage === 0 ? 'scale(1)' : 'scale(0.95)',
@@ -86,6 +139,7 @@ export default function Website({ initialPage = 0 }: WebsiteProps) {
         {/* Therapy */}
         <div
           className="w-full"
+          aria-hidden={activePage !== 1}
           style={{
             opacity: activePage === 1 ? 1 : 0,
             transform: activePage === 1 ? 'scale(1) translateY(0)' : 'scale(1.02) translateY(20px)',
@@ -102,6 +156,7 @@ export default function Website({ initialPage = 0 }: WebsiteProps) {
         {/* Community */}
         <div
           className="w-full"
+          aria-hidden={activePage !== 2}
           style={{
             opacity: activePage === 2 ? 1 : 0,
             transform: activePage === 2 ? 'scale(1) translateY(0)' : 'scale(1.02) translateY(20px)',

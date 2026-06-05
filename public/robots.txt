@@ -1,9 +1,14 @@
 User-agent: *
 Allow: /
 Allow: /therapy
+Allow: /therapist/
 Allow: /community
+Allow: /contact
+Allow: /apply
 Allow: /privacy
 Allow: /terms
+Disallow: /makechanges
+Disallow: /api/
 
 Sitemap: https://brainheal.in/sitemap.xml
 
@@ -14,3 +19,9 @@ Crawl-delay: 0
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Disallow: /

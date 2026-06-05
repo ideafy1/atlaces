@@ -60,8 +60,11 @@ export default function TherapistProfile() {
     }
   }, [t]);
 
+  const [isSubmittingRating, setIsSubmittingRating] = useState(false);
+
   const submitRating = async () => {
-    if (hasRated) return;
+    if (hasRated || isSubmittingRating) return;
+    setIsSubmittingRating(true);
     const identifier = t?.id || t?.slug || toSlug(t?.name || '');
     const currentReviews = t.reviews || 0;
     const currentRating = t.rating || 5;
@@ -69,20 +72,46 @@ export default function TherapistProfile() {
     const newAvg = ((currentRating * currentReviews) + sliderVal) / newReviews;
     const finalRating = parseFloat(newAvg.toFixed(1));
 
-    if (t?.id) {
-      try {
-        await updateDoc(doc(db, 'therapists', t.id), {
-          rating: finalRating,
-          reviews: newReviews
-        });
-      } catch (err) {
-        console.error("Error rating in db:", err);
+    try {
+      const { getDoc } = await import('firebase/firestore');
+      const docRef = doc(db, 'website', 'content');
+      const snap = await getDoc(docRef);
+      if (snap.exists()) {
+        const dbData = snap.data();
+        let updated = false;
+
+        if (dbData.therapyPage?.therapists) {
+          dbData.therapyPage.therapists = dbData.therapyPage.therapists.map((ther: any) => {
+            if (ther.name === t.name) {
+              updated = true;
+              return { ...ther, rating: finalRating, reviews: newReviews };
+            }
+            return ther;
+          });
+        }
+
+        if (dbData.providers?.therapists) {
+          dbData.providers.therapists = dbData.providers.therapists.map((ther: any) => {
+            if (ther.name === t.name) {
+              updated = true;
+              return { ...ther, rating: finalRating, reviews: newReviews };
+            }
+            return ther;
+          });
+        }
+
+        if (updated) {
+          await updateDoc(docRef, dbData);
+        }
       }
+    } catch (err) {
+      console.error("Error rating in db:", err);
     }
 
     setLocalRating(finalRating);
     setLocalReviews(newReviews);
     setHasRated(true);
+    setIsSubmittingRating(false);
     if (identifier) {
       localStorage.setItem(`rated_${identifier}`, 'true');
     }
@@ -442,9 +471,10 @@ export default function TherapistProfile() {
 
                 <button
                   onClick={submitRating}
-                  className="bg-brand-black text-white px-10 py-4 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-xl"
+                  disabled={isSubmittingRating}
+                  className="bg-brand-black text-white px-10 py-4 rounded-full font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-xl disabled:opacity-70 disabled:hover:scale-100 flex items-center justify-center gap-2 mx-auto"
                 >
-                  Submit Rating
+                  {isSubmittingRating ? <><Loader2 className="w-4 h-4 animate-spin" /> Submitting...</> : 'Submit Rating'}
                 </button>
               </div>
             )}
