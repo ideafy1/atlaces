@@ -7,7 +7,6 @@ const tabs = [
   { label: 'Home', Icon: Home, path: '/' },
   { label: 'Therapy', Icon: Brain, path: '/therapy' },
   { label: 'Community', Icon: Users, path: '/community' },
-  { label: 'Contact', Icon: Mail, path: '/contact' },
 ];
 
 interface NavigationProps {
@@ -25,12 +24,6 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
   }, [isOpen]);
 
   const handleNav = (page: number) => {
-    if (tabs[page].path === '/contact') {
-      navigate('/contact');
-      setIsOpen(false);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
     onPageChange?.(page);
     navigate(tabs[page].path);
     setIsOpen(false);

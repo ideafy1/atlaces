@@ -12,7 +12,6 @@ import TherapistProfile from './pages/TherapistProfile';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsConditions from './pages/TermsConditions';
 import ApplyTherapist from './pages/ApplyTherapist';
-import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -26,7 +25,6 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
           <Route path="/apply" element={<ApplyTherapist />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/makechanges" element={<Admin />} />
         </Routes>
       </BrowserRouter>
