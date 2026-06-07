@@ -1,15 +1,20 @@
 {
   "rewrites": [
-    { "source": "/therapist/:slug", "destination": "/api/seo?slug=:slug" },
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/therapist/:slug", "destination": "/api/seo?path=/therapist/:slug" },
+    { "source": "/therapy", "destination": "/api/seo?path=/therapy" },
+    { "source": "/community", "destination": "/api/seo?path=/community" },
+    { "source": "/privacy", "destination": "/api/seo?path=/privacy" },
+    { "source": "/terms", "destination": "/api/seo?path=/terms" },
+    { "source": "/apply", "destination": "/api/seo?path=/apply" },
+    { "source": "/contact", "destination": "/api/seo?path=/contact" }
   ],
   "headers": [
     {
       "source": "/therapist/(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "index, follow" },
-        { "key": "Cache-Control", "value": "public, s-maxage=86400, stale-while-revalidate=43200" }
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }
       ]
     },
     {
@@ -24,6 +29,13 @@
       "headers": [
         { "key": "Content-Type", "value": "text/plain" },
         { "key": "Cache-Control", "value": "public, s-maxage=3600" }
+      ]
+    },
+    {
+      "source": "/(therapy|community|privacy|terms|apply|contact)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "index, follow" },
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }
       ]
     }
   ]
