@@ -761,8 +761,9 @@ function buildHumanHTML(seo) {
 
     return html;
   } catch (e) {
-    // Fallback: serve bot HTML with SPA loader (works for both bots and humans)
-    const loaderScript = `<script>
+    // Fallback: serve bot HTML with SPA loader (works for bots and humans)
+    const loaderScript = `<style>body { opacity: 0; transition: opacity 0.5s; }</style>
+    <script>
       fetch('/').then(r=>r.text()).then(html=>{
         const parser=new DOMParser();
         const doc=parser.parseFromString(html,'text/html');
@@ -776,6 +777,7 @@ function buildHumanHTML(seo) {
           sc.type='module';sc.src=s.getAttribute('src');
           document.head.appendChild(sc);
         });
+        setTimeout(() => { document.body.style.opacity = '1'; }, 100);
       });
     </script>`;
     

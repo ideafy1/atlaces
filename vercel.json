@@ -1,4 +1,9 @@
 {
+  "functions": {
+    "api/seo.js": {
+      "includeFiles": "dist/index.html"
+    }
+  },
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/therapist/:slug", "destination": "/api/seo?path=/therapist/:slug" },
