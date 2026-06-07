@@ -733,7 +733,16 @@ function buildHumanHTML(seo) {
   try {
     const fs = require('fs');
     const path = require('path');
-    let html = fs.readFileSync(path.join(process.cwd(), 'dist', 'index.html'), 'utf8');
+    let html;
+    try {
+      html = fs.readFileSync(path.join(process.cwd(), 'dist', 'index.html'), 'utf8');
+    } catch(err1) {
+      try {
+        html = fs.readFileSync(path.join(__dirname, '..', 'dist', 'index.html'), 'utf8');
+      } catch(err2) {
+        html = fs.readFileSync(path.join(__dirname, 'dist', 'index.html'), 'utf8');
+      }
+    }
 
     // Replace the default <title> and meta tags with route-specific ones
     html = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(seo.title)}</title>`);
@@ -781,7 +790,10 @@ function buildHumanHTML(seo) {
       });
     </script>`;
     
-    return buildBotHTML(seo).replace('</head>', `${loaderScript}\n</head>`).replace('</body>', `<div id="root"></div>\n</body>`);
+    return buildBotHTML(seo)
+      .replace('</head>', `${loaderScript}\n</head>`)
+      .replace('<body>', '<body>\n<div id="seo-bot-content" style="display:none;">')
+      .replace('</body>', '</div>\n<div id="root"></div>\n</body>');
   }
 }
 
