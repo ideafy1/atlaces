@@ -45,7 +45,7 @@ export default function TherapyPage() {
       }
     }
     return true;
-  });
+  }).sort((a: any, b: any) => (a.name || '').localeCompare(b.name || ''));
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] pb-28 md:pb-12">
