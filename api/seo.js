@@ -362,9 +362,13 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
           "worstRating": "1"
         },
         "sameAs": [
-          "https://www.instagram.com/brainheal",
-          "https://www.linkedin.com/company/brainheal",
-          "https://twitter.com/brainheal"
+          "https://www.linkedin.com/in/brainheal/",
+          "https://www.instagram.com/brainheal.in",
+          "https://www.facebook.com/brainheal.in",
+          "https://www.youtube.com/@BrainHeal-india",
+          "https://www.reddit.com/user/brainheal-india/",
+          "https://www.pinterest.com/brainheal_india",
+          "https://www.quora.com/profile/Brain-Heal"
         ]
       },
       {

@@ -38,16 +38,18 @@ export default function Footer() {
               </ul>
             </nav>
             
-            {socials.length > 0 && (
-              <div>
-                <h4 className="text-sm font-medium mb-6 uppercase tracking-widest text-gray-500">Social</h4>
-                <ul className="space-y-4">
-                  {socials.map((link: string, i: number) => (
-                    <li key={i}><a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">{link}</a></li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div>
+              <h4 className="text-sm font-medium mb-6 uppercase tracking-widest text-gray-500">Social</h4>
+              <ul className="space-y-4">
+                <li><a href="https://www.linkedin.com/in/brainheal/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/brainheal.in" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Instagram</a></li>
+                <li><a href="https://www.facebook.com/brainheal.in" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Facebook</a></li>
+                <li><a href="https://www.youtube.com/@BrainHeal-india" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">YouTube</a></li>
+                <li><a href="https://www.reddit.com/user/brainheal-india/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Reddit</a></li>
+                <li><a href="https://www.pinterest.com/brainheal_india" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Pinterest</a></li>
+                <li><a href="https://www.quora.com/profile/Brain-Heal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Quora</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         
