@@ -48,6 +48,7 @@ export default function Footer() {
                 <li><a href="https://www.reddit.com/user/brainheal-india/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Reddit</a></li>
                 <li><a href="https://www.pinterest.com/brainheal_india" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Pinterest</a></li>
                 <li><a href="https://www.quora.com/profile/Brain-Heal" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">Quora</a></li>
+                <li><a href="https://x.com/brainheal_india" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors text-sm">X (Twitter)</a></li>
               </ul>
             </div>
           </div>

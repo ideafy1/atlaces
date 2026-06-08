@@ -368,7 +368,8 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
           "https://www.youtube.com/@BrainHeal-india",
           "https://www.reddit.com/user/brainheal-india/",
           "https://www.pinterest.com/brainheal_india",
-          "https://www.quora.com/profile/Brain-Heal"
+          "https://www.quora.com/profile/Brain-Heal",
+          "https://x.com/brainheal_india"
         ]
       },
       {
