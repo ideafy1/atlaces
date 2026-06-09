@@ -376,9 +376,9 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
         "@type": "WebSite",
         "@id": `${DOMAIN}/#website`,
         "url": DOMAIN,
-        "name": "BrainHeal",
-        "alternateName": ["Brain Heal", "BrainHeal India", "BrainHeal Therapy", "BrainHeal.in"],
-        "description": "India's best online therapy platform. BrainHeal connects you with verified, affordable therapists.",
+        "name": "Brain Heal India",
+        "alternateName": ["Brain Heal", "BrainHeal", "BrainHeal India", "BrainHeal Therapy", "brainheal.in"],
+        "description": "India's best online therapy platform. Brain Heal connects you with verified, affordable therapists.",
         "publisher": { "@id": `${DOMAIN}/#organization` },
         "potentialAction": {
           "@type": "SearchAction",
@@ -390,10 +390,33 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
         "@type": "WebPage",
         "@id": `${DOMAIN}/#webpage`,
         "url": DOMAIN,
-        "name": "BrainHeal — India's Best Online Therapy Platform",
+        "name": "Brain Heal India — Best Online Therapy Platform",
         "description": description,
         "isPartOf": { "@id": `${DOMAIN}/#website` },
         "about": { "@id": `${DOMAIN}/#organization` }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": `${DOMAIN}/`
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Online Therapy",
+            "item": `${DOMAIN}/therapy`
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Anonymous Community",
+            "item": `${DOMAIN}/community`
+          }
+        ]
       },
       {
         "@type": "FAQPage",
