@@ -373,7 +373,8 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
           "https://www.crunchbase.com/organization/brain-heal-india",
           "https://www.trustpilot.com/review/brainheal.in",
           "https://www.producthunt.com/@brainheal",
-          "https://brainheal.sulekha.com"
+          "https://brainheal.sulekha.com",
+          "https://www.wikidata.org/wiki/Q140156083"
         ]
       },
       {
