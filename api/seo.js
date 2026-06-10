@@ -369,7 +369,11 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
           "https://www.reddit.com/user/brainheal-india/",
           "https://www.pinterest.com/brainheal_india",
           "https://www.quora.com/profile/Brain-Heal",
-          "https://x.com/brainheal_india"
+          "https://x.com/brainheal_india",
+          "https://www.crunchbase.com/organization/brain-heal-india",
+          "https://www.trustpilot.com/review/brainheal.in",
+          "https://www.producthunt.com/@brainheal",
+          "https://brainheal.sulekha.com"
         ]
       },
       {
