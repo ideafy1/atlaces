@@ -4,12 +4,8 @@
       "includeFiles": "dist/index.html"
     }
   },
-  "redirects": [
-    { "source": "/:path*", "has": [{ "type": "host", "value": "www.brainheal.in" }], "destination": "https://brainheal.in/:path*", "permanent": true }
-  ],
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/", "destination": "/api/seo?path=/" },
     { "source": "/therapist/:slug", "destination": "/api/seo?path=/therapist/:slug" },
     { "source": "/therapy", "destination": "/api/seo?path=/therapy" },
     { "source": "/community", "destination": "/api/seo?path=/community" },
