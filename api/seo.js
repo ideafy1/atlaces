@@ -18,7 +18,7 @@ const FIREBASE_URL =
   'https://firestore.googleapis.com/v1/projects/brainheal-india/databases/(default)/documents/website/content?key=AIzaSyAD7XnA-ooSfl88zlfZKIUtu7IEK54QO1M';
 
 const DOMAIN = 'https://brainheal.in';
-const SITE_NAME = 'BrainHeal';
+const SITE_NAME = 'Brain Heal India';
 const OG_IMAGE = 'https://i.ibb.co/4G9pyV8/brainheal-og.avif';
 
 // ─── BOT DETECTION ────────────────────────────────────────────────────────────
@@ -200,8 +200,8 @@ function extractHero(data) {
 // ─── SEO CONTENT GENERATORS PER ROUTE ────────────────────────────────────────
 
 function generateHomeSEO(data, therapists, faqs, reviews, hero) {
-  const title = 'BrainHeal — India\'s Best Online Therapy Platform | Affordable & Verified Therapists';
-  const description = 'BrainHeal (Brain Heal) is India\'s most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, relationships & more. Best cheap therapy with ₹0 switching fees. Book your first session today.';
+  const title = 'Brain Heal India — Best Online Therapy Platform | Affordable & Verified Therapists';
+  const description = 'Brain Heal India (BrainHeal) is the most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, relationships & more. Best cheap therapy with ₹0 switching fees. Book your first session today.';
   const url = DOMAIN + '/';
 
   // Build rich body content for bots
@@ -229,7 +229,7 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 
   const bodyContent = `
     <header>
-      <h1>BrainHeal — India's Best Online Therapy Platform</h1>
+      <h1>Brain Heal India — Best Online Therapy Platform</h1>
       <p>${esc(hero.title)} ${esc(hero.subtitle)} ${esc(hero.highlight)}</p>
       <p>${esc(hero.text)}</p>
     </header>
@@ -248,14 +248,14 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 
     <main>
       <section>
-        <h2>About BrainHeal — Best Cheap Therapy in India</h2>
-        <p>BrainHeal (also known as Brain Heal) is the world's first online therapist community and India's most trusted therapy platform. We provide affordable, accessible, and high-quality mental health care through our curated collective of verified therapists.</p>
-        <p>Whether you're searching for "brain heal therapy", "best cheap therapy", or "affordable online counseling in India", BrainHeal connects you with clinically vetted professionals who specialize in anxiety, depression, stress, relationships, trauma, ADHD, grief, and more.</p>
-        <p>BrainHeal therapy sessions start at affordable rates with ₹0 switching fees — making us the best cheap therapy option in India without compromising on quality.</p>
+        <h2>About Brain Heal India — Best Cheap Therapy</h2>
+        <p>Brain Heal (also known as BrainHeal) is the world's first online therapist community and India's most trusted therapy platform. We provide affordable, accessible, and high-quality mental health care through our curated collective of verified therapists.</p>
+        <p>Whether you're searching for "brain heal therapy", "brain heal india", "best cheap therapy", or "affordable online counseling in India", Brain Heal connects you with clinically vetted professionals who specialize in anxiety, depression, stress, relationships, trauma, ADHD, grief, and more.</p>
+        <p>Brain Heal therapy sessions start at affordable rates with ₹0 switching fees — making us the best cheap therapy option in India without compromising on quality.</p>
       </section>
 
       <section>
-        <h2>Why Choose BrainHeal Therapy?</h2>
+        <h2>Why Choose Brain Heal Therapy?</h2>
         <ul>
           <li><strong>100% Verified Therapists</strong> — Every therapist undergoes a rigorous 4-step clinical review including license verification, case study reviews, and empathy assessments.</li>
           <li><strong>₹0 Switching Fees</strong> — Don't feel a connection? Switch your therapist anytime, no questions asked.</li>
@@ -267,7 +267,7 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
       </section>
 
       <section>
-        <h2>What Can BrainHeal Therapy Help With?</h2>
+        <h2>What Can Brain Heal Therapy Help With?</h2>
         <ul>
           <li>Anxiety & Stress — Constant worry, racing thoughts, panic attacks</li>
           <li>Depression — Persistent sadness, loss of interest, fatigue</li>
@@ -281,14 +281,14 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
       </section>
 
       <section>
-        <h2>Our Verified Therapists at BrainHeal</h2>
+        <h2>Our Verified Therapists at Brain Heal India</h2>
         <p>Browse our growing collective of verified therapists across India:</p>
         <ul>${therapistListHTML}</ul>
         <p><a href="${DOMAIN}/therapy">View all therapists and book a session →</a></p>
       </section>
 
       <section>
-        <h2>How BrainHeal Therapy Works</h2>
+        <h2>How Brain Heal Therapy Works</h2>
         <ol>
           <li><strong>Tell us what you're going through</strong> — Answer a few simple, private questions about anxiety, stress, relationships, burnout, or anything on your mind.</li>
           <li><strong>Get matched with your therapist</strong> — Our team personally reviews your needs and matches you with a verified BrainHeal therapist.</li>
@@ -298,17 +298,17 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
       </section>
 
       <section>
-        <h2>Real Reviews from BrainHeal Users</h2>
+        <h2>Real Reviews from Brain Heal Users</h2>
         ${reviewHTML}
       </section>
 
       <section>
-        <h2>Frequently Asked Questions about BrainHeal</h2>
+        <h2>Frequently Asked Questions about Brain Heal India</h2>
         ${faqHTML}
       </section>
 
       <section>
-        <h2>BrainHeal vs. Finding a Therapist on Your Own</h2>
+        <h2>Brain Heal vs. Finding a Therapist on Your Own</h2>
         <table>
           <thead><tr><th>Feature</th><th>BrainHeal</th><th>Searching Alone</th></tr></thead>
           <tbody>
@@ -323,8 +323,8 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
     </main>
 
     <footer>
-      <p>© 2026 BrainHeal India. All rights reserved. Built for Peace.</p>
-      <p>BrainHeal — India's first premium therapist collective. Best online therapy, cheap therapy sessions, verified therapists. Mental health counseling, online counseling India.</p>
+      <p>© 2026 Brain Heal India. All rights reserved. Built for Peace.</p>
+      <p>Brain Heal India — India's first premium therapist collective. Best online therapy, cheap therapy sessions, verified therapists. Mental health counseling, online counseling India.</p>
       <nav>
         <a href="${DOMAIN}/therapy">Find a Therapist</a> |
         <a href="${DOMAIN}/community">Community</a> |
@@ -436,8 +436,8 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 }
 
 function generateTherapySEO(data, therapists) {
-  const title = 'Find a Therapist | BrainHeal — Best Affordable Online Therapy India';
-  const description = `Browse ${therapists.length || '50+'}  verified therapists at BrainHeal. Online therapy for anxiety, depression, relationships, trauma, ADHD & more. ₹0 switching fees. Best cheap therapy sessions starting from ₹111. Book now.`;
+  const title = 'Find a Therapist | Brain Heal India — Best Affordable Online Therapy';
+  const description = `Browse ${therapists.length || '50+'}  verified therapists at Brain Heal India. Online therapy for anxiety, depression, relationships, trauma, ADHD & more. ₹0 switching fees. Best cheap therapy sessions starting from ₹111. Book now.`;
   const url = DOMAIN + '/therapy';
 
   const therapistListHTML = therapists.map(t => `
@@ -453,7 +453,7 @@ function generateTherapySEO(data, therapists) {
 
   const bodyContent = `
     <header>
-      <h1>Find a Therapist — BrainHeal India's Best Affordable Therapy</h1>
+      <h1>Find a Therapist — Brain Heal India's Best Affordable Therapy</h1>
       <p>Browse our collective of verified therapists. Best cheap therapy in India with ₹0 switching fees.</p>
     </header>
 
