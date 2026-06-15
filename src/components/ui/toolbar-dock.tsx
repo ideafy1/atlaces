@@ -2,13 +2,17 @@
 
 import * as React from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import {
-  MessageCircle,
-  Share2,
-  Heart,
-  Bookmark,
+  Brain,
+  HeartPulse,
+  Users,
+  BookOpen,
+  Info,
+  LogIn,
   Menu,
-  Command
+  Command,
+  X
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -20,6 +24,7 @@ export interface ToolbarDockItem {
   badge?: boolean;
   toggle?: boolean;
   onClick?: () => void;
+  path?: string;
 }
 
 interface ToolbarDockProps {
@@ -28,7 +33,7 @@ interface ToolbarDockProps {
   defaultCollapsed?: boolean;
 }
 
-const SPRING_X = {
+const SPRING_Y = {
   type: "spring" as const,
   stiffness: 650,
   damping: 44,
@@ -49,62 +54,75 @@ const COLLAPSE_SPRING = {
 
 const ICON_PROPS = { className: "h-5 w-5", strokeWidth: 2 } as const;
 
-const DEFAULT_ITEMS: ToolbarDockItem[] = [
-  {
-    id: "like",
-    label: "Like Story",
-    icon: <Heart {...ICON_PROPS} />,
-    shortcut: ["L"],
-    onClick: () => console.log('Liked!')
-  },
-  {
-    id: "comment",
-    label: "Share Thoughts",
-    icon: <MessageCircle {...ICON_PROPS} />,
-    shortcut: ["C"],
-  },
-  {
-    id: "save",
-    label: "Save for Later",
-    icon: <Bookmark {...ICON_PROPS} />,
-  },
-  {
-    id: "share",
-    label: "Share Story",
-    icon: <Share2 {...ICON_PROPS} />,
-  },
-  {
-    id: "menu",
-    label: "Menu",
-    icon: <Menu {...ICON_PROPS} />,
-    badge: true,
-    toggle: true,
-  },
-];
-
-function offsetLeftWithin(
+function offsetTopWithin(
   el: HTMLElement | null,
   ancestor: HTMLElement | null,
 ): number {
-  let x = 0;
+  let y = 0;
   let node: HTMLElement | null = el;
   while (node && node !== ancestor) {
-    x += node.offsetLeft;
+    y += node.offsetTop;
     node = node.offsetParent as HTMLElement | null;
   }
-  return x;
+  return y;
 }
 
-const HIDDEN_CLIP = "inset(0px 100% 0px 0px round 10px)";
+const HIDDEN_CLIP = "inset(100% 0px 0px 0px round 10px)";
 
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
 export function ToolbarDock({
-  items = DEFAULT_ITEMS,
+  items,
   className,
-  defaultCollapsed = false,
+  defaultCollapsed = true,
 }: ToolbarDockProps) {
+  const navigate = useNavigate();
+
+  const defaultItems: ToolbarDockItem[] = items || [
+    {
+      id: "mental-health",
+      label: "Mental Health",
+      icon: <Brain {...ICON_PROPS} />,
+      path: "/therapy"
+    },
+    {
+      id: "sexual-health",
+      label: "Sexual Health",
+      icon: <HeartPulse {...ICON_PROPS} />,
+      path: "/therapy"
+    },
+    {
+      id: "community",
+      label: "For Business",
+      icon: <Users {...ICON_PROPS} />,
+      path: "/community"
+    },
+    {
+      id: "content-hub",
+      label: "Content Hub",
+      icon: <BookOpen {...ICON_PROPS} />,
+      path: "/breathe",
+      badge: true
+    },
+    {
+      id: "about",
+      label: "About Us",
+      icon: <Info {...ICON_PROPS} />,
+    },
+    {
+      id: "login",
+      label: "Log In",
+      icon: <LogIn {...ICON_PROPS} />,
+    },
+    {
+      id: "menu",
+      label: "Close Menu",
+      icon: <Menu {...ICON_PROPS} />,
+      toggle: true,
+    },
+  ];
+
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const railRef = React.useRef<HTMLDivElement>(null);
   const stripRef = React.useRef<HTMLDivElement>(null);
@@ -114,7 +132,7 @@ export function ToolbarDock({
   const visibleRef = React.useRef(false);
   const appearingRef = React.useRef(true);
   const [visible, setVisible] = React.useState(false);
-  const [pos, setPos] = React.useState({ x: 0, clip: HIDDEN_CLIP });
+  const [pos, setPos] = React.useState({ y: 0, clip: HIDDEN_CLIP });
 
   const [collapsed, setCollapsed] = React.useState(defaultCollapsed);
   const [metrics, setMetrics] = React.useState<{
@@ -123,10 +141,10 @@ export function ToolbarDock({
   } | null>(null);
 
   useIsoLayoutEffect(() => {
-    const strip = stripRef.current?.offsetWidth ?? 0;
-    const footprint = wrapperRef.current?.offsetWidth ?? 0;
+    const strip = stripRef.current?.offsetHeight ?? 0;
+    const footprint = wrapperRef.current?.offsetHeight ?? 0;
     setMetrics({ strip, footprint });
-  }, [items]);
+  }, [defaultItems]);
 
   const reveal = React.useCallback((index: number) => {
     const rail = railRef.current;
@@ -135,23 +153,23 @@ export function ToolbarDock({
     const wrapper = wrapperRef.current;
     if (!rail || !seg || !btn || !wrapper) return;
 
-    const railWidth = rail.offsetWidth || 1;
-    const left = seg.offsetLeft;
-    const right = railWidth - seg.offsetLeft - seg.offsetWidth;
-    const leftPct = (left / railWidth) * 100;
-    const rightPct = (right / railWidth) * 100;
+    const railHeight = rail.offsetHeight || 1;
+    const top = seg.offsetTop;
+    const bottom = railHeight - seg.offsetTop - seg.offsetHeight;
+    const topPct = (top / railHeight) * 100;
+    const bottomPct = (bottom / railHeight) * 100;
 
-    const segCenter = offsetLeftWithin(seg, wrapper) + seg.offsetWidth / 2;
-    const btnCenter = offsetLeftWithin(btn, wrapper) + btn.offsetWidth / 2;
-    const dx = btnCenter - segCenter;
+    const segCenter = offsetTopWithin(seg, wrapper) + seg.offsetHeight / 2;
+    const btnCenter = offsetTopWithin(btn, wrapper) + btn.offsetHeight / 2;
+    const dy = btnCenter - segCenter;
 
     appearingRef.current = !visibleRef.current;
     visibleRef.current = true;
 
     setVisible(true);
     setPos({
-      x: dx,
-      clip: `inset(0px ${rightPct}% 0px ${leftPct}% round 10px)`,
+      y: dy,
+      clip: `inset(${topPct}% 0px ${bottomPct}% 0px round 10px)`,
     });
   }, []);
 
@@ -166,15 +184,23 @@ export function ToolbarDock({
         hideTooltip();
         setCollapsed((c) => !c);
       } else {
-        item.onClick?.();
+        if (item.path) {
+          navigate(item.path);
+        }
+        if (item.onClick) {
+          item.onClick();
+        }
+        // Auto collapse after navigation
+        setCollapsed(true);
+        hideTooltip();
       }
     },
-    [hideTooltip],
+    [hideTooltip, navigate],
   );
 
   const appearing = appearingRef.current;
 
-  const indexed = items.map((item, index) => ({ item, index }));
+  const indexed = defaultItems.map((item, index) => ({ item, index }));
   const toggleEntries = indexed.filter((e) => e.item.toggle);
   const iconEntries = indexed.filter((e) => !e.item.toggle);
 
@@ -191,9 +217,9 @@ export function ToolbarDock({
         aria-label={
           isToggle
             ? collapsed
-              ? "Expand toolbar"
-              : "Collapse toolbar"
-            : undefined
+              ? "Expand menu"
+              : "Collapse menu"
+            : item.label
         }
         tabIndex={!isToggle && collapsed ? -1 : undefined}
         onClick={() => handleItem(item)}
@@ -203,7 +229,7 @@ export function ToolbarDock({
       >
         <div className="group relative flex w-10 h-10 items-center justify-center rounded-full p-2 transition-colors hover:bg-gray-100 text-gray-700 hover:text-black">
           <span className="flex items-center justify-center h-full w-full">
-            {item.icon}
+            {isToggle ? (collapsed ? <Menu {...ICON_PROPS} /> : <X {...ICON_PROPS} />) : item.icon}
           </span>
           {item.badge && (
             <span className="absolute right-2 top-2 w-2 h-2 rounded-full border-[1.5px] border-white bg-red-500 transition-colors group-hover:border-gray-100" />
@@ -217,96 +243,82 @@ export function ToolbarDock({
   return (
     <div
       ref={wrapperRef}
-      style={metrics ? { width: metrics.footprint } : undefined}
+      style={metrics ? { height: metrics.footprint } : undefined}
       className={cn(
-        "relative inline-flex h-14 items-center justify-end text-black",
+        "relative flex flex-col w-14 items-center justify-start text-black z-50",
         className,
       )}
     >
-      {/* ── Tooltip rail — one surface that slides + clips ── */}
-      <div className="pointer-events-none absolute bottom-full left-0 z-20 mb-3">
+      {/* ── Tooltip rail — slides vertically + clips ── */}
+      <div className="pointer-events-none absolute right-full top-0 z-20 mr-3">
         <motion.div
           ref={railRef}
           initial={false}
-          animate={{ x: pos.x, clipPath: pos.clip, opacity: visible ? 1 : 0 }}
+          animate={{ y: pos.y, clipPath: pos.clip, opacity: visible ? 1 : 0 }}
           transition={{
             opacity: { duration: 0.18, ease: [0.22, 1, 0.36, 1] },
-            x: appearing ? { duration: 0 } : SPRING_X,
+            y: appearing ? { duration: 0 } : SPRING_Y,
             clipPath: appearing ? { duration: 0 } : SPRING_CLIP,
           }}
           style={{ willChange: "transform, clip-path, opacity" }}
-          className="relative flex w-max rounded-xl bg-black text-white shadow-xl"
+          className="relative flex flex-col w-max rounded-xl bg-black text-white shadow-xl py-1"
         >
-          {items.map((item, i) => (
+          {defaultItems.map((item, i) => (
             <div
               key={item.id}
               ref={(el) => {
                 segRefs.current[i] = el;
               }}
-              className="z-[1] inline-flex h-9 items-center justify-center"
+              className="z-[1] inline-flex h-10 items-center justify-end px-3.5"
             >
-              <div className="flex items-center justify-center gap-2 whitespace-nowrap px-3.5 text-[13px] font-semibold leading-tight tracking-wide text-white">
+              <div className="flex items-center justify-end gap-2 whitespace-nowrap text-[13px] font-semibold leading-tight tracking-wide text-white">
                 {item.label}
-                {item.shortcut && (
-                  <span className="flex items-center justify-center gap-1 opacity-70 ml-1">
-                    {item.shortcut.map((key, k) => (
-                      <kbd
-                        key={k}
-                        className="inline-flex h-5 min-w-[20px] items-center justify-center rounded-[4px] bg-white/20 px-1 text-[11px] font-bold text-white"
-                      >
-                        {key === "⌘" ? (
-                          <Command size={10} strokeWidth={2.5} />
-                        ) : (
-                          key
-                        )}
-                      </kbd>
-                    ))}
-                  </span>
-                )}
               </div>
             </div>
           ))}
         </motion.div>
       </div>
 
-      {/* ── Pill ── */}
+      {/* ── Pill (Vertical) ── */}
       <div
         onMouseLeave={hideTooltip}
         onBlur={(e) => {
           if (!e.currentTarget.contains(e.relatedTarget as Node)) hideTooltip();
         }}
-        className="relative z-10 flex h-14 items-center rounded-full border border-gray-200 bg-white/95 p-2 shadow-lg backdrop-blur-md"
+        className="relative z-10 flex flex-col w-14 items-center rounded-full border border-gray-200 bg-white/95 p-2 shadow-lg backdrop-blur-md"
       >
+        {/* Toggle button on top */}
+        {toggleEntries.map(({ item, index }) => (
+          <div key={item.id} className="shrink-0 bg-gray-50 rounded-full mb-1">
+            {renderButton(item, index)}
+          </div>
+        ))}
+
+        {/* Icons expanding downwards */}
         <motion.div
-          className="relative h-10 overflow-hidden"
+          className="relative w-10 overflow-hidden"
           initial={false}
           animate={
             metrics
               ? {
-                  width: collapsed ? 0 : metrics.strip,
+                  height: collapsed ? 0 : metrics.strip,
                   opacity: collapsed ? 0 : 1,
                 }
               : undefined
           }
-          style={metrics ? undefined : { width: "auto" }}
+          style={metrics ? undefined : { height: "auto" }}
           transition={{
-            width: COLLAPSE_SPRING,
+            height: COLLAPSE_SPRING,
             opacity: { duration: 0.18, ease: [0.22, 1, 0.36, 1] },
           }}
         >
           <div
             ref={stripRef}
-            className="absolute right-0 top-0 flex h-10 items-center gap-1 pr-1"
+            className="absolute top-0 left-0 flex flex-col w-10 items-center gap-1 pt-1"
           >
             {iconEntries.map(({ item, index }) => renderButton(item, index))}
           </div>
         </motion.div>
-
-        {toggleEntries.map(({ item, index }) => (
-          <div key={item.id} className="shrink-0 bg-gray-50 rounded-full ml-1">
-            {renderButton(item, index)}
-          </div>
-        ))}
       </div>
     </div>
   );

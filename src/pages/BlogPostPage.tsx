@@ -96,11 +96,9 @@ export default function BlogPostPage() {
             <button className="hidden sm:inline-flex px-6 py-2.5 bg-black text-white text-[14px] font-bold rounded-full hover:bg-gray-800 transition-colors">
               Log in
             </button>
-            <button className="lg:hidden p-2">
-              <div className="w-5 h-0.5 bg-black mb-1.5"></div>
-              <div className="w-5 h-0.5 bg-black mb-1.5"></div>
-              <div className="w-5 h-0.5 bg-black"></div>
-            </button>
+            <div className="relative z-[60] ml-2">
+              <ToolbarDock defaultCollapsed={true} />
+            </div>
           </div>
         </div>
       </nav>
@@ -259,13 +257,6 @@ export default function BlogPostPage() {
             </div>
           </div>
 
-        </div>
-      </div>
-
-      {/* Floating Toolbar Dock */}
-      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
-        <div className="pointer-events-auto shadow-2xl rounded-full">
-          <ToolbarDock defaultCollapsed={true} />
         </div>
       </div>
 
