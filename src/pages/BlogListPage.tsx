@@ -63,10 +63,10 @@ export default function BlogListPage() {
       {/* ── Marquee Banner ── */}
       <div className="w-full bg-[#FCF8F3] border-b border-gray-200 overflow-hidden py-2.5">
         <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex items-center justify-around text-xs font-semibold tracking-wide text-black uppercase">
-          <span>Take a mental health break with us</span>
-          <span className="hidden sm:inline">Take a mental health break with us</span>
-          <span className="hidden md:inline">Take a mental health break with us</span>
-          <span className="hidden lg:inline">Take a mental health break with us</span>
+          <span>Breathe. Relax. Heal. You are in a safe space.</span>
+          <span className="hidden sm:inline">Breathe. Relax. Heal. You are in a safe space.</span>
+          <span className="hidden md:inline">Breathe. Relax. Heal. You are in a safe space.</span>
+          <span className="hidden lg:inline">Breathe. Relax. Heal. You are in a safe space.</span>
         </div>
       </div>
 
@@ -89,10 +89,10 @@ export default function BlogListPage() {
       {/* ── Hero ── */}
       <div className="relative w-full h-[500px] sm:h-[600px] bg-gradient-to-br from-[#8A2BE2] via-[#FF69B4] to-[#FFA500] flex flex-col items-center justify-center text-center px-4">
         <h1 className="font-sans text-[3.5rem] sm:text-[5rem] font-bold tracking-tight text-white leading-tight mb-6">
-          All the fun starts here
+          Find your peace of mind
         </h1>
         <p className="text-white text-[15px] sm:text-[17px] font-medium max-w-2xl mx-auto leading-relaxed mb-12">
-          Welcome to our Content Hub! It's like a little treat for your eyes and ears. Scroll to find our curated playlists and articles!
+          Welcome to Breathe. A safe space for real stories, practical advice, and gentle wisdom. Take a moment for yourself today.
         </p>
         <ArrowDown className="text-white/80 animate-bounce" size={32} strokeWidth={1.5} />
       </div>
@@ -130,10 +130,10 @@ export default function BlogListPage() {
           {/* Left: Title & Description */}
           <div className="lg:w-1/4 shrink-0">
             <h2 className="font-sans text-[32px] font-bold text-gray-900 mb-4">
-              Health Guide
+              Healing Guides
             </h2>
             <p className="text-[15px] font-medium text-gray-700 leading-relaxed mb-8">
-              Reliable, relatable medical information in your hands. Grab a coffee and take a deep dive on all things mental and sexual health related ☕️
+              Real conversations and expert-backed advice to help you navigate life's toughest moments. Grab a cup of tea and find your calm ☕️
             </p>
             <button 
               onClick={() => setShowAllArticles(!showAllArticles)}
@@ -179,10 +179,10 @@ export default function BlogListPage() {
           
           <div className="lg:w-1/4 shrink-0">
             <h2 className="font-sans text-[32px] font-bold text-gray-900 mb-4">
-              Playlist
+              Vibe & Heal
             </h2>
             <p className="text-[15px] font-medium text-gray-700 leading-relaxed mb-8">
-              Add a little pep to your day with our team's curated playlists. We've got music to soothe every mood 🌸
+              Music is therapy. Tune into our carefully curated playlists designed to calm your anxiety and lift your mood 🌸
             </p>
             <button className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 text-[13px] font-bold text-gray-900 hover:bg-gray-50 transition-colors">
               View all <span className="text-red-500 text-lg leading-none">›</span>
@@ -193,34 +193,34 @@ export default function BlogListPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="aspect-[4/5] rounded-xl bg-[#D4F7A1] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">April Recap<br/>Playlist</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">Late Night<br/>Thoughts</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
-                  April Recap 🔁
+                  Night Owls 🌙
                 </div>
               </div>
               
               <div className="aspect-[4/5] rounded-xl bg-[#FFD1B3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">March Recap<br/>Playlist</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">Morning<br/>Calm</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
-                  March Recap 🔁
+                  Sunrise 🌅
                 </div>
               </div>
 
               <div className="aspect-[4/5] rounded-xl bg-gradient-to-br from-[#E0EAFC] to-[#CFDEF3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">Confused &<br/>Overthinking</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">Overcoming<br/>Heartbreak</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
-                  Confused 🌀
+                  Healing ❤️‍🩹
                 </div>
               </div>
             </div>
