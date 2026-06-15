@@ -6,10 +6,7 @@ import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { getBlogBySlug, getRelatedPosts, type BlogPost } from '../data/blogPosts';
 
 function RelatedCard({ post }: { post: BlogPost }) {
-  // Using a placeholder image if none exists, to match the layout
-  const imageUrl = post.slug === 'how-to-deal-with-breakup' ? 'https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=600' :
-                   post.slug === 'how-to-stop-overthinking' ? 'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&q=80&w=600' :
-                   'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600';
+  const imageUrl = post.heroImage;
 
   return (
     <Link
@@ -140,10 +137,10 @@ export default function BlogPostPage() {
         </div>
 
         {/* Featured Image */}
-        <div className="mb-12 aspect-[16/9] w-full overflow-hidden bg-gray-100">
+        <div className="mb-12 aspect-[16/9] w-full overflow-hidden bg-gray-100 rounded-2xl shadow-sm">
           <img 
-            src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=1200" 
-            alt="Featured" 
+            src={post.heroImage} 
+            alt={post.title} 
             className="w-full h-full object-cover"
           />
         </div>

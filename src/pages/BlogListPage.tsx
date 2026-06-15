@@ -14,10 +14,7 @@ const CATEGORY_CARDS = [
 ];
 
 function ArticleCard({ post }: { post: BlogPost }) {
-  // Using a placeholder image if none exists, to match the layout
-  const imageUrl = post.slug === 'how-to-deal-with-breakup' ? 'https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=600' :
-                   post.slug === 'how-to-stop-overthinking' ? 'https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?auto=format&fit=crop&q=80&w=600' :
-                   'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600';
+  const imageUrl = post.heroImage;
 
   return (
     <Link
@@ -191,35 +188,44 @@ export default function BlogListPage() {
 
           <div className="lg:w-3/4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="aspect-[4/5] rounded-xl bg-[#D4F7A1] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
-                <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">Late Night<br/>Thoughts</h3>
-                <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
+                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
+                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Late Night<br/>Thoughts</h3>
+                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
                   Night Owls 🌙
                 </div>
               </div>
               
-              <div className="aspect-[4/5] rounded-xl bg-[#FFD1B3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
-                <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">Morning<br/>Calm</h3>
-                <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
+                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
+                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
+                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Morning<br/>Calm</h3>
+                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
                   Sunrise 🌅
                 </div>
               </div>
 
-              <div className="aspect-[4/5] rounded-xl bg-gradient-to-br from-[#E0EAFC] to-[#CFDEF3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
-                <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-sans text-3xl mb-8 font-bold">Overcoming<br/>Heartbreak</h3>
-                <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1490750967868-88cb4ecb0704?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
+                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
+                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
+                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Overcoming<br/>Heartbreak</h3>
+                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-white font-bold text-sm flex items-center justify-between">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
                   Healing ❤️‍🩹
                 </div>
               </div>
