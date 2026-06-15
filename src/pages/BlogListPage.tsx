@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, ArrowDown } from 'lucide-react';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
+import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { blogPosts, BLOG_CATEGORIES, type BlogPost } from '../data/blogPosts';
 
 const CATEGORY_CARDS = [
@@ -244,6 +245,13 @@ export default function BlogListPage() {
 
       {/* Footer is already included */}
       <Footer />
+
+      {/* Floating Toolbar Dock */}
+      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
+        <div className="pointer-events-auto">
+          <ToolbarDock defaultCollapsed={true} />
+        </div>
+      </div>
 
       <style>{`
         @keyframes marquee {

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
+import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { getBlogBySlug, getRelatedPosts, type BlogPost } from '../data/blogPosts';
 
 function RelatedCard({ post }: { post: BlogPost }) {
@@ -258,6 +259,13 @@ export default function BlogPostPage() {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Floating Toolbar Dock */}
+      <div className="fixed bottom-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
+        <div className="pointer-events-auto shadow-2xl rounded-full">
+          <ToolbarDock defaultCollapsed={true} />
         </div>
       </div>
 
