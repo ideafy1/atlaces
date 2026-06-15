@@ -82,20 +82,8 @@ export default function BlogPostPage() {
             <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
               Brain<span className="font-normal text-gray-500">Heal</span>
             </Link>
-            <div className="hidden lg:flex items-center gap-8">
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Mental Health ▾</Link>
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Sexual Health</Link>
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Women's Health ▾</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">For Business</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">BrainHeal Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
-              <Link to="/breathe" className="text-[14px] font-semibold text-red-500">Content Hub</Link>
-            </div>
           </div>
           <div className="flex items-center gap-6">
-            <Link to="/" className="hidden sm:block text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">About ▾</Link>
-            <button className="hidden sm:inline-flex px-6 py-2.5 bg-black text-white text-[14px] font-bold rounded-full hover:bg-gray-800 transition-colors">
-              Log in
-            </button>
             <div className="relative z-[60] ml-2">
               <ToolbarDock defaultCollapsed={true} />
             </div>

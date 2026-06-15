@@ -76,20 +76,8 @@ export default function BlogListPage() {
             <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
               Brain<span className="font-normal text-gray-500">Heal</span>
             </Link>
-            <div className="hidden lg:flex items-center gap-8">
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Mental Health ▾</Link>
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Sexual Health</Link>
-              <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Women's Health ▾</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">For Business</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">BrainHeal Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
-              <span className="text-[14px] font-semibold text-red-500">Content Hub</span>
-            </div>
           </div>
           <div className="flex items-center gap-6">
-            <Link to="/" className="hidden sm:block text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">About ▾</Link>
-            <button className="hidden sm:inline-flex px-6 py-2.5 bg-black text-white text-[14px] font-bold rounded-full hover:bg-gray-800 transition-colors">
-              Log in
-            </button>
             <div className="relative z-[60] ml-2">
               <ToolbarDock defaultCollapsed={true} />
             </div>
@@ -155,21 +143,19 @@ export default function BlogListPage() {
           </div>
 
           {/* Right: Article Grid */}
-          <div className="lg:w-3/4">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-              {filteredPosts.slice(0, 3).map((post) => (
-                <ArticleCard key={post.slug} post={post} />
+          {/* Right: Article Slider */}
+          <div className="lg:w-3/4 relative">
+            <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              {filteredPosts.map((post) => (
+                <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] snap-start shrink-0">
+                  <ArticleCard post={post} />
+                </div>
               ))}
             </div>
             
-            {/* Carousel Arrows (Visual only to match design) */}
-            <div className="flex items-center justify-center gap-4 mt-16">
-              <button className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <ChevronRight size={24} className="rotate-180" />
-              </button>
-              <button className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <ChevronRight size={24} />
-              </button>
+            {/* Scroll hint for desktop */}
+            <div className="hidden lg:flex items-center justify-end gap-4 mt-8">
+              <span className="text-sm font-bold text-gray-400">Scroll for more ⟶</span>
             </div>
           </div>
 
