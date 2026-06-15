@@ -124,8 +124,8 @@ export default function BlogListPage() {
   return (
     <div className="min-h-screen bg-gray-50/50">
       <SEOHead
-        title="Stories & Healing — Brain Heal India Blog"
-        description="Real stories, practical advice, and gentle wisdom for navigating life's toughest moments. Breakups, anxiety, loneliness, self-love — we talk about it all. No judgment, just healing."
+        title="Breathe by Brain Heal — Stories, Healing & Real Talk"
+        description="Breathe is Brain Heal India's space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all. No judgment, just healing."
         url="https://brainheal.in/blog"
       />
 
@@ -142,7 +142,7 @@ export default function BlogListPage() {
             <Link to="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors hidden sm:block">Home</Link>
             <Link to="/therapy" className="text-sm text-gray-500 hover:text-gray-900 transition-colors hidden sm:block">Therapy</Link>
             <Link to="/community" className="text-sm text-gray-500 hover:text-gray-900 transition-colors hidden sm:block">Community</Link>
-            <span className="text-sm font-medium text-violet-600">Blog</span>
+            <span className="text-sm font-medium text-violet-600">Breathe</span>
           </div>
         </div>
       </div>
@@ -157,11 +157,12 @@ export default function BlogListPage() {
           <div className="text-center max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-100/80 text-violet-700 text-xs font-medium mb-6">
               <Sparkles size={14} />
-              Brain Heal Blog
+              Breathe by Brain Heal
             </div>
             <h1 className="font-instrument text-4xl sm:text-5xl lg:text-6xl font-semibold text-gray-900 leading-tight">
-              Stories & <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Healing</span>
+              <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">Breathe</span>
             </h1>
+            <p className="mt-2 text-lg sm:text-xl text-gray-400 font-instrument italic">pause. read. heal.</p>
             <p className="mt-4 text-base sm:text-lg text-gray-500 leading-relaxed max-w-lg mx-auto">
               Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love — we've been there too.
             </p>

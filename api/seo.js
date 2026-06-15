@@ -292,8 +292,8 @@ const BLOG_POSTS = [
 ];
 
 function generateBlogListSEO() {
-  const title = 'Stories & Healing — Brain Heal India Blog | Real Talk About Life';
-  const description = 'Real stories, practical advice, and gentle wisdom for navigating life\'s toughest moments. Breakups, anxiety, loneliness, self-love — we talk about it all. Brain Heal blog.';
+  const title = 'Breathe by Brain Heal — Stories, Healing & Real Talk';
+  const description = 'Breathe is Brain Heal India\'s space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all.';
   const url = DOMAIN + '/blog';
 
   const postListHTML = BLOG_POSTS.map(p => `
@@ -305,29 +305,29 @@ function generateBlogListSEO() {
 
   const bodyContent = `
     <header>
-      <h1>Stories & Healing — Brain Heal India Blog</h1>
-      <p>Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love — we've been there too.</p>
+      <h1>Breathe by Brain Heal — pause. read. heal.</h1>
+      <p>Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love — we've been there too. Breathe is Brain Heal India's blog platform.</p>
     </header>
     <nav aria-label="Main Navigation">
       <ul>
         <li><a href="${DOMAIN}/">Home</a></li>
         <li><a href="${DOMAIN}/therapy">Therapy</a></li>
         <li><a href="${DOMAIN}/community">Community</a></li>
-        <li><a href="${DOMAIN}/blog">Blog</a></li>
+        <li><a href="${DOMAIN}/blog">Breathe</a></li>
       </ul>
     </nav>
     <main>
       <section>
-        <h2>Latest Stories from Brain Heal</h2>
+        <h2>Latest Stories from Breathe by Brain Heal</h2>
         ${postListHTML}
       </section>
     </main>
-    <footer><p>© 2026 Brain Heal India. Stories & Healing Blog.</p></footer>`;
+    <footer><p>© 2026 Brain Heal India. Breathe — pause. read. heal.</p></footer>`;
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Brain Heal India Blog — Stories & Healing",
+    "name": "Breathe by Brain Heal India",
     "description": description,
     "url": url,
     "publisher": { "@id": `${DOMAIN}/#organization` },
@@ -350,7 +350,7 @@ function generateBlogPostSEO(slug) {
     return generateBlogListSEO();
   }
 
-  const title = `${post.title} — Brain Heal Blog`;
+  const title = `${post.title} — Breathe by Brain Heal`;
   const description = post.excerpt;
   const url = `${DOMAIN}/blog/${post.slug}`;
 
@@ -364,7 +364,7 @@ function generateBlogPostSEO(slug) {
       <ul>
         <li><a href="${DOMAIN}/">Home</a></li>
         <li><a href="${DOMAIN}/therapy">Therapy</a></li>
-        <li><a href="${DOMAIN}/blog">Blog</a></li>
+        <li><a href="${DOMAIN}/blog">Breathe</a></li>
       </ul>
     </nav>
     <main>
@@ -375,7 +375,7 @@ function generateBlogPostSEO(slug) {
         <p><a href="${DOMAIN}/community">Join our anonymous community →</a></p>
       </article>
       <section>
-        <h2>More Stories from Brain Heal</h2>
+        <h2>More Stories from Breathe</h2>
         <ul>
           ${BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 5).map(p => `<li><a href="${DOMAIN}/blog/${p.slug}">${esc(p.title)}</a></li>`).join('\n')}
         </ul>

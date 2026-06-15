@@ -130,7 +130,7 @@ export default function BlogPostPage() {
   return (
     <div className="min-h-screen bg-white">
       <SEOHead
-        title={`${post.title} — Brain Heal Blog`}
+        title={`${post.title} — Breathe by Brain Heal`}
         description={post.excerpt}
         url={postUrl}
       />
@@ -143,7 +143,7 @@ export default function BlogPostPage() {
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft size={16} />
-            <span className="hidden sm:inline">Back to Stories</span>
+            <span className="hidden sm:inline">Back to Breathe</span>
           </button>
           <Link to="/" className="flex items-center gap-2">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
