@@ -60,6 +60,15 @@ function parseRoute(req) {
     || req.url?.split('?')[0] 
     || '/';
   
+  // Blog routes
+  const blogMatch = originalPath.match(/^\/blog\/([^\/\?]+)/);
+  if (blogMatch) {
+    return { type: 'blogPost', slug: blogMatch[1] };
+  }
+  if (originalPath === '/blog') {
+    return { type: 'blog', slug: null };
+  }
+
   // Extract slug for therapist pages
   const therapistMatch = originalPath.match(/^\/therapist\/([^\/\?]+)/);
   if (therapistMatch) {
@@ -195,6 +204,201 @@ function extractHero(data) {
     highlight: hero?.highlight?.stringValue || 'you.',
     text: hero?.text?.stringValue || 'Step into clarity. We connect you with a new generation of therapists to help you thrive, not just survive.'
   };
+}
+
+// ─── BLOG DATA ─────────────────────────────────────────────────────────────────
+
+const BLOG_POSTS = [
+  {
+    slug: 'how-to-deal-with-breakup',
+    title: "It's Okay to Not Be Okay: How to Actually Heal After a Breakup",
+    excerpt: "Breakups feel like the world just ended. Your chest hurts, your phone feels empty, and everyone's telling you to 'move on.' But healing isn't a switch — it's a journey.",
+    category: 'Relationships',
+    date: '2026-06-10',
+    readTime: '8 min read'
+  },
+  {
+    slug: 'how-to-stop-overthinking',
+    title: "Your Brain Won't Shut Up? Here's How to Actually Stop Overthinking",
+    excerpt: "3 AM. Staring at the ceiling. Replaying that conversation from 2019. Wondering if everyone secretly hates you. Sound familiar?",
+    category: 'Overthinking',
+    date: '2026-06-08',
+    readTime: '7 min read'
+  },
+  {
+    slug: 'toxic-relationship-signs',
+    title: "Is Your Relationship Toxic? 12 Signs You're Ignoring (But Shouldn't)",
+    excerpt: "Love shouldn't feel like walking on eggshells. If you're constantly anxious, apologizing for things that aren't your fault, or feeling drained — read this.",
+    category: 'Relationships',
+    date: '2026-06-06',
+    readTime: '9 min read'
+  },
+  {
+    slug: 'feeling-lonely-what-to-do',
+    title: "Feeling Lonely Even When You're Surrounded by People? You're Not Alone",
+    excerpt: "The most crowded room can feel like the loneliest place. If you're smiling on the outside but empty on the inside — this one's for you.",
+    category: 'Healing',
+    date: '2026-06-04',
+    readTime: '7 min read'
+  },
+  {
+    slug: 'self-love-after-heartbreak',
+    title: "How to Fall in Love with Yourself (Especially After Someone Broke Your Heart)",
+    excerpt: "They left. And they took your confidence with them. But the love you gave them? You can give it to yourself.",
+    category: 'Self-Care',
+    date: '2026-06-02',
+    readTime: '8 min read'
+  },
+  {
+    slug: 'anxiety-at-night-cant-sleep',
+    title: "Can't Sleep Because Your Brain Won't Stop? A Night Owl's Guide to Peace",
+    excerpt: "The world gets quiet at night. But your brain? It decides to replay every mistake you've ever made.",
+    category: 'Wellness',
+    date: '2026-05-30',
+    readTime: '7 min read'
+  },
+  {
+    slug: 'burnout-hate-my-job',
+    title: "Burnout Is Real: What to Do When You're Exhausted but Can't Stop",
+    excerpt: "Sunday night dread. Monday morning tears. Living for the weekend just to spend it recovering from the week.",
+    category: 'Growth',
+    date: '2026-05-28',
+    readTime: '8 min read'
+  },
+  {
+    slug: 'how-to-trust-again',
+    title: "They Cheated. Now What? How to Rebuild Trust (In Others & In Yourself)",
+    excerpt: "Being cheated on doesn't just break your heart — it breaks your ability to trust. Not just others, but yourself.",
+    category: 'Relationships',
+    date: '2026-05-26',
+    readTime: '9 min read'
+  },
+  {
+    slug: 'what-to-do-when-feeling-lost',
+    title: "Feeling Lost in Life? Here's Your Permission to Not Have It All Figured Out",
+    excerpt: "Everyone around you seems to know exactly where they're going. Meanwhile, you're Googling 'what to do with my life' at 2 AM.",
+    category: 'Growth',
+    date: '2026-05-24',
+    readTime: '7 min read'
+  },
+  {
+    slug: 'how-to-express-emotions',
+    title: "Why Can't I Express My Feelings? A Guide for People Who 'Shut Down'",
+    excerpt: "You want to say what you feel, but the words get stuck. So you say 'I'm fine' when you're falling apart.",
+    category: 'Healing',
+    date: '2026-05-22',
+    readTime: '8 min read'
+  }
+];
+
+function generateBlogListSEO() {
+  const title = 'Stories & Healing — Brain Heal India Blog | Real Talk About Life';
+  const description = 'Real stories, practical advice, and gentle wisdom for navigating life\'s toughest moments. Breakups, anxiety, loneliness, self-love — we talk about it all. Brain Heal blog.';
+  const url = DOMAIN + '/blog';
+
+  const postListHTML = BLOG_POSTS.map(p => `
+    <article>
+      <h3><a href="${DOMAIN}/blog/${p.slug}">${esc(p.title)}</a></h3>
+      <p>${esc(p.excerpt)}</p>
+      <p>Category: ${esc(p.category)} | ${esc(p.readTime)} | ${esc(p.date)}</p>
+    </article>`).join('\n<hr>\n');
+
+  const bodyContent = `
+    <header>
+      <h1>Stories & Healing — Brain Heal India Blog</h1>
+      <p>Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love — we've been there too.</p>
+    </header>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="${DOMAIN}/">Home</a></li>
+        <li><a href="${DOMAIN}/therapy">Therapy</a></li>
+        <li><a href="${DOMAIN}/community">Community</a></li>
+        <li><a href="${DOMAIN}/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h2>Latest Stories from Brain Heal</h2>
+        ${postListHTML}
+      </section>
+    </main>
+    <footer><p>© 2026 Brain Heal India. Stories & Healing Blog.</p></footer>`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Brain Heal India Blog — Stories & Healing",
+    "description": description,
+    "url": url,
+    "publisher": { "@id": `${DOMAIN}/#organization` },
+    "blogPost": BLOG_POSTS.map(p => ({
+      "@type": "BlogPosting",
+      "headline": p.title,
+      "description": p.excerpt,
+      "url": `${DOMAIN}/blog/${p.slug}`,
+      "datePublished": p.date,
+      "author": { "@type": "Organization", "name": "Brain Heal India" }
+    }))
+  };
+
+  return { title, description, url, bodyContent, jsonLd, image: OG_IMAGE };
+}
+
+function generateBlogPostSEO(slug) {
+  const post = BLOG_POSTS.find(p => p.slug === slug);
+  if (!post) {
+    return generateBlogListSEO();
+  }
+
+  const title = `${post.title} — Brain Heal Blog`;
+  const description = post.excerpt;
+  const url = `${DOMAIN}/blog/${post.slug}`;
+
+  const bodyContent = `
+    <header>
+      <h1>${esc(post.title)}</h1>
+      <p>${esc(post.excerpt)}</p>
+      <p>By Brain Heal Team | ${esc(post.category)} | ${esc(post.readTime)} | ${esc(post.date)}</p>
+    </header>
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="${DOMAIN}/">Home</a></li>
+        <li><a href="${DOMAIN}/therapy">Therapy</a></li>
+        <li><a href="${DOMAIN}/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <main>
+      <article>
+        <p>Read the full article about ${esc(post.title.toLowerCase())} on Brain Heal India. We talk about breakups, healing, overthinking, anxiety, self-love, and everything in between.</p>
+        <p>Brain Heal India is a platform for healing, connection, and wellness. We believe everyone deserves someone to talk to.</p>
+        <p><a href="${DOMAIN}/therapy">Talk to someone at Brain Heal →</a></p>
+        <p><a href="${DOMAIN}/community">Join our anonymous community →</a></p>
+      </article>
+      <section>
+        <h2>More Stories from Brain Heal</h2>
+        <ul>
+          ${BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 5).map(p => `<li><a href="${DOMAIN}/blog/${p.slug}">${esc(p.title)}</a></li>`).join('\n')}
+        </ul>
+      </section>
+    </main>
+    <footer><p>© 2026 Brain Heal India.</p></footer>`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "url": url,
+    "datePublished": post.date,
+    "author": { "@type": "Organization", "name": "Brain Heal India", "url": DOMAIN },
+    "publisher": { "@type": "Organization", "name": "Brain Heal India", "url": DOMAIN, "logo": { "@type": "ImageObject", "url": `${DOMAIN}/logo.png` } },
+    "image": OG_IMAGE,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+    "isPartOf": { "@id": `${DOMAIN}/blog` },
+    "keywords": post.category
+  };
+
+  return { title, description, url, bodyContent, jsonLd, image: OG_IMAGE };
 }
 
 // ─── SEO CONTENT GENERATORS PER ROUTE ────────────────────────────────────────
@@ -848,6 +1052,12 @@ export default async function handler(req, res) {
         seo = generateTherapistSEO(therapist);
         break;
       }
+      case 'blog':
+        seo = generateBlogListSEO();
+        break;
+      case 'blogPost':
+        seo = generateBlogPostSEO(route.slug);
+        break;
       default:
         seo = generateStaticPageSEO(route.type);
     }

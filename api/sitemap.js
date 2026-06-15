@@ -22,6 +22,17 @@ const STATIC_PAGES = [
   { path: '/apply', priority: '0.6', changefreq: 'monthly' },
   { path: '/privacy', priority: '0.3', changefreq: 'monthly' },
   { path: '/terms', priority: '0.3', changefreq: 'monthly' },
+  { path: '/blog', priority: '0.8', changefreq: 'daily' },
+  { path: '/blog/how-to-deal-with-breakup', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/how-to-stop-overthinking', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/toxic-relationship-signs', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/feeling-lonely-what-to-do', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/self-love-after-heartbreak', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/anxiety-at-night-cant-sleep', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/burnout-hate-my-job', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/how-to-trust-again', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/what-to-do-when-feeling-lost', priority: '0.7', changefreq: 'weekly' },
+  { path: '/blog/how-to-express-emotions', priority: '0.7', changefreq: 'weekly' },
 ];
 
 /**

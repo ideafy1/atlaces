@@ -43,6 +43,16 @@
       "destination": "/api/seo?path=/contact"
     },
     {
+      "source": "/blog",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/blog"
+    },
+    {
+      "source": "/blog/:slug",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/blog/:slug"
+    },
+    {
       "source": "/therapist/:slug",
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
       "destination": "/api/seo?path=/therapist/:slug"
@@ -72,6 +82,13 @@
     },
     {
       "source": "/(therapy|community|privacy|terms|apply|contact)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "index, follow" },
+        { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }
+      ]
+    },
+    {
+      "source": "/blog/(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "index, follow" },
         { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }
