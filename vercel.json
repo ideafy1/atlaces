@@ -4,15 +4,49 @@
       "includeFiles": "dist/index.html"
     }
   },
+  "trailingSlash": false,
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/therapist/:slug", "destination": "/api/seo?path=/therapist/:slug" },
-    { "source": "/therapy", "destination": "/api/seo?path=/therapy" },
-    { "source": "/community", "destination": "/api/seo?path=/community" },
-    { "source": "/privacy", "destination": "/api/seo?path=/privacy" },
-    { "source": "/terms", "destination": "/api/seo?path=/terms" },
-    { "source": "/apply", "destination": "/api/seo?path=/apply" },
-    { "source": "/contact", "destination": "/api/seo?path=/contact" }
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/"
+    },
+    {
+      "source": "/therapy",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/therapy"
+    },
+    {
+      "source": "/community",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/community"
+    },
+    {
+      "source": "/privacy",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/privacy"
+    },
+    {
+      "source": "/terms",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/terms"
+    },
+    {
+      "source": "/apply",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/apply"
+    },
+    {
+      "source": "/contact",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/contact"
+    },
+    {
+      "source": "/therapist/:slug",
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
+      "destination": "/api/seo?path=/therapist/:slug"
+    }
   ],
   "headers": [
     {

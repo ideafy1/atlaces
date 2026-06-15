@@ -803,30 +803,9 @@ function buildHumanHTML(seo) {
 
     return html;
   } catch (e) {
-    // Fallback: serve bot HTML with SPA loader (works for bots and humans)
-    const loaderScript = `<style>body { opacity: 0; transition: opacity 0.5s; }</style>
-    <script>
-      fetch('/').then(r=>r.text()).then(html=>{
-        const parser=new DOMParser();
-        const doc=parser.parseFromString(html,'text/html');
-        doc.querySelectorAll('link[rel="stylesheet"]').forEach(l=>{
-          const link=document.createElement('link');
-          link.rel='stylesheet';link.href=l.getAttribute('href');
-          document.head.appendChild(link);
-        });
-        doc.querySelectorAll('script[type="module"]').forEach(s=>{
-          const sc=document.createElement('script');
-          sc.type='module';sc.src=s.getAttribute('src');
-          document.head.appendChild(sc);
-        });
-        setTimeout(() => { document.body.style.opacity = '1'; }, 100);
-      });
-    </script>`;
-    
-    return buildBotHTML(seo)
-      .replace('</head>', `${loaderScript}\n</head>`)
-      .replace('<body>', '<body>\n<div id="seo-bot-content" style="display:none;">')
-      .replace('</body>', '</div>\n<div id="root"></div>\n</body>');
+    // Fallback: serve bot HTML as-is (still valid content with proper SEO tags)
+    // Do NOT use fetch('/') here — it can cause redirect loops
+    return buildBotHTML(seo);
   }
 }
 
@@ -843,43 +822,74 @@ function esc(str) {
 // ─── MAIN HANDLER ────────────────────────────────────────────────────────────
 
 export default async function handler(req, res) {
-  const userAgent = req.headers?.['user-agent'] || '';
-  const route = parseRoute(req);
-  const botDetected = isBot(userAgent);
+  try {
+    const userAgent = req.headers?.['user-agent'] || '';
+    const route = parseRoute(req);
+    const botDetected = isBot(userAgent);
 
-  // Fetch Firebase data (cached)
-  const data = await getFirebaseData();
-  const therapists = extractTherapists(data);
+    // Fetch Firebase data (cached)
+    const data = await getFirebaseData();
+    const therapists = extractTherapists(data);
 
-  // Generate route-specific SEO content
-  let seo;
-  switch (route.type) {
-    case 'home':
-      seo = generateHomeSEO(data, therapists, extractFAQs(data), extractReviews(data), extractHero(data));
-      break;
-    case 'therapy':
-      seo = generateTherapySEO(data, therapists);
-      break;
-    case 'community':
-      seo = generateCommunitySEO();
-      break;
-    case 'therapist': {
-      const therapist = therapists.find(t => t.slug === route.slug || t.generatedSlug === route.slug);
-      seo = generateTherapistSEO(therapist);
-      break;
+    // Generate route-specific SEO content
+    let seo;
+    switch (route.type) {
+      case 'home':
+        seo = generateHomeSEO(data, therapists, extractFAQs(data), extractReviews(data), extractHero(data));
+        break;
+      case 'therapy':
+        seo = generateTherapySEO(data, therapists);
+        break;
+      case 'community':
+        seo = generateCommunitySEO();
+        break;
+      case 'therapist': {
+        const therapist = therapists.find(t => t.slug === route.slug || t.generatedSlug === route.slug);
+        seo = generateTherapistSEO(therapist);
+        break;
+      }
+      default:
+        seo = generateStaticPageSEO(route.type);
     }
-    default:
-      seo = generateStaticPageSEO(route.type);
+
+    // Generate the appropriate HTML
+    // With bot-only rewrites in vercel.json, this handler is primarily reached by bots.
+    // buildHumanHTML is kept as fallback for edge cases.
+    const html = botDetected ? buildBotHTML(seo) : buildHumanHTML(seo);
+
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=1800');
+    
+    // Vary on User-Agent so CDN caches bot vs human responses separately
+    res.setHeader('Vary', 'User-Agent');
+
+    return res.status(200).send(html);
+  } catch (error) {
+    // CRITICAL: Never let the handler crash — a 500 can be misinterpreted as a redirect
+    // by some crawlers or CDN layers. Always return 200 with valid HTML.
+    console.error('SEO handler error:', error);
+    const fallbackHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brain Heal India — Online Therapy Platform</title>
+  <meta name="description" content="Brain Heal India is the most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://brainheal.in/">
+</head>
+<body>
+  <h1>Brain Heal India — Best Online Therapy Platform</h1>
+  <p>India's most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, relationships, and more.</p>
+  <nav>
+    <a href="https://brainheal.in/">Home</a> |
+    <a href="https://brainheal.in/therapy">Find a Therapist</a> |
+    <a href="https://brainheal.in/community">Community</a> |
+    <a href="https://brainheal.in/contact">Contact</a>
+  </nav>
+</body>
+</html>`;
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.status(200).send(fallbackHTML);
   }
-
-  // Generate the appropriate HTML
-  const html = botDetected ? buildBotHTML(seo) : buildHumanHTML(seo);
-
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=1800');
-  
-  // Vary on User-Agent so CDN caches bot vs human responses separately
-  res.setHeader('Vary', 'User-Agent');
-
-  return res.status(200).send(html);
 }
