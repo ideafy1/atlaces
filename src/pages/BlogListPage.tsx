@@ -43,6 +43,7 @@ function ArticleCard({ post }: { post: BlogPost }) {
 
 export default function BlogListPage() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [showAllArticles, setShowAllArticles] = useState(false);
   const navigate = useNavigate();
 
   const filteredPosts = activeCategory === 'All' 
@@ -135,28 +136,38 @@ export default function BlogListPage() {
               Reliable, relatable medical information in your hands. Grab a coffee and take a deep dive on all things mental and sexual health related ☕️
             </p>
             <button 
-              onClick={() => setActiveCategory('All')}
+              onClick={() => setShowAllArticles(!showAllArticles)}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 text-[13px] font-bold text-gray-900 hover:bg-gray-50 transition-colors"
             >
-              View all <span className="text-red-500 text-lg leading-none">›</span>
+              {showAllArticles ? "Collapse" : "View all"} <span className="text-red-500 text-lg leading-none">›</span>
             </button>
           </div>
 
           {/* Right: Article Grid */}
-          {/* Right: Article Slider */}
+          {/* Right: Article Slider / Grid */}
           <div className="lg:w-3/4 relative">
-            <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              {filteredPosts.map((post) => (
-                <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] snap-start shrink-0">
-                  <ArticleCard post={post} />
+            {showAllArticles ? (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                {filteredPosts.map((post) => (
+                  <ArticleCard key={post.slug} post={post} />
+                ))}
+              </div>
+            ) : (
+              <>
+                <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  {filteredPosts.map((post) => (
+                    <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] snap-start shrink-0">
+                      <ArticleCard post={post} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            
-            {/* Scroll hint for desktop */}
-            <div className="hidden lg:flex items-center justify-end gap-4 mt-8">
-              <span className="text-sm font-bold text-gray-400">Scroll for more ⟶</span>
-            </div>
+                
+                {/* Scroll hint for desktop */}
+                <div className="hidden lg:flex items-center justify-end gap-4 mt-8">
+                  <span className="text-sm font-bold text-gray-400">Scroll for more ⟶</span>
+                </div>
+              </>
+            )}
           </div>
 
         </div>
