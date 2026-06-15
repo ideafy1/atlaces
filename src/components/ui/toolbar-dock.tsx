@@ -72,56 +72,57 @@ const HIDDEN_CLIP = "inset(100% 0px 0px 0px round 10px)";
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? React.useLayoutEffect : React.useEffect;
 
+const DEFAULT_ITEMS: ToolbarDockItem[] = [
+  {
+    id: "mental-health",
+    label: "Mental Health",
+    icon: <Brain {...ICON_PROPS} />,
+    path: "/therapy"
+  },
+  {
+    id: "sexual-health",
+    label: "Sexual Health",
+    icon: <HeartPulse {...ICON_PROPS} />,
+    path: "/therapy"
+  },
+  {
+    id: "community",
+    label: "For Business",
+    icon: <Users {...ICON_PROPS} />,
+    path: "/community"
+  },
+  {
+    id: "content-hub",
+    label: "Content Hub",
+    icon: <BookOpen {...ICON_PROPS} />,
+    path: "/breathe",
+    badge: true
+  },
+  {
+    id: "about",
+    label: "About Us",
+    icon: <Info {...ICON_PROPS} />,
+  },
+  {
+    id: "login",
+    label: "Log In",
+    icon: <LogIn {...ICON_PROPS} />,
+  },
+  {
+    id: "menu",
+    label: "Close Menu",
+    icon: <Menu {...ICON_PROPS} />,
+    toggle: true,
+  },
+];
+
 export function ToolbarDock({
   items,
   className,
   defaultCollapsed = true,
 }: ToolbarDockProps) {
   const navigate = useNavigate();
-
-  const defaultItems: ToolbarDockItem[] = items || [
-    {
-      id: "mental-health",
-      label: "Mental Health",
-      icon: <Brain {...ICON_PROPS} />,
-      path: "/therapy"
-    },
-    {
-      id: "sexual-health",
-      label: "Sexual Health",
-      icon: <HeartPulse {...ICON_PROPS} />,
-      path: "/therapy"
-    },
-    {
-      id: "community",
-      label: "For Business",
-      icon: <Users {...ICON_PROPS} />,
-      path: "/community"
-    },
-    {
-      id: "content-hub",
-      label: "Content Hub",
-      icon: <BookOpen {...ICON_PROPS} />,
-      path: "/breathe",
-      badge: true
-    },
-    {
-      id: "about",
-      label: "About Us",
-      icon: <Info {...ICON_PROPS} />,
-    },
-    {
-      id: "login",
-      label: "Log In",
-      icon: <LogIn {...ICON_PROPS} />,
-    },
-    {
-      id: "menu",
-      label: "Close Menu",
-      icon: <Menu {...ICON_PROPS} />,
-      toggle: true,
-    },
-  ];
+  const activeItems = items || DEFAULT_ITEMS;
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const railRef = React.useRef<HTMLDivElement>(null);
@@ -143,8 +144,11 @@ export function ToolbarDock({
   useIsoLayoutEffect(() => {
     const strip = stripRef.current?.offsetHeight ?? 0;
     const footprint = wrapperRef.current?.offsetHeight ?? 0;
-    setMetrics({ strip, footprint });
-  }, [defaultItems]);
+    setMetrics((prev) => {
+      if (prev?.strip === strip && prev?.footprint === footprint) return prev;
+      return { strip, footprint };
+    });
+  }, [activeItems]);
 
   const reveal = React.useCallback((index: number) => {
     const rail = railRef.current;
@@ -200,7 +204,7 @@ export function ToolbarDock({
 
   const appearing = appearingRef.current;
 
-  const indexed = defaultItems.map((item, index) => ({ item, index }));
+  const indexed = activeItems.map((item, index) => ({ item, index }));
   const toggleEntries = indexed.filter((e) => e.item.toggle);
   const iconEntries = indexed.filter((e) => !e.item.toggle);
 
@@ -263,7 +267,7 @@ export function ToolbarDock({
           style={{ willChange: "transform, clip-path, opacity" }}
           className="relative flex flex-col w-max rounded-xl bg-black text-white shadow-xl py-1"
         >
-          {defaultItems.map((item, i) => (
+          {activeItems.map((item, i) => (
             <div
               key={item.id}
               ref={(el) => {
