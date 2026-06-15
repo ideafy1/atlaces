@@ -26,7 +26,7 @@ export default function Footer() {
                 <li><a href="/community" className="text-gray-300 hover:text-white transition-colors text-sm">Community</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">Contact</a></li>
                 <li><a href="/apply" className="text-gray-300 hover:text-white transition-colors text-sm">Apply as Therapist</a></li>
-                <li><a href="/blog" className="text-gray-300 hover:text-white transition-colors text-sm">Breathe</a></li>
+                <li><a href="/breathe" className="text-gray-300 hover:text-white transition-colors text-sm">Breathe</a></li>
               </ul>
             </nav>
             

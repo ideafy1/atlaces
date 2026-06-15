@@ -77,7 +77,7 @@ function RelatedPostCard({ post, index }: { post: BlogPost; index: number }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/breathe/${post.slug}`}
       className="group block rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-lg transition-all duration-400 hover:-translate-y-0.5"
     >
       <div className={`h-32 bg-gradient-to-br ${gradient} relative`}>
@@ -113,7 +113,7 @@ export default function BlogPostPage() {
         <div className="text-center">
           <h1 className="font-instrument text-3xl text-gray-900 mb-4">Post not found</h1>
           <p className="text-gray-500 mb-6">The blog post you're looking for doesn't exist.</p>
-          <Link to="/blog" className="inline-flex items-center gap-2 px-5 py-2.5 bg-violet-600 text-white rounded-xl text-sm font-medium hover:bg-violet-700 transition-colors">
+          <Link to="/breathe" className="inline-flex items-center gap-2 px-5 py-2.5 bg-violet-600 text-white rounded-xl text-sm font-medium hover:bg-violet-700 transition-colors">
             <ArrowLeft size={16} /> Back to Blog
           </Link>
         </div>
@@ -122,7 +122,7 @@ export default function BlogPostPage() {
   }
 
   const colors = CATEGORY_COLORS[post.category] || CATEGORY_COLORS['Healing'];
-  const postUrl = `https://brainheal.in/blog/${post.slug}`;
+  const postUrl = `https://brainheal.in/breathe/${post.slug}`;
   const formattedDate = new Date(post.date).toLocaleDateString('en-IN', {
     month: 'long', day: 'numeric', year: 'numeric'
   });
@@ -139,7 +139,7 @@ export default function BlogPostPage() {
       <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <button
-            onClick={() => navigate('/blog')}
+            onClick={() => navigate('/breathe')}
             className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft size={16} />
@@ -253,7 +253,7 @@ export default function BlogPostPage() {
               ))}
             </div>
             <div className="text-center mt-8">
-              <Link to="/blog" className="text-sm text-violet-600 hover:text-violet-800 font-medium transition-colors">
+              <Link to="/breathe" className="text-sm text-violet-600 hover:text-violet-800 font-medium transition-colors">
                 View all stories →
               </Link>
             </div>

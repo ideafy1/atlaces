@@ -43,19 +43,23 @@
       "destination": "/api/seo?path=/contact"
     },
     {
-      "source": "/blog",
+      "source": "/breathe",
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
-      "destination": "/api/seo?path=/blog"
+      "destination": "/api/seo?path=/breathe"
     },
     {
-      "source": "/blog/:slug",
+      "source": "/breathe/:slug",
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
-      "destination": "/api/seo?path=/blog/:slug"
+      "destination": "/api/seo?path=/breathe/:slug"
     },
     {
       "source": "/therapist/:slug",
       "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(bot|crawl|spider|slurp|facebot|facebookexternalhit|whatsapp|telegrambot|chatgpt|gptbot|claude|anthropic|perplexity|semrush|ahrefs|curl|wget|python).*" }],
       "destination": "/api/seo?path=/therapist/:slug"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -81,14 +85,14 @@
       ]
     },
     {
-      "source": "/(therapy|community|privacy|terms|apply|contact)",
+      "source": "/(therapy|community|privacy|terms|apply|contact|breathe)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "index, follow" },
         { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }
       ]
     },
     {
-      "source": "/blog/(.*)",
+      "source": "/breathe/(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "index, follow" },
         { "key": "Cache-Control", "value": "public, s-maxage=3600, stale-while-revalidate=1800" }

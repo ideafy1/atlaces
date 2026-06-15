@@ -27,8 +27,8 @@ export default function App() {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
           <Route path="/apply" element={<ApplyTherapist />} />
-          <Route path="/blog" element={<BlogListPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/breathe" element={<BlogListPage />} />
+          <Route path="/breathe/:slug" element={<BlogPostPage />} />
           <Route path="/makechanges" element={<Admin />} />
         </Routes>
       </BrowserRouter>

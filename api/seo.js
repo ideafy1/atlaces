@@ -61,11 +61,11 @@ function parseRoute(req) {
     || '/';
   
   // Blog routes
-  const blogMatch = originalPath.match(/^\/blog\/([^\/\?]+)/);
+  const blogMatch = originalPath.match(/^\/breathe\/([^\/\?]+)/);
   if (blogMatch) {
     return { type: 'blogPost', slug: blogMatch[1] };
   }
-  if (originalPath === '/blog') {
+  if (originalPath === '/breathe') {
     return { type: 'blog', slug: null };
   }
 
@@ -294,11 +294,11 @@ const BLOG_POSTS = [
 function generateBlogListSEO() {
   const title = 'Breathe by Brain Heal — Stories, Healing & Real Talk';
   const description = 'Breathe is Brain Heal India\'s space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all.';
-  const url = DOMAIN + '/blog';
+  const url = DOMAIN + '/breathe';
 
   const postListHTML = BLOG_POSTS.map(p => `
     <article>
-      <h3><a href="${DOMAIN}/blog/${p.slug}">${esc(p.title)}</a></h3>
+      <h3><a href="${DOMAIN}/breathe/${p.slug}">${esc(p.title)}</a></h3>
       <p>${esc(p.excerpt)}</p>
       <p>Category: ${esc(p.category)} | ${esc(p.readTime)} | ${esc(p.date)}</p>
     </article>`).join('\n<hr>\n');
@@ -313,7 +313,7 @@ function generateBlogListSEO() {
         <li><a href="${DOMAIN}/">Home</a></li>
         <li><a href="${DOMAIN}/therapy">Therapy</a></li>
         <li><a href="${DOMAIN}/community">Community</a></li>
-        <li><a href="${DOMAIN}/blog">Breathe</a></li>
+        <li><a href="${DOMAIN}/breathe">Breathe</a></li>
       </ul>
     </nav>
     <main>
@@ -335,7 +335,7 @@ function generateBlogListSEO() {
       "@type": "BlogPosting",
       "headline": p.title,
       "description": p.excerpt,
-      "url": `${DOMAIN}/blog/${p.slug}`,
+      "url": `${DOMAIN}/breathe/${p.slug}`,
       "datePublished": p.date,
       "author": { "@type": "Organization", "name": "Brain Heal India" }
     }))
@@ -352,7 +352,7 @@ function generateBlogPostSEO(slug) {
 
   const title = `${post.title} — Breathe by Brain Heal`;
   const description = post.excerpt;
-  const url = `${DOMAIN}/blog/${post.slug}`;
+  const url = `${DOMAIN}/breathe/${post.slug}`;
 
   const bodyContent = `
     <header>
@@ -364,7 +364,7 @@ function generateBlogPostSEO(slug) {
       <ul>
         <li><a href="${DOMAIN}/">Home</a></li>
         <li><a href="${DOMAIN}/therapy">Therapy</a></li>
-        <li><a href="${DOMAIN}/blog">Breathe</a></li>
+        <li><a href="${DOMAIN}/breathe">Breathe</a></li>
       </ul>
     </nav>
     <main>
@@ -377,7 +377,7 @@ function generateBlogPostSEO(slug) {
       <section>
         <h2>More Stories from Breathe</h2>
         <ul>
-          ${BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 5).map(p => `<li><a href="${DOMAIN}/blog/${p.slug}">${esc(p.title)}</a></li>`).join('\n')}
+          ${BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 5).map(p => `<li><a href="${DOMAIN}/breathe/${p.slug}">${esc(p.title)}</a></li>`).join('\n')}
         </ul>
       </section>
     </main>
@@ -394,7 +394,7 @@ function generateBlogPostSEO(slug) {
     "publisher": { "@type": "Organization", "name": "Brain Heal India", "url": DOMAIN, "logo": { "@type": "ImageObject", "url": `${DOMAIN}/logo.png` } },
     "image": OG_IMAGE,
     "mainEntityOfPage": { "@type": "WebPage", "@id": url },
-    "isPartOf": { "@id": `${DOMAIN}/blog` },
+    "isPartOf": { "@id": `${DOMAIN}/breathe` },
     "keywords": post.category
   };
 

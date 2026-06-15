@@ -34,7 +34,7 @@ function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 
   return (
     <Link
-      to={`/blog/${post.slug}`}
+      to={`/breathe/${post.slug}`}
       className="group block rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
       style={{ animationDelay: `${index * 100}ms` }}
     >
@@ -126,7 +126,7 @@ export default function BlogListPage() {
       <SEOHead
         title="Breathe by Brain Heal — Stories, Healing & Real Talk"
         description="Breathe is Brain Heal India's space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all. No judgment, just healing."
-        url="https://brainheal.in/blog"
+        url="https://brainheal.in/breathe"
       />
 
       {/* Top Navigation */}
@@ -210,7 +210,7 @@ export default function BlogListPage() {
             {/* Featured Post (first one, larger) */}
             {visiblePosts.length > 0 && (
               <Link
-                to={`/blog/${visiblePosts[0].slug}`}
+                to={`/breathe/${visiblePosts[0].slug}`}
                 className="group block mb-10 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-xl transition-all duration-500"
               >
                 <div className="grid md:grid-cols-2 gap-0">
