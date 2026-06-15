@@ -78,16 +78,15 @@ export default function BlogPostPage() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-10">
-            <Link to="/" className="font-instrument text-2xl font-bold tracking-tight text-black">
-              Rocket<span className="font-normal text-gray-500">Health</span>
-              <span className="ml-2 font-sans text-xs tracking-normal font-bold">BrainHeal</span>
+            <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
+              Brain<span className="font-normal text-gray-500">Heal</span>
             </Link>
             <div className="hidden lg:flex items-center gap-8">
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Mental Health ▾</Link>
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Sexual Health</Link>
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Women's Health ▾</Link>
               <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">For Business</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Rocket Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
+              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">BrainHeal Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
               <Link to="/breathe" className="text-[14px] font-semibold text-red-500">Content Hub</Link>
             </div>
           </div>
@@ -192,27 +191,27 @@ export default function BlogPostPage() {
         </div>
       )}
 
-      {/* Footer matching Rocket Health minimal black style */}
+      {/* Footer matching minimal black style */}
       <div className="bg-black text-white pt-20 pb-10">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
           
           {/* Logo Divider */}
           <div className="flex items-center justify-center gap-4 mb-16">
             <div className="h-px bg-gradient-to-r from-transparent to-[#FF69B4] w-full max-w-[200px]"></div>
-            <div className="font-instrument text-2xl font-bold tracking-tight">
-              Rocket<span className="font-normal text-gray-400">Health</span>
+            <div className="font-sans text-2xl font-bold tracking-tight">
+              Brain<span className="font-normal text-gray-400">Heal</span>
             </div>
             <div className="h-px bg-gradient-to-l from-transparent to-[#FF69B4] w-full max-w-[200px]"></div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
             <div className="col-span-2">
-              <h4 className="font-serif text-xl mb-4 font-normal">I'm excited. Tell me more.</h4>
+              <h4 className="font-sans text-xl mb-4 font-bold">I'm excited. Tell me more.</h4>
               <div className="flex mb-8">
                 <input type="email" placeholder="Enter your email" className="px-4 py-2.5 rounded-l-full bg-white text-black w-full outline-none text-sm font-bold" />
                 <button className="px-6 py-2.5 bg-[#FF5722] text-white font-bold rounded-r-full text-sm hover:bg-[#e64a19] transition-colors">Submit</button>
               </div>
-              <h4 className="font-serif text-xl mb-2 text-[#FF5722]">Have a question?</h4>
+              <h4 className="font-sans text-xl mb-2 text-[#FF5722] font-bold">Have a question?</h4>
               <p className="text-sm text-gray-400 mb-6">Reach us at <a href="mailto:hello@brainheal.in" className="underline">hello@brainheal.in</a></p>
             </div>
             
@@ -262,7 +261,7 @@ export default function BlogPostPage() {
         </div>
       </div>
 
-      {/* ── Prose Styles (Rocket Health Style) ── */}
+      {/* ── Prose Styles ── */}
       <style>{`
         .article-body {
           font-family: 'Inter', -apple-system, sans-serif;

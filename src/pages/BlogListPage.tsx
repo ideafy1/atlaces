@@ -72,16 +72,15 @@ export default function BlogListPage() {
       <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[72px] flex items-center justify-between">
           <div className="flex items-center gap-10">
-            <Link to="/" className="font-instrument text-2xl font-bold tracking-tight text-black">
-              Rocket<span className="font-normal text-gray-500">Health</span>
-              <span className="ml-2 font-sans text-xs tracking-normal font-bold">BrainHeal</span>
+            <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
+              Brain<span className="font-normal text-gray-500">Heal</span>
             </Link>
             <div className="hidden lg:flex items-center gap-8">
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Mental Health ▾</Link>
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Sexual Health</Link>
               <Link to="/therapy" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Women's Health ▾</Link>
               <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">For Business</Link>
-              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">Rocket Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
+              <Link to="/community" className="text-[14px] font-semibold text-gray-900 hover:text-red-500 transition-colors">BrainHeal Labs <span className="ml-1 text-[10px] bg-[#FFE4E1] text-red-600 px-1.5 py-0.5 rounded-sm">New</span></Link>
               <span className="text-[14px] font-semibold text-red-500">Content Hub</span>
             </div>
           </div>
@@ -101,7 +100,7 @@ export default function BlogListPage() {
 
       {/* ── Hero ── */}
       <div className="relative w-full h-[500px] sm:h-[600px] bg-gradient-to-br from-[#8A2BE2] via-[#FF69B4] to-[#FFA500] flex flex-col items-center justify-center text-center px-4">
-        <h1 className="font-instrument text-[3.5rem] sm:text-[5rem] font-medium text-white leading-tight mb-6">
+        <h1 className="font-sans text-[3.5rem] sm:text-[5rem] font-bold tracking-tight text-white leading-tight mb-6">
           All the fun starts here
         </h1>
         <p className="text-white text-[15px] sm:text-[17px] font-medium max-w-2xl mx-auto leading-relaxed mb-12">
@@ -198,7 +197,7 @@ export default function BlogListPage() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="aspect-[4/5] rounded-xl bg-[#D4F7A1] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-instrument text-3xl mb-8">April Recap<br/>Playlist</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">April Recap<br/>Playlist</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
@@ -209,7 +208,7 @@ export default function BlogListPage() {
               
               <div className="aspect-[4/5] rounded-xl bg-[#FFD1B3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-instrument text-3xl mb-8">March Recap<br/>Playlist</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">March Recap<br/>Playlist</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
@@ -220,7 +219,7 @@ export default function BlogListPage() {
 
               <div className="aspect-[4/5] rounded-xl bg-gradient-to-br from-[#E0EAFC] to-[#CFDEF3] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer">
                 <p className="text-sm font-bold mb-4">BrainHeal</p>
-                <h3 className="font-instrument text-3xl mb-8">Confused &<br/>Overthinking</h3>
+                <h3 className="font-sans text-3xl mb-8 font-bold">Confused &<br/>Overthinking</h3>
                 <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                 </div>
