@@ -1,10 +1,10 @@
 /**
- * Vercel Serverless Function — Universal Dynamic Renderer
+ * Vercel Serverless Function - Universal Dynamic Renderer
  * 
  * This is the brain of BrainHeal's SEO architecture.
  * It intercepts ALL page requests and serves different content based on the requester:
  * 
- * 1. REAL BROWSERS (humans): Get the normal React SPA (index.html) — zero visual changes.
+ * 1. REAL BROWSERS (humans): Get the normal React SPA (index.html) - zero visual changes.
  * 2. AI BOTS & CRAWLERS (Google, ChatGPT, Claude, Gemini, etc.): Get a rich, 
  *    pre-rendered HTML page packed with actual content from Firebase.
  * 
@@ -212,7 +212,7 @@ const BLOG_POSTS = [
   {
     slug: 'how-to-deal-with-breakup',
     title: "It's Okay to Not Be Okay: How to Actually Heal After a Breakup",
-    excerpt: "Breakups feel like the world just ended. Your chest hurts, your phone feels empty, and everyone's telling you to 'move on.' But healing isn't a switch — it's a journey.",
+    excerpt: "Breakups feel like the world just ended. Your chest hurts, your phone feels empty, and everyone's telling you to 'move on.' But healing isn't a switch - it's a journey.",
     category: 'Relationships',
     date: '2026-06-10',
     readTime: '8 min read'
@@ -228,7 +228,7 @@ const BLOG_POSTS = [
   {
     slug: 'toxic-relationship-signs',
     title: "Is Your Relationship Toxic? 12 Signs You're Ignoring (But Shouldn't)",
-    excerpt: "Love shouldn't feel like walking on eggshells. If you're constantly anxious, apologizing for things that aren't your fault, or feeling drained — read this.",
+    excerpt: "Love shouldn't feel like walking on eggshells. If you're constantly anxious, apologizing for things that aren't your fault, or feeling drained - read this.",
     category: 'Relationships',
     date: '2026-06-06',
     readTime: '9 min read'
@@ -236,7 +236,7 @@ const BLOG_POSTS = [
   {
     slug: 'feeling-lonely-what-to-do',
     title: "Feeling Lonely Even When You're Surrounded by People? You're Not Alone",
-    excerpt: "The most crowded room can feel like the loneliest place. If you're smiling on the outside but empty on the inside — this one's for you.",
+    excerpt: "The most crowded room can feel like the loneliest place. If you're smiling on the outside but empty on the inside - this one's for you.",
     category: 'Healing',
     date: '2026-06-04',
     readTime: '7 min read'
@@ -268,7 +268,7 @@ const BLOG_POSTS = [
   {
     slug: 'how-to-trust-again',
     title: "They Cheated. Now What? How to Rebuild Trust (In Others & In Yourself)",
-    excerpt: "Being cheated on doesn't just break your heart — it breaks your ability to trust. Not just others, but yourself.",
+    excerpt: "Being cheated on doesn't just break your heart - it breaks your ability to trust. Not just others, but yourself.",
     category: 'Relationships',
     date: '2026-05-26',
     readTime: '9 min read'
@@ -292,8 +292,8 @@ const BLOG_POSTS = [
 ];
 
 function generateBlogListSEO() {
-  const title = 'Breathe by Brain Heal — Stories, Healing & Real Talk';
-  const description = 'Breathe is Brain Heal India\'s space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all.';
+  const title = 'Breathe by Brain Heal - Stories, Healing & Real Talk';
+  const description = 'Breathe is Brain Heal India\'s space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love - we talk about it all.';
   const url = DOMAIN + '/breathe';
 
   const postListHTML = BLOG_POSTS.map(p => `
@@ -305,8 +305,8 @@ function generateBlogListSEO() {
 
   const bodyContent = `
     <header>
-      <h1>Breathe by Brain Heal — pause. read. heal.</h1>
-      <p>Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love — we've been there too. Breathe is Brain Heal India's blog platform.</p>
+      <h1>Breathe by Brain Heal - pause. read. heal.</h1>
+      <p>Real talk about the stuff nobody prepares you for. Breakups, overthinking, loneliness, self-love - we've been there too. Breathe is Brain Heal India's blog platform.</p>
     </header>
     <nav aria-label="Main Navigation">
       <ul>
@@ -322,7 +322,7 @@ function generateBlogListSEO() {
         ${postListHTML}
       </section>
     </main>
-    <footer><p>© 2026 Brain Heal India. Breathe — pause. read. heal.</p></footer>`;
+    <footer><p>© 2026 Brain Heal India. Breathe - pause. read. heal.</p></footer>`;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -350,7 +350,7 @@ function generateBlogPostSEO(slug) {
     return generateBlogListSEO();
   }
 
-  const title = `${post.title} — Breathe by Brain Heal`;
+  const title = `${post.title} - Breathe by Brain Heal`;
   const description = post.excerpt;
   const url = `${DOMAIN}/breathe/${post.slug}`;
 
@@ -404,7 +404,7 @@ function generateBlogPostSEO(slug) {
 // ─── SEO CONTENT GENERATORS PER ROUTE ────────────────────────────────────────
 
 function generateHomeSEO(data, therapists, faqs, reviews, hero) {
-  const title = 'Brain Heal India — Best Online Therapy Platform | Affordable & Verified Therapists';
+  const title = 'Brain Heal India - Best Online Therapy Platform | Affordable & Verified Therapists';
   const description = 'Brain Heal India (BrainHeal) is the most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, relationships & more. Best cheap therapy with ₹0 switching fees. Book your first session today.';
   const url = DOMAIN + '/';
 
@@ -412,7 +412,7 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
   const therapistListHTML = therapists.slice(0, 20).map(t => `
     <li>
       <a href="${DOMAIN}/therapist/${t.slug}">
-        <strong>${esc(t.name)}</strong> — ${esc(t.title)}${t.credentials ? ` (${esc(t.credentials)})` : ''}
+        <strong>${esc(t.name)}</strong> - ${esc(t.title)}${t.credentials ? ` (${esc(t.credentials)})` : ''}
       </a>
       ${t.experience ? `<br>Experience: ${esc(t.experience)}` : ''}
       ${t.specialties.length > 0 ? `<br>Specializes in: ${t.specialties.map(esc).join(', ')}` : ''}
@@ -428,12 +428,12 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
   const reviewHTML = reviews.slice(0, 10).map(r => `
     <blockquote>
       <p>"${esc(r.review)}"</p>
-      <cite>— ${esc(r.name)}</cite>
+      <cite> -  ${esc(r.name)}</cite>
     </blockquote>`).join('\n');
 
   const bodyContent = `
     <header>
-      <h1>Brain Heal India — Best Online Therapy Platform</h1>
+      <h1>Brain Heal India - Best Online Therapy Platform</h1>
       <p>${esc(hero.title)} ${esc(hero.subtitle)} ${esc(hero.highlight)}</p>
       <p>${esc(hero.text)}</p>
     </header>
@@ -452,35 +452,35 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 
     <main>
       <section>
-        <h2>About Brain Heal India — Best Cheap Therapy</h2>
+        <h2>About Brain Heal India - Best Cheap Therapy</h2>
         <p>Brain Heal (also known as BrainHeal) is the world's first online therapist community and India's most trusted therapy platform. We provide affordable, accessible, and high-quality mental health care through our curated collective of verified therapists.</p>
         <p>Whether you're searching for "brain heal therapy", "brain heal india", "best cheap therapy", or "affordable online counseling in India", Brain Heal connects you with clinically vetted professionals who specialize in anxiety, depression, stress, relationships, trauma, ADHD, grief, and more.</p>
-        <p>Brain Heal therapy sessions start at affordable rates with ₹0 switching fees — making us the best cheap therapy option in India without compromising on quality.</p>
+        <p>Brain Heal therapy sessions start at affordable rates with ₹0 switching fees - making us the best cheap therapy option in India without compromising on quality.</p>
       </section>
 
       <section>
         <h2>Why Choose Brain Heal Therapy?</h2>
         <ul>
-          <li><strong>100% Verified Therapists</strong> — Every therapist undergoes a rigorous 4-step clinical review including license verification, case study reviews, and empathy assessments.</li>
-          <li><strong>₹0 Switching Fees</strong> — Don't feel a connection? Switch your therapist anytime, no questions asked.</li>
-          <li><strong>2-Hour Matching</strong> — Get matched with your ideal therapist within 2 hours of completing your intake.</li>
-          <li><strong>Affordable Rates</strong> — BrainHeal offers the best cheap therapy sessions in India, starting from just ₹111 for your first session.</li>
-          <li><strong>10,000+ Sessions Completed</strong> — Trusted by people across India.</li>
-          <li><strong>4.9/5 Average Rating</strong> — Our therapists are highly rated by real clients.</li>
+          <li><strong>100% Verified Therapists</strong> - Every therapist undergoes a rigorous 4-step clinical review including license verification, case study reviews, and empathy assessments.</li>
+          <li><strong>₹0 Switching Fees</strong> - Don't feel a connection? Switch your therapist anytime, no questions asked.</li>
+          <li><strong>2-Hour Matching</strong> - Get matched with your ideal therapist within 2 hours of completing your intake.</li>
+          <li><strong>Affordable Rates</strong> - BrainHeal offers the best cheap therapy sessions in India, starting from just ₹111 for your first session.</li>
+          <li><strong>10,000+ Sessions Completed</strong> - Trusted by people across India.</li>
+          <li><strong>4.9/5 Average Rating</strong> - Our therapists are highly rated by real clients.</li>
         </ul>
       </section>
 
       <section>
         <h2>What Can Brain Heal Therapy Help With?</h2>
         <ul>
-          <li>Anxiety & Stress — Constant worry, racing thoughts, panic attacks</li>
-          <li>Depression — Persistent sadness, loss of interest, fatigue</li>
-          <li>Relationships — Couples counseling, family conflicts, dating struggles</li>
-          <li>Trauma & PTSD — Past abuse, grief, accidents, deeply distressing events</li>
-          <li>ADHD — Assessment, coping strategies, and ongoing support</li>
-          <li>Career & Burnout — Work stress, career confusion, professional burnout</li>
-          <li>Grief & Loss — Processing loss and finding a path forward</li>
-          <li>LGBTQ+ Support — Affirming therapy for identity and relationship concerns</li>
+          <li>Anxiety & Stress - Constant worry, racing thoughts, panic attacks</li>
+          <li>Depression - Persistent sadness, loss of interest, fatigue</li>
+          <li>Relationships - Couples counseling, family conflicts, dating struggles</li>
+          <li>Trauma & PTSD - Past abuse, grief, accidents, deeply distressing events</li>
+          <li>ADHD - Assessment, coping strategies, and ongoing support</li>
+          <li>Career & Burnout - Work stress, career confusion, professional burnout</li>
+          <li>Grief & Loss - Processing loss and finding a path forward</li>
+          <li>LGBTQ+ Support - Affirming therapy for identity and relationship concerns</li>
         </ul>
       </section>
 
@@ -494,10 +494,10 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
       <section>
         <h2>How Brain Heal Therapy Works</h2>
         <ol>
-          <li><strong>Tell us what you're going through</strong> — Answer a few simple, private questions about anxiety, stress, relationships, burnout, or anything on your mind.</li>
-          <li><strong>Get matched with your therapist</strong> — Our team personally reviews your needs and matches you with a verified BrainHeal therapist.</li>
-          <li><strong>Start your first session</strong> — Connect over video, voice, or chat. Your therapist is there for you, from anywhere in India.</li>
-          <li><strong>Heal at your own pace</strong> — Message your therapist between sessions, reschedule anytime, or switch at zero cost.</li>
+          <li><strong>Tell us what you're going through</strong> - Answer a few simple, private questions about anxiety, stress, relationships, burnout, or anything on your mind.</li>
+          <li><strong>Get matched with your therapist</strong> - Our team personally reviews your needs and matches you with a verified BrainHeal therapist.</li>
+          <li><strong>Start your first session</strong> - Connect over video, voice, or chat. Your therapist is there for you, from anywhere in India.</li>
+          <li><strong>Heal at your own pace</strong> - Message your therapist between sessions, reschedule anytime, or switch at zero cost.</li>
         </ol>
       </section>
 
@@ -528,7 +528,7 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 
     <footer>
       <p>© 2026 Brain Heal India. All rights reserved. Built for Peace.</p>
-      <p>Brain Heal India — India's first premium therapist collective. Best online therapy, cheap therapy sessions, verified therapists. Mental health counseling, online counseling India.</p>
+      <p>Brain Heal India - India's first premium therapist collective. Best online therapy, cheap therapy sessions, verified therapists. Mental health counseling, online counseling India.</p>
       <nav>
         <a href="${DOMAIN}/therapy">Find a Therapist</a> |
         <a href="${DOMAIN}/community">Community</a> |
@@ -599,7 +599,7 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
         "@type": "WebPage",
         "@id": `${DOMAIN}/#webpage`,
         "url": DOMAIN,
-        "name": "Brain Heal India — Best Online Therapy Platform",
+        "name": "Brain Heal India - Best Online Therapy Platform",
         "description": description,
         "isPartOf": { "@id": `${DOMAIN}/#website` },
         "about": { "@id": `${DOMAIN}/#organization` }
@@ -645,13 +645,13 @@ function generateHomeSEO(data, therapists, faqs, reviews, hero) {
 }
 
 function generateTherapySEO(data, therapists) {
-  const title = 'Find a Therapist | Brain Heal India — Best Affordable Online Therapy';
+  const title = 'Find a Therapist | Brain Heal India - Best Affordable Online Therapy';
   const description = `Browse ${therapists.length || '50+'}  verified therapists at Brain Heal India. Online therapy for anxiety, depression, relationships, trauma, ADHD & more. ₹0 switching fees. Best cheap therapy sessions starting from ₹111. Book now.`;
   const url = DOMAIN + '/therapy';
 
   const therapistListHTML = therapists.map(t => `
     <article>
-      <h3><a href="${DOMAIN}/therapist/${t.slug}">${esc(t.name)} — ${esc(t.title)}</a></h3>
+      <h3><a href="${DOMAIN}/therapist/${t.slug}">${esc(t.name)} - ${esc(t.title)}</a></h3>
       ${t.credentials ? `<p>Credentials: ${esc(t.credentials)}</p>` : ''}
       ${t.experience ? `<p>Experience: ${esc(t.experience)}</p>` : ''}
       ${t.specialties.length > 0 ? `<p>Specialties: ${t.specialties.map(esc).join(', ')}</p>` : ''}
@@ -662,7 +662,7 @@ function generateTherapySEO(data, therapists) {
 
   const bodyContent = `
     <header>
-      <h1>Find a Therapist — Brain Heal India's Best Affordable Therapy</h1>
+      <h1>Find a Therapist - Brain Heal India's Best Affordable Therapy</h1>
       <p>Browse our collective of verified therapists. Best cheap therapy in India with ₹0 switching fees.</p>
     </header>
 
@@ -686,10 +686,10 @@ function generateTherapySEO(data, therapists) {
       <section>
         <h2>Therapy Categories Available at BrainHeal</h2>
         <ul>
-          <li><strong>Therapist</strong> — Individual therapy for anxiety, depression, stress, self-growth</li>
-          <li><strong>Couples Therapist</strong> — Relationship counseling and couples therapy</li>
-          <li><strong>Counsellor</strong> — General counseling and emotional support</li>
-          <li><strong>Psychiatrist</strong> — Clinical psychiatry with medication management</li>
+          <li><strong>Therapist</strong> - Individual therapy for anxiety, depression, stress, self-growth</li>
+          <li><strong>Couples Therapist</strong> - Relationship counseling and couples therapy</li>
+          <li><strong>Counsellor</strong> - General counseling and emotional support</li>
+          <li><strong>Psychiatrist</strong> - Clinical psychiatry with medication management</li>
         </ul>
       </section>
 
@@ -707,7 +707,7 @@ function generateTherapySEO(data, therapists) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     "name": "Verified Therapists at BrainHeal",
-    "description": "Browse all verified therapists available on BrainHeal — India's best affordable online therapy platform.",
+    "description": "Browse all verified therapists available on BrainHeal - India's best affordable online therapy platform.",
     "numberOfItems": therapists.length,
     "itemListElement": therapists.map((t, i) => ({
       "@type": "ListItem",
@@ -727,13 +727,13 @@ function generateTherapySEO(data, therapists) {
 }
 
 function generateCommunitySEO() {
-  const title = 'Anonymous Mental Health Community | BrainHeal — Free Peer Support';
+  const title = 'Anonymous Mental Health Community | BrainHeal - Free Peer Support';
   const description = 'Join BrainHeal\'s free anonymous mental health community. Share your story, find peer support, and realize you are not alone. 24-hour posts, zero judgment. Brain Heal community support for everyone in India.';
   const url = DOMAIN + '/community';
 
   const bodyContent = `
     <header>
-      <h1>Anonymous Mental Health Community — BrainHeal Free Peer Support</h1>
+      <h1>Anonymous Mental Health Community - BrainHeal Free Peer Support</h1>
       <p>A safe, anonymous space to share what you're going through. No accounts needed.</p>
     </header>
 
@@ -755,11 +755,11 @@ function generateCommunitySEO() {
       <section>
         <h2>Community Features</h2>
         <ul>
-          <li>100% Anonymous — No login, no tracking, no judgment</li>
-          <li>24-Hour Posts — All posts automatically expire for privacy</li>
-          <li>Mood Tags — Express yourself with emojis and mood indicators</li>
-          <li>Reactions & Support — Show solidarity with fellow community members</li>
-          <li>Free Forever — BrainHeal community is completely free to use</li>
+          <li>100% Anonymous - No login, no tracking, no judgment</li>
+          <li>24-Hour Posts - All posts automatically expire for privacy</li>
+          <li>Mood Tags - Express yourself with emojis and mood indicators</li>
+          <li>Reactions & Support - Show solidarity with fellow community members</li>
+          <li>Free Forever - BrainHeal community is completely free to use</li>
         </ul>
       </section>
 
@@ -789,7 +789,7 @@ function generateTherapistSEO(therapist) {
   if (!therapist) {
     return {
       title: 'Therapist Profile | BrainHeal',
-      description: 'View therapist profile on BrainHeal — India\'s best online therapy platform.',
+      description: 'View therapist profile on BrainHeal - India\'s best online therapy platform.',
       url: DOMAIN + '/therapy',
       bodyContent: '<h1>Therapist Profile</h1><p><a href="' + DOMAIN + '/therapy">Browse all therapists →</a></p>',
       jsonLd: {},
@@ -799,13 +799,13 @@ function generateTherapistSEO(therapist) {
 
   const t = therapist;
   const specsList = t.specialties.length > 0 ? t.specialties.join(', ') : 'mental health';
-  const title = `${t.name} — ${t.title} | BrainHeal Therapy`;
+  const title = `${t.name} - ${t.title} | BrainHeal Therapy`;
   const description = `${t.name} is a verified ${t.title}${t.credentials ? ` (${t.credentials})` : ''} at BrainHeal with ${t.experience || 'years'} of experience. ⭐ ${t.rating} rated. Specializes in ${specsList}. Book an affordable online therapy session now.`;
   const url = `${DOMAIN}/therapist/${t.slug}`;
 
   const bodyContent = `
     <header>
-      <h1>${esc(t.name)} — ${esc(t.title)} at BrainHeal</h1>
+      <h1>${esc(t.name)} - ${esc(t.title)} at BrainHeal</h1>
       ${t.credentials ? `<p>Credentials: ${esc(t.credentials)}</p>` : ''}
     </header>
 
@@ -865,7 +865,7 @@ function generateTherapistSEO(therapist) {
 function generateStaticPageSEO(type) {
   const pages = {
     privacy: {
-      title: 'Privacy Policy | BrainHeal — Your Data is Safe',
+      title: 'Privacy Policy | BrainHeal - Your Data is Safe',
       description: 'Read BrainHeal\'s privacy policy. We protect your therapy data and personal information with enterprise-grade security. Brain Heal takes your privacy seriously.',
       url: DOMAIN + '/privacy'
     },
@@ -880,7 +880,7 @@ function generateStaticPageSEO(type) {
       url: DOMAIN + '/apply'
     },
     contact: {
-      title: 'Contact Us | BrainHeal — Get in Touch',
+      title: 'Contact Us | BrainHeal - Get in Touch',
       description: 'Contact BrainHeal for questions about therapy sessions, therapist applications, or general inquiries. Brain Heal support team is here to help.',
       url: DOMAIN + '/contact'
     }
@@ -1008,7 +1008,7 @@ function buildHumanHTML(seo) {
     return html;
   } catch (e) {
     // Fallback: serve bot HTML as-is (still valid content with proper SEO tags)
-    // Do NOT use fetch('/') here — it can cause redirect loops
+    // Do NOT use fetch('/') here - it can cause redirect loops
     return buildBotHTML(seo);
   }
 }
@@ -1075,7 +1075,7 @@ export default async function handler(req, res) {
 
     return res.status(200).send(html);
   } catch (error) {
-    // CRITICAL: Never let the handler crash — a 500 can be misinterpreted as a redirect
+    // CRITICAL: Never let the handler crash - a 500 can be misinterpreted as a redirect
     // by some crawlers or CDN layers. Always return 200 with valid HTML.
     console.error('SEO handler error:', error);
     const fallbackHTML = `<!DOCTYPE html>
@@ -1083,13 +1083,13 @@ export default async function handler(req, res) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brain Heal India — Online Therapy Platform</title>
+  <title>Brain Heal India - Online Therapy Platform</title>
   <meta name="description" content="Brain Heal India is the most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, and more.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://brainheal.in/">
 </head>
 <body>
-  <h1>Brain Heal India — Best Online Therapy Platform</h1>
+  <h1>Brain Heal India - Best Online Therapy Platform</h1>
   <p>India's most trusted online therapy platform. Find verified, affordable therapists for anxiety, depression, stress, relationships, and more.</p>
   <nav>
     <a href="https://brainheal.in/">Home</a> |

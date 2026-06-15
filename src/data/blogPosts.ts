@@ -1,6 +1,6 @@
 // Blog post data for Brain Heal India
 // Each post targets specific search keywords that GenZ audiences actually search for
-// Tone: Conversational, empathetic, warm — NOT clinical. Think "best friend who gets it"
+// Tone: Conversational, empathetic, warm - NOT clinical. Think "best friend who gets it"
 
 export interface BlogPost {
   slug: string;
@@ -29,7 +29,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'how-to-deal-with-breakup',
     title: "It's Okay to Not Be Okay: How to Actually Heal After a Breakup",
-    excerpt: "Breakups feel like the world just ended. Your chest hurts, your phone feels empty, and everyone's telling you to 'move on.' But healing isn't a switch — it's a journey. Here's how to actually get through it.",
+    excerpt: "Breakups feel like the world just ended. Your chest hurts, your phone feels empty, and everyone's telling you to 'move on.' But healing isn't a switch - it's a journey. Here's how to actually get through it.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-06-10',
     category: 'Relationships',
@@ -37,15 +37,15 @@ export const blogPosts: BlogPost[] = [
     tags: ['breakup', 'healing', 'relationships', 'self-care', 'moving on'],
     heroImage: '',
     content: `
-<p>Let's be real — breakups <em>suck</em>. Whether you were together for 6 months or 6 years, the pain is real. Your brain literally goes through withdrawal, like coming off a drug. And no, you're not being "dramatic."</p>
+<p>Let's be real - breakups <em>suck</em>. Whether you were together for 6 months or 6 years, the pain is real. Your brain literally goes through withdrawal, like coming off a drug. And no, you're not being "dramatic."</p>
 
-<p>If you're reading this at 2 AM with tears on your pillow, just know — <strong>you're not alone</strong>. Millions of people are going through the exact same thing right now. And it WILL get better. Not today, maybe not tomorrow, but it will.</p>
+<p>If you're reading this at 2 AM with tears on your pillow, just know - <strong>you're not alone</strong>. Millions of people are going through the exact same thing right now. And it WILL get better. Not today, maybe not tomorrow, but it will.</p>
 
 <h2>Why Does a Breakup Hurt So Much?</h2>
 
-<p>Here's something most people don't tell you: breakup pain is <em>scientifically</em> similar to physical pain. Your brain processes rejection in the same area that handles physical injuries. So when you say "my heart hurts" — it's not just a metaphor. Your brain is literally registering pain.</p>
+<p>Here's something most people don't tell you: breakup pain is <em>scientifically</em> similar to physical pain. Your brain processes rejection in the same area that handles physical injuries. So when you say "my heart hurts" - it's not just a metaphor. Your brain is literally registering pain.</p>
 
-<p>When you're in love, your brain floods with dopamine, oxytocin, and serotonin — the same chemicals that make you feel happy, safe, and connected. When that person suddenly disappears from your life, your brain goes into panic mode. It's looking for that "hit" of love chemicals and can't find it.</p>
+<p>When you're in love, your brain floods with dopamine, oxytocin, and serotonin - the same chemicals that make you feel happy, safe, and connected. When that person suddenly disappears from your life, your brain goes into panic mode. It's looking for that "hit" of love chemicals and can't find it.</p>
 
 <p>That's why you feel:</p>
 <ul>
@@ -61,12 +61,12 @@ export const blogPosts: BlogPost[] = [
 <h2>The 5 Stages You'll Go Through (And Why Each One Matters)</h2>
 
 <h3>1. The Shock Phase 💔</h3>
-<p>First few days — you're numb. Everything feels surreal. You might even be calm on the outside while screaming inside. This is your brain protecting you from processing too much pain at once.</p>
+<p>First few days - you're numb. Everything feels surreal. You might even be calm on the outside while screaming inside. This is your brain protecting you from processing too much pain at once.</p>
 <p><strong>What helps:</strong> Let yourself feel it. Don't force yourself to be "strong." Cry if you need to. Call your best friend at 3 AM. It's okay.</p>
 
 <h3>2. The Obsessive Phase 🔄</h3>
 <p>This is where you start replaying everything. "What if I had done this differently?" "What did they mean when they said that?" You might stalk their social media, re-read old messages, or draft texts you'll never send.</p>
-<p><strong>What helps:</strong> Mute (not unfollow — mute) them on every platform. You don't need to see their stories. Put your phone in another room at night. Talk to someone — a friend, a family member, or even a stranger on <a href="https://brainheal.in/community">Brain Heal's anonymous community</a>.</p>
+<p><strong>What helps:</strong> Mute (not unfollow - mute) them on every platform. You don't need to see their stories. Put your phone in another room at night. Talk to someone - a friend, a family member, or even a stranger on <a href="https://brainheal.in/community">Brain Heal's anonymous community</a>.</p>
 
 <h3>3. The Anger Phase 🔥</h3>
 <p>"How DARE they throw away what we had?" Good. Feel that anger. It means you're starting to process the hurt underneath. Anger is just pain wearing armor.</p>
@@ -74,25 +74,25 @@ export const blogPosts: BlogPost[] = [
 
 <h3>4. The Bargaining Phase 🙏</h3>
 <p>"Maybe if I change, they'll come back." "Maybe I should text them one more time." This is your brain trying to undo the loss. It's painful, but it's also a sign that you're starting to accept that things have changed.</p>
-<p><strong>What helps:</strong> Talk to someone who has been through this. Sometimes you need someone who has already survived the storm to tell you — "I know it feels impossible right now, but you WILL get through this."</p>
+<p><strong>What helps:</strong> Talk to someone who has been through this. Sometimes you need someone who has already survived the storm to tell you - "I know it feels impossible right now, but you WILL get through this."</p>
 
 <h3>5. The Acceptance Phase ☀️</h3>
-<p>One morning you'll wake up and realize — you didn't think about them first thing today. The songs don't hurt as much. You start imagining a future that doesn't include them. And it feels... okay.</p>
+<p>One morning you'll wake up and realize - you didn't think about them first thing today. The songs don't hurt as much. You start imagining a future that doesn't include them. And it feels... okay.</p>
 <p><strong>What helps:</strong> Celebrate small wins. Going a whole day without crying? That's growth. Laughing at a meme? That's healing. Being excited about something new? That's your life coming back to you.</p>
 
 <h2>10 Things That Actually Help (Not the Toxic "Just Move On" Advice)</h2>
 
 <ol>
-  <li><strong>Delete their number</strong> — or at least give it to a friend so you can't drunk-text</li>
-  <li><strong>Rearrange your room</strong> — change the energy of your space</li>
-  <li><strong>Start a "brain dump" journal</strong> — write everything you're feeling, no filter</li>
-  <li><strong>Move your body</strong> — even a 10-minute walk releases endorphins</li>
-  <li><strong>Let yourself be sad</strong> — suppressing emotions only delays healing</li>
-  <li><strong>Unfollow/mute relationship content</strong> — your For You Page doesn't need to be full of couple goals right now</li>
-  <li><strong>Talk to someone anonymous</strong> — sometimes it's easier to open up to a stranger. That's why <a href="https://brainheal.in/community">Brain Heal's community</a> exists</li>
-  <li><strong>Set small daily goals</strong> — "Today I will eat one proper meal and drink water"</li>
-  <li><strong>Avoid making big decisions</strong> — don't cut your hair, quit your job, or text your ex for at least 30 days</li>
-  <li><strong>Be patient with yourself</strong> — healing isn't linear. Some days will be harder than others. That's okay.</li>
+  <li><strong>Delete their number</strong> - or at least give it to a friend so you can't drunk-text</li>
+  <li><strong>Rearrange your room</strong> - change the energy of your space</li>
+  <li><strong>Start a "brain dump" journal</strong> - write everything you're feeling, no filter</li>
+  <li><strong>Move your body</strong> - even a 10-minute walk releases endorphins</li>
+  <li><strong>Let yourself be sad</strong> - suppressing emotions only delays healing</li>
+  <li><strong>Unfollow/mute relationship content</strong> - your For You Page doesn't need to be full of couple goals right now</li>
+  <li><strong>Talk to someone anonymous</strong> - sometimes it's easier to open up to a stranger. That's why <a href="https://brainheal.in/community">Brain Heal's community</a> exists</li>
+  <li><strong>Set small daily goals</strong> - "Today I will eat one proper meal and drink water"</li>
+  <li><strong>Avoid making big decisions</strong> - don't cut your hair, quit your job, or text your ex for at least 30 days</li>
+  <li><strong>Be patient with yourself</strong> - healing isn't linear. Some days will be harder than others. That's okay.</li>
 </ol>
 
 <h2>When Should You Talk to Someone Professional?</h2>
@@ -107,15 +107,15 @@ export const blogPosts: BlogPost[] = [
   <li>You're using alcohol, substances, or risky behavior to cope</li>
 </ul>
 
-<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we don't believe therapy should feel scary or clinical. Think of it as having a really good conversation with someone who actually gets it — someone trained to help you untangle the mess in your head. No judgment. No lectures. Just real talk.</p>
+<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we don't believe therapy should feel scary or clinical. Think of it as having a really good conversation with someone who actually gets it - someone trained to help you untangle the mess in your head. No judgment. No lectures. Just real talk.</p>
 
 <p>Your first session starts at just ₹111, and you can switch your therapist anytime if you don't feel the connection. Because at Brain Heal, we believe healing should be accessible, affordable, and on your terms.</p>
 
 <h2>A Note From Us 💜</h2>
 
-<p>If you're going through a breakup right now — we see you. We know it feels like the pain will never end. But we promise you, on the other side of this, there's a version of you who is stronger, wiser, and more in love with yourself than you ever thought possible.</p>
+<p>If you're going through a breakup right now - we see you. We know it feels like the pain will never end. But we promise you, on the other side of this, there's a version of you who is stronger, wiser, and more in love with yourself than you ever thought possible.</p>
 
-<p>You don't have to go through this alone. Whether it's our <a href="https://brainheal.in/community">anonymous community</a>, a <a href="https://brainheal.in/therapy">heart-to-heart with a therapist</a>, or just reading this and knowing someone out there cares — we're here.</p>
+<p>You don't have to go through this alone. Whether it's our <a href="https://brainheal.in/community">anonymous community</a>, a <a href="https://brainheal.in/therapy">heart-to-heart with a therapist</a>, or just reading this and knowing someone out there cares - we're here.</p>
 
 <p><em>Take care of yourself today. You deserve it.</em> 💜</p>
 `
@@ -134,11 +134,11 @@ export const blogPosts: BlogPost[] = [
     content: `
 <p>You know that thing where your brain decides to replay every embarrassing moment of your life at 3 AM? Or when you send a text and immediately spiral into "what if they hate me now?" Yeah. We need to talk about that.</p>
 
-<p><strong>Overthinking isn't just "thinking too much."</strong> It's your brain's alarm system going haywire. It's trying to protect you from danger — except the "danger" is a text message that got left on read.</p>
+<p><strong>Overthinking isn't just "thinking too much."</strong> It's your brain's alarm system going haywire. It's trying to protect you from danger - except the "danger" is a text message that got left on read.</p>
 
 <h2>Why Do We Overthink?</h2>
 
-<p>Here's the thing — your brain is literally wired to look for threats. Back when humans lived in caves, this kept us alive. "Is that a tiger in the bushes? BETTER THINK ABOUT IT 50 TIMES." But in 2026, there are no tigers. Instead, your brain treats a coworker's slightly cold email like a life-threatening emergency.</p>
+<p>Here's the thing - your brain is literally wired to look for threats. Back when humans lived in caves, this kept us alive. "Is that a tiger in the bushes? BETTER THINK ABOUT IT 50 TIMES." But in 2026, there are no tigers. Instead, your brain treats a coworker's slightly cold email like a life-threatening emergency.</p>
 
 <p>Common overthinking triggers:</p>
 <ul>
@@ -150,7 +150,7 @@ export const blogPosts: BlogPost[] = [
   <li>Comparing yourself to everyone on Instagram</li>
 </ul>
 
-<p>If you nodded at any of these — welcome to the club. Population: literally everyone you know.</p>
+<p>If you nodded at any of these - welcome to the club. Population: literally everyone you know.</p>
 
 <h2>The Overthinking Loop (And How to Break It)</h2>
 
@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
 <p>This pulls your brain out of the spiral and back into reality. It sounds simple. It works stupidly well.</p>
 
 <h3>2. Set a "Worry Window"</h3>
-<p>Give yourself 15 minutes a day to worry about everything. Set a timer. Worry your heart out. When the timer goes off — you're done. If a worry pops up later, tell yourself "I'll worry about that during my worry window tomorrow."</p>
+<p>Give yourself 15 minutes a day to worry about everything. Set a timer. Worry your heart out. When the timer goes off - you're done. If a worry pops up later, tell yourself "I'll worry about that during my worry window tomorrow."</p>
 <p>It sounds ridiculous, but it actually trains your brain to delay and contain anxious thoughts.</p>
 
 <h3>3. Write It Down (Brain Dump)</h3>
@@ -225,7 +225,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'toxic-relationship-signs',
     title: "Is Your Relationship Toxic? 12 Signs You're Ignoring (But Shouldn't)",
-    excerpt: "Love shouldn't feel like walking on eggshells. If you're constantly anxious, apologizing for things that aren't your fault, or feeling drained after every conversation — read this.",
+    excerpt: "Love shouldn't feel like walking on eggshells. If you're constantly anxious, apologizing for things that aren't your fault, or feeling drained after every conversation - read this.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-06-06',
     category: 'Relationships',
@@ -233,20 +233,20 @@ export const blogPosts: BlogPost[] = [
     tags: ['toxic relationship', 'red flags', 'gaslighting', 'manipulation', 'healthy relationship'],
     heroImage: '',
     content: `
-<p>Let's get one thing straight — love should make you feel <em>safe</em>, not anxious. If being with someone feels like an emotional rollercoaster where the highs are incredible but the lows make you question your sanity... we need to talk.</p>
+<p>Let's get one thing straight - love should make you feel <em>safe</em>, not anxious. If being with someone feels like an emotional rollercoaster where the highs are incredible but the lows make you question your sanity... we need to talk.</p>
 
 <p>Toxic relationships don't always look like what you see in movies. Sometimes it's subtle. Sometimes it's the person who says "I love you" but makes you feel like you're never enough. Sometimes it's the person who's amazing in front of others but a completely different human when you're alone.</p>
 
 <h2>12 Signs Your Relationship Might Be Toxic</h2>
 
 <h3>1. You're Always Walking on Eggshells 🥚</h3>
-<p>You carefully choose your words. You monitor their mood before speaking. You avoid certain topics because you "don't want to start something." If you feel like you need to manage another person's emotions just to keep the peace — that's not love. That's survival mode.</p>
+<p>You carefully choose your words. You monitor their mood before speaking. You avoid certain topics because you "don't want to start something." If you feel like you need to manage another person's emotions just to keep the peace - that's not love. That's survival mode.</p>
 
 <h3>2. They Gaslight You 💡</h3>
-<p>"That never happened." "You're being dramatic." "You're too sensitive." If you find yourself questioning your own memory, perception, or feelings because of what they say — that's gaslighting. It's one of the most insidious forms of emotional manipulation, and it slowly erodes your sense of reality.</p>
+<p>"That never happened." "You're being dramatic." "You're too sensitive." If you find yourself questioning your own memory, perception, or feelings because of what they say - that's gaslighting. It's one of the most insidious forms of emotional manipulation, and it slowly erodes your sense of reality.</p>
 
 <h3>3. Love-Bombing Followed by Cold Shoulders ❄️</h3>
-<p>One day they're showering you with affection — "you're the best thing that ever happened to me." The next day they're distant, cold, or ignoring your messages. This hot-cold cycle is addictive (literally — it triggers the same brain chemicals as gambling) and keeps you hooked.</p>
+<p>One day they're showering you with affection - "you're the best thing that ever happened to me." The next day they're distant, cold, or ignoring your messages. This hot-cold cycle is addictive (literally - it triggers the same brain chemicals as gambling) and keeps you hooked.</p>
 
 <h3>4. They Isolate You from Friends & Family 🔒</h3>
 <p>"I don't like when you hang out with them." "Your friends don't really care about you like I do." "Why do you need to talk to others when you have me?" Slowly pulling you away from your support system is a classic manipulation tactic.</p>
@@ -255,38 +255,38 @@ export const blogPosts: BlogPost[] = [
 <p>They cheated? "Well, if you gave me more attention..." They got angry and said hurtful things? "You provoked me." In a toxic relationship, you become the scapegoat for everything. You start believing you're the problem.</p>
 
 <h3>6. They Track & Control You 📱</h3>
-<p>"Who are you texting?" "Send me your location." "Why were you online at 1 AM?" Checking your phone, demanding passwords, or monitoring your movements isn't protection — it's control.</p>
+<p>"Who are you texting?" "Send me your location." "Why were you online at 1 AM?" Checking your phone, demanding passwords, or monitoring your movements isn't protection - it's control.</p>
 
 <h3>7. You Feel Drained After Being with Them 🔋</h3>
-<p>A healthy relationship should energize you. If you feel emotionally exhausted, anxious, or relieved when they're not around — your body is telling you something. Listen to it.</p>
+<p>A healthy relationship should energize you. If you feel emotionally exhausted, anxious, or relieved when they're not around - your body is telling you something. Listen to it.</p>
 
 <h3>8. They Weaponize Your Vulnerabilities 🗡️</h3>
-<p>You opened up about your insecurities, your past, your fears — and now they use them against you during fights. "No wonder your ex left you." "You've always been like this." Your vulnerabilities should be held with care, not used as ammunition.</p>
+<p>You opened up about your insecurities, your past, your fears - and now they use them against you during fights. "No wonder your ex left you." "You've always been like this." Your vulnerabilities should be held with care, not used as ammunition.</p>
 
 <h3>9. They Never Take Accountability 🚫</h3>
-<p>"I'm sorry you feel that way" is NOT an apology. "I'm sorry BUT..." is NOT an apology. If they can never genuinely say "I was wrong, and I'll do better" — they're not capable of healthy conflict resolution.</p>
+<p>"I'm sorry you feel that way" is NOT an apology. "I'm sorry BUT..." is NOT an apology. If they can never genuinely say "I was wrong, and I'll do better" - they're not capable of healthy conflict resolution.</p>
 
 <h3>10. You've Lost Yourself 🪞</h3>
-<p>You used to have hobbies, opinions, dreams. Now everything revolves around them. You've changed who you are to become what they want. If you look in the mirror and don't recognize the person staring back — that's a sign.</p>
+<p>You used to have hobbies, opinions, dreams. Now everything revolves around them. You've changed who you are to become what they want. If you look in the mirror and don't recognize the person staring back - that's a sign.</p>
 
 <h3>11. The "Good Times" Are Just the Absence of Bad Times 📅</h3>
-<p>When someone asks "but there are good times too, right?" and your answer is "well, they haven't yelled at me in a week" — that's not a good time. That's just a pause between storms.</p>
+<p>When someone asks "but there are good times too, right?" and your answer is "well, they haven't yelled at me in a week" - that's not a good time. That's just a pause between storms.</p>
 
 <h3>12. Your Gut Knows 🫀</h3>
 <p>Deep down, you know. You've probably Googled "is my relationship toxic" more than once. You've read articles like this one hoping someone would validate what you're feeling. So here it is: <strong>if it feels wrong, it probably is.</strong></p>
 
 <h2>What Now?</h2>
 
-<p>Recognizing toxicity is the hardest step — and you just did it by reading this far. Here's what you can do:</p>
+<p>Recognizing toxicity is the hardest step - and you just did it by reading this far. Here's what you can do:</p>
 
 <ul>
-  <li><strong>Talk to someone you trust</strong> — a friend, a sibling, or anyone who knows you outside of this relationship</li>
-  <li><strong>Write down specific incidents</strong> — when you're in a toxic relationship, your brain tends to minimize the bad stuff. Writing it down makes it real.</li>
-  <li><strong>Set one small boundary</strong> — it doesn't have to be dramatic. Start with something small like "I need space when we argue" and see how they respond. A healthy partner respects boundaries. A toxic one punishes you for having them.</li>
-  <li><strong>Seek support</strong> — you don't have to figure this out alone. Talk to someone on <a href="https://brainheal.in/community">Brain Heal's community</a> or <a href="https://brainheal.in/therapy">connect with a therapist</a> who specializes in relationships.</li>
+  <li><strong>Talk to someone you trust</strong> - a friend, a sibling, or anyone who knows you outside of this relationship</li>
+  <li><strong>Write down specific incidents</strong> - when you're in a toxic relationship, your brain tends to minimize the bad stuff. Writing it down makes it real.</li>
+  <li><strong>Set one small boundary</strong> - it doesn't have to be dramatic. Start with something small like "I need space when we argue" and see how they respond. A healthy partner respects boundaries. A toxic one punishes you for having them.</li>
+  <li><strong>Seek support</strong> - you don't have to figure this out alone. Talk to someone on <a href="https://brainheal.in/community">Brain Heal's community</a> or <a href="https://brainheal.in/therapy">connect with a therapist</a> who specializes in relationships.</li>
 </ul>
 
-<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, our therapists are trained to help you see what love should actually look like — not the fairy tale version, but a real, healthy partnership where you feel safe, heard, and valued. No judgment. No telling you what to do. Just someone in your corner helping you figure it out.</p>
+<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, our therapists are trained to help you see what love should actually look like - not the fairy tale version, but a real, healthy partnership where you feel safe, heard, and valued. No judgment. No telling you what to do. Just someone in your corner helping you figure it out.</p>
 
 <p><em>You deserve a love that feels like peace, not chaos. Remember that.</em> 💜</p>
 `
@@ -295,7 +295,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'feeling-lonely-what-to-do',
     title: "Feeling Lonely Even When You're Surrounded by People? You're Not Alone",
-    excerpt: "The most crowded room can feel like the loneliest place. If you're smiling on the outside but empty on the inside — this one's for you.",
+    excerpt: "The most crowded room can feel like the loneliest place. If you're smiling on the outside but empty on the inside - this one's for you.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-06-04',
     category: 'Healing',
@@ -305,9 +305,9 @@ export const blogPosts: BlogPost[] = [
     content: `
 <p>Loneliness isn't about being alone. You can be alone and feel perfectly content. You can also be at a party with 50 people and feel like no one in the world understands you.</p>
 
-<p><strong>That kind of loneliness — the one that sits in your chest even when you're surrounded by people — is one of the most painful human experiences.</strong> And in 2026, despite being more "connected" than ever through social media, more people feel lonely than at any other time in history.</p>
+<p><strong>That kind of loneliness - the one that sits in your chest even when you're surrounded by people - is one of the most painful human experiences.</strong> And in 2026, despite being more "connected" than ever through social media, more people feel lonely than at any other time in history.</p>
 
-<p>If you're reading this and feeling that ache — we see you. Let's talk about it.</p>
+<p>If you're reading this and feeling that ache - we see you. Let's talk about it.</p>
 
 <h2>Why Do So Many of Us Feel Lonely?</h2>
 
@@ -315,38 +315,38 @@ export const blogPosts: BlogPost[] = [
 <p>We see 500 stories a day of people laughing, traveling, hanging out. Everyone seems to have a "squad." Meanwhile, you're in bed at 9 PM wondering why no one checked on you today. Social media shows us the highlight reels of everyone else's connections while we sit with our behind-the-scenes.</p>
 
 <h3>Surface-Level Friendships</h3>
-<p>You might have people to party with but no one to cry with. You might have 1000 Instagram followers but not one person you can call at 2 AM. In a world of group chats and "let's catch up soon" that never happens — deep, real connections feel rare.</p>
+<p>You might have people to party with but no one to cry with. You might have 1000 Instagram followers but not one person you can call at 2 AM. In a world of group chats and "let's catch up soon" that never happens - deep, real connections feel rare.</p>
 
 <h3>The Pressure to Be "Fine"</h3>
-<p>"How are you?" "I'm fine!" — the most common lie we tell each other. We've been conditioned to perform happiness. Admitting you're lonely feels like admitting you're a failure. So we keep the mask on.</p>
+<p>"How are you?" "I'm fine!" - the most common lie we tell each other. We've been conditioned to perform happiness. Admitting you're lonely feels like admitting you're a failure. So we keep the mask on.</p>
 
 <h2>Things That Actually Help with Loneliness</h2>
 
-<h3>1. Start Small — Say One Real Thing Today</h3>
+<h3>1. Start Small - Say One Real Thing Today</h3>
 <p>You don't need to have a deep, soul-baring conversation. Just say one honest thing to someone. "I've been feeling really low lately" or "I had a tough week." You'll be surprised how many people respond with "me too."</p>
 
 <h3>2. Find Your People (They Might Not Be Where You Expect)</h3>
-<p>Sometimes your people aren't in your college or workplace. They might be in an online community, a hobby group, or a place you haven't looked yet. <a href="https://brainheal.in/community">Brain Heal's anonymous community</a> was built exactly for this — a space where you can say what you really feel without judgment, without filters, without pretending.</p>
+<p>Sometimes your people aren't in your college or workplace. They might be in an online community, a hobby group, or a place you haven't looked yet. <a href="https://brainheal.in/community">Brain Heal's anonymous community</a> was built exactly for this - a space where you can say what you really feel without judgment, without filters, without pretending.</p>
 
 <h3>3. Quality Over Quantity</h3>
 <p>You don't need 20 friends. You need 2-3 people who actually care. Focus on deepening existing connections rather than collecting new ones. Send that "thinking of you" message. Ask someone how they're <em>really</em> doing. Be the friend you wish you had.</p>
 
 <h3>4. Get Comfortable with Your Own Company</h3>
-<p>There's a difference between being lonely and being alone. Learning to enjoy your own company — taking yourself on a date, journaling, going for a solo walk — can transform how you experience solitude.</p>
+<p>There's a difference between being lonely and being alone. Learning to enjoy your own company - taking yourself on a date, journaling, going for a solo walk - can transform how you experience solitude.</p>
 
 <h3>5. Talk to Someone Who Listens for Real</h3>
-<p>Sometimes the loneliest feeling is having a lot to say and no one to say it to. That's where talking to a therapist can be genuinely life-changing. It's not about being "mentally ill" — it's about having one person in your life whose entire job is to <em>listen</em> to you. Really, truly listen.</p>
+<p>Sometimes the loneliest feeling is having a lot to say and no one to say it to. That's where talking to a therapist can be genuinely life-changing. It's not about being "mentally ill" - it's about having one person in your life whose entire job is to <em>listen</em> to you. Really, truly listen.</p>
 
 <p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we match you with someone who gets your world. Young, warm, no judgment. Think of it as booking a conversation with someone who actually cares. Starting at just ₹111.</p>
 
-<p><em>Loneliness is not a life sentence. It's a signal that you need connection — and connection is always possible.</em> 💜</p>
+<p><em>Loneliness is not a life sentence. It's a signal that you need connection - and connection is always possible.</em> 💜</p>
 `
   },
 
   {
     slug: 'self-love-after-heartbreak',
     title: "How to Fall in Love with Yourself (Especially After Someone Broke Your Heart)",
-    excerpt: "They left. And they took your confidence with them. But here's the truth they never told you — the love you gave them? You can give it to yourself. Here's how.",
+    excerpt: "They left. And they took your confidence with them. But here's the truth they never told you - the love you gave them? You can give it to yourself. Here's how.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-06-02',
     category: 'Self-Care',
@@ -354,7 +354,7 @@ export const blogPosts: BlogPost[] = [
     tags: ['self love', 'confidence', 'healing', 'self care', 'heartbreak recovery'],
     heroImage: '',
     content: `
-<p>After a heartbreak, the hardest thing isn't missing them. It's looking in the mirror and wondering — <em>was I not enough?</em></p>
+<p>After a heartbreak, the hardest thing isn't missing them. It's looking in the mirror and wondering - <em>was I not enough?</em></p>
 
 <p>That question is a liar. Let's get that out of the way right now. <strong>You were always enough.</strong> The fact that someone couldn't see your value says everything about their vision and nothing about your worth.</p>
 
@@ -375,7 +375,7 @@ export const blogPosts: BlogPost[] = [
 <p>This sounds cheesy, but try it. Write a letter to yourself from the perspective of your best friend. What would they say about you? How would they describe your best qualities? Read it when you're spiraling. It helps. A lot.</p>
 
 <h3>3. Reconnect with Who You Were Before Them</h3>
-<p>What did you enjoy before the relationship consumed everything? Did you like painting? Reading? Dancing alone in your room? Go back to those things. Not because they'll "distract" you, but because those things are part of who you are — and you lost touch with them while trying to be what someone else wanted.</p>
+<p>What did you enjoy before the relationship consumed everything? Did you like painting? Reading? Dancing alone in your room? Go back to those things. Not because they'll "distract" you, but because those things are part of who you are - and you lost touch with them while trying to be what someone else wanted.</p>
 
 <h3>4. Set Boundaries with Yourself</h3>
 <p>No more checking their profile. No more re-reading old chats. No more wondering what they're doing at 11 PM. Every time you check, you're reopening the wound. Set a rule: "I will not look at anything related to them for 24 hours." Then do it again tomorrow. Then the next day.</p>
@@ -384,7 +384,7 @@ export const blogPosts: BlogPost[] = [
 <p>It doesn't need to be grand. Take a long shower. Buy yourself flowers. Cook your comfort food. Put on clean bedsheets. Small acts of self-care are love letters to yourself.</p>
 
 <h3>6. Talk It Out</h3>
-<p>The heaviest weight is the one you carry in silence. Whether it's a friend, a journal, <a href="https://brainheal.in/community">Brain Heal's community</a>, or a <a href="https://brainheal.in/therapy">therapist</a> — say what's in your heart. Out loud. The more you say it, the less power it has over you.</p>
+<p>The heaviest weight is the one you carry in silence. Whether it's a friend, a journal, <a href="https://brainheal.in/community">Brain Heal's community</a>, or a <a href="https://brainheal.in/therapy">therapist</a> - say what's in your heart. Out loud. The more you say it, the less power it has over you.</p>
 
 <h2>Affirmations That Don't Feel Fake</h2>
 
@@ -398,7 +398,7 @@ export const blogPosts: BlogPost[] = [
   <li>"My timeline is not behind. I am exactly where I need to be."</li>
 </ul>
 
-<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we believe healing starts with being heard. If you want someone in your corner — someone who won't judge, won't lecture, won't tell you to "just get over it" — our therapists are here. Starting at ₹111, because self-love shouldn't cost a fortune. 💜</p>
+<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we believe healing starts with being heard. If you want someone in your corner - someone who won't judge, won't lecture, won't tell you to "just get over it" - our therapists are here. Starting at ₹111, because self-love shouldn't cost a fortune. 💜</p>
 `
   },
 
@@ -422,11 +422,11 @@ export const blogPosts: BlogPost[] = [
 
 <p>And just like that, your brain is hosting an unsolicited 3-hour TED talk about everything that has ever gone wrong or could possibly go wrong in the future.</p>
 
-<p><strong>You're not crazy. You have nighttime anxiety.</strong> And it's incredibly common — especially if you're in your 20s, stressed about life, or going through something emotionally heavy.</p>
+<p><strong>You're not crazy. You have nighttime anxiety.</strong> And it's incredibly common - especially if you're in your 20s, stressed about life, or going through something emotionally heavy.</p>
 
 <h2>Why Does Anxiety Get Worse at Night?</h2>
 
-<p>During the day, your brain is busy — work, conversations, social media, commuting. It doesn't have time to process your feelings. But at night, when everything goes quiet, your brain finally has bandwidth. And it uses that bandwidth to panic about literally everything.</p>
+<p>During the day, your brain is busy - work, conversations, social media, commuting. It doesn't have time to process your feelings. But at night, when everything goes quiet, your brain finally has bandwidth. And it uses that bandwidth to panic about literally everything.</p>
 
 <p>Think of it like your brain's to-do list. All day, it's been piling up worries, fears, and unprocessed emotions into a "deal with later" folder. Nighttime is "later."</p>
 
@@ -435,9 +435,9 @@ export const blogPosts: BlogPost[] = [
 <h3>🌙 1 Hour Before Bed: Wind Down</h3>
 <ul>
   <li>Put your phone on Do Not Disturb (or in another room)</li>
-  <li>Dim the lights — your brain needs darkness signals to produce melatonin</li>
-  <li>Take a warm shower — the temperature drop afterward makes you sleepy</li>
-  <li>Make a calming drink — chamomile tea, warm milk, whatever feels cozy</li>
+  <li>Dim the lights - your brain needs darkness signals to produce melatonin</li>
+  <li>Take a warm shower - the temperature drop afterward makes you sleepy</li>
+  <li>Make a calming drink - chamomile tea, warm milk, whatever feels cozy</li>
 </ul>
 
 <h3>📝 30 Minutes Before Bed: Brain Dump</h3>
@@ -450,7 +450,7 @@ export const blogPosts: BlogPost[] = [
   <li>Hold for <strong>7 seconds</strong></li>
   <li>Breathe out slowly for <strong>8 seconds</strong></li>
 </ul>
-<p>Repeat 4 times. This activates your parasympathetic nervous system — literally telling your body "we're safe, we can rest."</p>
+<p>Repeat 4 times. This activates your parasympathetic nervous system - literally telling your body "we're safe, we can rest."</p>
 
 <h3>🎧 In Bed: Replace the Spiral</h3>
 <p>Instead of lying in silence (which is an open invitation for your brain to spiral), play something calming:</p>
@@ -462,11 +462,11 @@ export const blogPosts: BlogPost[] = [
 
 <h2>What If Nothing Works?</h2>
 
-<p>If you've tried everything and your nights are still filled with anxiety, racing thoughts, or full-blown panic — it's okay to ask for help. Nighttime anxiety can be a sign that something deeper needs attention, and talking to someone can make a world of difference.</p>
+<p>If you've tried everything and your nights are still filled with anxiety, racing thoughts, or full-blown panic - it's okay to ask for help. Nighttime anxiety can be a sign that something deeper needs attention, and talking to someone can make a world of difference.</p>
 
 <p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, we have therapists who specialize in anxiety and sleep issues. Think of it as having a conversation that helps your brain learn to relax. Not scary. Not clinical. Just someone who helps you find your calm. Sessions from ₹111.</p>
 
-<p>And if you just need to vent at 2 AM — <a href="https://brainheal.in/community">our anonymous community</a> is always awake. Post what's on your mind. Someone will listen. 💜</p>
+<p>And if you just need to vent at 2 AM - <a href="https://brainheal.in/community">our anonymous community</a> is always awake. Post what's on your mind. Someone will listen. 💜</p>
 
 <p><em>You deserve nights that feel like rest, not a battlefield.</em></p>
 `
@@ -475,7 +475,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: 'burnout-hate-my-job',
     title: "Burnout Is Real: What to Do When You're Exhausted but Can't Stop",
-    excerpt: "Sunday night dread. Monday morning tears. Living for the weekend just to spend it recovering from the week. If work is slowly destroying you — let's talk about it.",
+    excerpt: "Sunday night dread. Monday morning tears. Living for the weekend just to spend it recovering from the week. If work is slowly destroying you - let's talk about it.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-05-28',
     category: 'Growth',
@@ -496,20 +496,20 @@ export const blogPosts: BlogPost[] = [
   <li>☐ You're making more mistakes than usual</li>
   <li>☐ Small tasks feel overwhelming</li>
   <li>☐ You fantasize about quitting daily</li>
-  <li>☐ Your body is showing signs — headaches, back pain, stomach issues</li>
+  <li>☐ Your body is showing signs - headaches, back pain, stomach issues</li>
   <li>☐ You feel emotionally numb or detached</li>
   <li>☐ You're snapping at people you love</li>
   <li>☐ You can't remember the last time you genuinely laughed</li>
   <li>☐ You feel guilty for resting</li>
 </ul>
 
-<p>If you checked 3 or more — babe, you're burned out. And it's not your fault.</p>
+<p>If you checked 3 or more - babe, you're burned out. And it's not your fault.</p>
 
 <h2>Why Hustle Culture Is Destroying Us</h2>
 
-<p>We grew up hearing "work hard, play later." LinkedIn is full of people flexing 80-hour work weeks. "Rise and grind." "Sleep is for the weak." Cool. And also — completely unsustainable and dangerous.</p>
+<p>We grew up hearing "work hard, play later." LinkedIn is full of people flexing 80-hour work weeks. "Rise and grind." "Sleep is for the weak." Cool. And also - completely unsustainable and dangerous.</p>
 
-<p>Your body is not a machine. Your brain is not a computer. You cannot optimize yourself into happiness. At some point, the engine breaks down. And that breakdown manifests as burnout — physically, emotionally, and mentally.</p>
+<p>Your body is not a machine. Your brain is not a computer. You cannot optimize yourself into happiness. At some point, the engine breaks down. And that breakdown manifests as burnout - physically, emotionally, and mentally.</p>
 
 <h2>How to Start Recovering (Even If You Can't Quit)</h2>
 
@@ -520,23 +520,23 @@ export const blogPosts: BlogPost[] = [
 <p>"No" is a complete sentence. You don't need to justify it. Start with low-stakes no's: "No, I can't take on that extra project." "No, I won't check email after 8 PM." Every boundary you set is a brick in the wall protecting your sanity.</p>
 
 <h3>3. Separate Your Identity from Your Job</h3>
-<p>You are not your job title. You are not your productivity. If you were fired tomorrow, you would still be a whole, worthy person. Start building identity outside of work — a hobby, a community, a creative pursuit. Something that reminds you that you exist beyond your to-do list.</p>
+<p>You are not your job title. You are not your productivity. If you were fired tomorrow, you would still be a whole, worthy person. Start building identity outside of work - a hobby, a community, a creative pursuit. Something that reminds you that you exist beyond your to-do list.</p>
 
 <h3>4. Tell Someone How You're Really Doing</h3>
 <p>Stop saying "I'm fine." Tell someone the truth. "I'm really struggling." "I cry before going to work." "I feel like I'm drowning." Saying it out loud is the first step to getting help.</p>
 
 <p>If you can't tell someone you know, try <a href="https://brainheal.in/community">Brain Heal's anonymous community</a>. Or <a href="https://brainheal.in/therapy">talk to a therapist</a> who specializes in career stress and burnout. Sometimes an outside perspective is exactly what you need to see what you can't see from inside the storm.</p>
 
-<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, our approach is simple — we listen, we help you figure out what's actually going on, and we work with you to create a life that doesn't constantly drain you. Starting at ₹111. Because you shouldn't have to be rich to take care of your mind.</p>
+<p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, our approach is simple - we listen, we help you figure out what's actually going on, and we work with you to create a life that doesn't constantly drain you. Starting at ₹111. Because you shouldn't have to be rich to take care of your mind.</p>
 
-<p><em>You are more than your output. Rest is not reward — it's a requirement.</em> 💜</p>
+<p><em>You are more than your output. Rest is not reward - it's a requirement.</em> 💜</p>
 `
   },
 
   {
     slug: 'how-to-trust-again',
     title: "They Cheated. Now What? How to Rebuild Trust (In Others & In Yourself)",
-    excerpt: "Being cheated on doesn't just break your heart — it breaks your ability to trust. Not just others, but yourself. 'How did I not see it?' Sound familiar? Let's unpack this.",
+    excerpt: "Being cheated on doesn't just break your heart - it breaks your ability to trust. Not just others, but yourself. 'How did I not see it?' Sound familiar? Let's unpack this.",
     author: { name: 'Brain Heal Team', role: 'Wellness Writers' },
     date: '2026-05-26',
     category: 'Relationships',
@@ -544,35 +544,35 @@ export const blogPosts: BlogPost[] = [
     tags: ['cheating', 'trust issues', 'infidelity', 'betrayal', 'healing after cheating'],
     heroImage: '',
     content: `
-<p>Being cheated on is one of those experiences that changes you at a fundamental level. It's not just about losing a partner — it's about losing your faith in love, in people, and worst of all, in your own judgment.</p>
+<p>Being cheated on is one of those experiences that changes you at a fundamental level. It's not just about losing a partner - it's about losing your faith in love, in people, and worst of all, in your own judgment.</p>
 
 <p><em>"How did I not see it?"</em><br>
 <em>"Was I stupid?"</em><br>
 <em>"Am I ever going to trust anyone again?"</em></p>
 
-<p>If these questions keep you up at night — first, know that <strong>this is not your fault</strong>. You weren't "stupid" for trusting someone. You were human. They were the one who broke something sacred. Not you.</p>
+<p>If these questions keep you up at night - first, know that <strong>this is not your fault</strong>. You weren't "stupid" for trusting someone. You were human. They were the one who broke something sacred. Not you.</p>
 
 <h2>Why Being Cheated On Hurts Different</h2>
 
-<p>A breakup hurts. Being cheated on <em>destroys</em>. Because it's not just loss — it's betrayal. The person who was supposed to be your safe space turned out to be the source of your deepest pain. That cognitive dissonance — loving someone who hurt you — is what makes it so incredibly difficult to process.</p>
+<p>A breakup hurts. Being cheated on <em>destroys</em>. Because it's not just loss - it's betrayal. The person who was supposed to be your safe space turned out to be the source of your deepest pain. That cognitive dissonance - loving someone who hurt you - is what makes it so incredibly difficult to process.</p>
 
 <p>Your brain is literally trying to reconcile two contradictory truths: "This person loves me" and "This person chose to betray me." No wonder your head is spinning.</p>
 
 <h2>The Trust Crisis: Why You Can't Trust Yourself Anymore</h2>
 
-<p>Here's something people don't talk about enough — after being cheated on, the hardest person to trust is <em>yourself</em>. You start doubting your own instincts:</p>
+<p>Here's something people don't talk about enough - after being cheated on, the hardest person to trust is <em>yourself</em>. You start doubting your own instincts:</p>
 <ul>
   <li>"My gut said something was off, but I ignored it."</li>
   <li>"I believed their lies. What does that say about me?"</li>
   <li>"How do I know my judgment won't fail me again?"</li>
 </ul>
 
-<p><strong>Your judgment didn't fail you.</strong> You were lied to by someone you had every reason to trust. That's not a failure of your instincts — it's a failure of their character. There's a massive difference.</p>
+<p><strong>Your judgment didn't fail you.</strong> You were lied to by someone you had every reason to trust. That's not a failure of your instincts - it's a failure of their character. There's a massive difference.</p>
 
 <h2>How to Rebuild Trust (A Gentle Guide)</h2>
 
 <h3>Step 1: Feel Everything</h3>
-<p>Anger, sadness, confusion, rage, numbness, betrayal — let it all come. Don't rush to "forgive and forget." That's toxic advice that prioritizes the other person's comfort over your healing. You have every right to feel devastated. Own it.</p>
+<p>Anger, sadness, confusion, rage, numbness, betrayal - let it all come. Don't rush to "forgive and forget." That's toxic advice that prioritizes the other person's comfort over your healing. You have every right to feel devastated. Own it.</p>
 
 <h3>Step 2: Stop Blaming Yourself</h3>
 <p>You did not cause them to cheat. Nothing you did or didn't do justified their choice to betray your trust. Repeat that until you believe it. Write it on your mirror if you need to.</p>
@@ -586,7 +586,7 @@ export const blogPosts: BlogPost[] = [
 </ul>
 
 <h3>Step 4: Don't Punish the Next Person</h3>
-<p>This is the hardest part. When someone new enters your life, your brain will be on high alert. Every late reply, every night out with friends, every unexplained mood change — your brain will scan for threats. That's your trauma talking, not reality.</p>
+<p>This is the hardest part. When someone new enters your life, your brain will be on high alert. Every late reply, every night out with friends, every unexplained mood change - your brain will scan for threats. That's your trauma talking, not reality.</p>
 
 <p>The key is to be <em>aware</em> of your triggers without letting them control you. "I feel anxious because they didn't reply. Is this based on evidence or past trauma?" Learning to ask yourself this question is a superpower.</p>
 
@@ -610,15 +610,15 @@ export const blogPosts: BlogPost[] = [
     tags: ['feeling lost', 'quarter life crisis', 'career confusion', 'purpose', 'life direction'],
     heroImage: '',
     content: `
-<p>There's a special kind of panic that hits you in your 20s. Everyone on LinkedIn is getting promoted. Your school friends are getting married. Someone you know just bought a car. And you're sitting there thinking — <em>what am I even doing?</em></p>
+<p>There's a special kind of panic that hits you in your 20s. Everyone on LinkedIn is getting promoted. Your school friends are getting married. Someone you know just bought a car. And you're sitting there thinking - <em>what am I even doing?</em></p>
 
-<p><strong>Welcome to the quarter-life crisis.</strong> It's real, it's common, and despite what Instagram tells you — literally everyone goes through it. The difference is, most people are too afraid to admit it.</p>
+<p><strong>Welcome to the quarter-life crisis.</strong> It's real, it's common, and despite what Instagram tells you - literally everyone goes through it. The difference is, most people are too afraid to admit it.</p>
 
 <h2>Why Do We Feel "Lost"?</h2>
 
 <p>Growing up, life had a clear path: school → college → job → success → happiness. Nobody told us that after college, the path just... disappears. Suddenly there's no syllabus, no semester system, no clear next step. Just an open field and a terrifying amount of freedom.</p>
 
-<p>Add to that the constant comparison machine called social media, where everyone's curated highlight reel makes your behind-the-scenes look pathetic — and boom, existential crisis served on a platter.</p>
+<p>Add to that the constant comparison machine called social media, where everyone's curated highlight reel makes your behind-the-scenes look pathetic - and boom, existential crisis served on a platter.</p>
 
 <h2>Things to Remember When You Feel Like Everyone's Ahead of You</h2>
 
@@ -626,7 +626,7 @@ export const blogPosts: BlogPost[] = [
 <p>JK Rowling was rejected 12 times before Harry Potter was published. She was 32. Steve Jobs was fired from his own company at 30. Oprah was told she was "unfit for TV." Your timeline is your own. Stop comparing Chapter 1 of your story to someone else's Chapter 20.</p>
 
 <h3>2. Being Confused Is Normal</h3>
-<p>Knowing what you DON'T want is progress. Not enjoying your job? That's data. Feeling unfulfilled? That's your inner compass working. Confusion isn't failure — it's the beginning of clarity.</p>
+<p>Knowing what you DON'T want is progress. Not enjoying your job? That's data. Feeling unfulfilled? That's your inner compass working. Confusion isn't failure - it's the beginning of clarity.</p>
 
 <h3>3. You Don't Need a "Passion" to Have a Good Life</h3>
 <p>Not everyone has a burning passion. Some people have quiet interests. Some people find fulfillment in relationships, not careers. Some people are still figuring it out at 40, 50, 60. There is no deadline for self-discovery.</p>
@@ -635,7 +635,7 @@ export const blogPosts: BlogPost[] = [
 <p>You don't need a 5-year plan. You need a "what can I do today that excites me even a little bit?" Maybe it's taking a free online course. Maybe it's starting that blog. Maybe it's just going outside for a walk. Small steps lead to big clarity.</p>
 
 <h3>5. Talk About It</h3>
-<p>The loneliest part of feeling lost is thinking you're the only one. You're not. Share how you feel — with a friend, on <a href="https://brainheal.in/community">Brain Heal's community</a>, or with a <a href="https://brainheal.in/therapy">therapist</a>. Sometimes another perspective is all you need to see a path you couldn't see alone.</p>
+<p>The loneliest part of feeling lost is thinking you're the only one. You're not. Share how you feel - with a friend, on <a href="https://brainheal.in/community">Brain Heal's community</a>, or with a <a href="https://brainheal.in/therapy">therapist</a>. Sometimes another perspective is all you need to see a path you couldn't see alone.</p>
 
 <p>At <a href="https://brainheal.in/therapy"><strong>Brain Heal</strong></a>, our therapists don't have all the answers (nobody does). But they're incredibly good at helping you ask the right questions. Think of it as a conversation that helps you see yourself more clearly. Starting at ₹111.</p>
 
@@ -656,12 +656,12 @@ export const blogPosts: BlogPost[] = [
     content: `
 <p>Have you ever been in an argument and your brain just... shuts down? The words are there, somewhere, but they won't come out. So you go silent. You nod. You say "it's fine." And then you spend the next 3 hours replaying the conversation in your head, thinking of everything you SHOULD have said.</p>
 
-<p><strong>If this is you — you're not cold, you're not emotionless, and you're definitely not broken.</strong> You're someone who never learned how to express emotions safely. And that's not your fault.</p>
+<p><strong>If this is you - you're not cold, you're not emotionless, and you're definitely not broken.</strong> You're someone who never learned how to express emotions safely. And that's not your fault.</p>
 
 <h2>Why Some of Us Struggle to Express Feelings</h2>
 
 <h3>Childhood Conditioning</h3>
-<p>If you grew up in a house where emotions were dismissed ("stop crying"), punished ("I'll give you something to cry about"), or ignored — your brain learned that emotions = danger. So it developed a defense mechanism: shutting down. It kept you safe as a child. But now, as an adult, it's sabotaging your relationships.</p>
+<p>If you grew up in a house where emotions were dismissed ("stop crying"), punished ("I'll give you something to cry about"), or ignored - your brain learned that emotions = danger. So it developed a defense mechanism: shutting down. It kept you safe as a child. But now, as an adult, it's sabotaging your relationships.</p>
 
 <h3>Fear of Being "Too Much"</h3>
 <p>"Don't be so sensitive." "You're overreacting." "Why are you making a big deal out of nothing?" When you hear these things enough, you start believing that your feelings are wrong. So you swallow them. Again and again. Until you don't even know what you feel anymore.</p>
@@ -672,10 +672,10 @@ export const blogPosts: BlogPost[] = [
 <h2>How to Start Opening Up (At Your Own Pace)</h2>
 
 <h3>1. Start with Writing, Not Talking</h3>
-<p>If speaking feels impossible, write. Journal. Write unsent letters. Text yourself what you're feeling. The goal isn't to share it with anyone — it's to practice identifying and articulating your emotions. You can't express what you can't name.</p>
+<p>If speaking feels impossible, write. Journal. Write unsent letters. Text yourself what you're feeling. The goal isn't to share it with anyone - it's to practice identifying and articulating your emotions. You can't express what you can't name.</p>
 
 <h3>2. Use "I Feel" Statements</h3>
-<p>Instead of "You never listen to me" (which triggers defensiveness), try "I feel unheard when I'm talking and you're on your phone." It's not about being polite — it's about being clear without starting a war.</p>
+<p>Instead of "You never listen to me" (which triggers defensiveness), try "I feel unheard when I'm talking and you're on your phone." It's not about being polite - it's about being clear without starting a war.</p>
 
 <h3>3. Practice with Safe People</h3>
 <p>You don't need to suddenly become an open book. Start with one person you trust. Share one feeling. "I felt really hurt when you said that." That's it. See how they respond. If they hold your vulnerability with care, they're safe to open up more to.</p>
