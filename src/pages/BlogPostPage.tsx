@@ -52,7 +52,7 @@ export default function BlogPostPage() {
             onClick={() => navigate('/breathe')}
             className="px-6 py-2.5 bg-black text-white rounded-full text-sm font-bold hover:bg-gray-800 transition-colors"
           >
-            Back to Content Hub
+            Back to Breathe
           </button>
         </div>
       </div>
@@ -87,9 +87,9 @@ export default function BlogPostPage() {
       {/* ── Breadcrumb ── */}
       <div className="max-w-[720px] mx-auto px-4 pt-8 pb-4">
         <div className="flex items-center gap-2 text-[13px] font-semibold text-gray-400">
-          <Link to="/" className="hover:text-red-500 transition-colors">Home</Link>
+          <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
           <span>/</span>
-          <Link to="/breathe" className="hover:text-red-500 transition-colors">Content Hub</Link>
+          <Link to="/breathe" className="hover:text-blue-600 transition-colors">Breathe</Link>
           <span>/</span>
           <span className="text-gray-900">{post.category}</span>
         </div>
@@ -202,7 +202,7 @@ export default function BlogPostPage() {
                 <li><a href="#" className="hover:text-white transition-colors">Work Performance</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Women's Health</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">For Business</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Content Hub</a></li>
+                <li><a href="/breathe" className="hover:text-white transition-colors">Breathe</a></li>
               </ul>
             </div>
 
