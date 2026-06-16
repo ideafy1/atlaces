@@ -25,6 +25,7 @@ export default function Footer() {
                 <li><a href="/therapy" className="text-gray-300 hover:text-white transition-colors text-sm">Browse Therapists</a></li>
                 <li><a href="/community" className="text-gray-300 hover:text-white transition-colors text-sm">Community</a></li>
                 <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors text-sm">Contact</a></li>
+                <li><a href="mailto:help@brainheal.in" className="text-gray-300 hover:text-white transition-colors text-sm">help@brainheal.in</a></li>
                 <li><a href="/apply" className="text-gray-300 hover:text-white transition-colors text-sm">Apply as Therapist</a></li>
                 <li><a href="/breathe" className="text-gray-300 hover:text-white transition-colors text-sm">Breathe</a></li>
               </ul>

@@ -176,7 +176,7 @@ export default function TermsConditions() {
                 <p className="text-xs text-violet-800 leading-relaxed">Please read this section carefully. It affects your legal rights, including your right to file a lawsuit in court.</p>
               </div>
               <h3>11.1 Informal Resolution</h3>
-              <p>Before initiating any formal dispute resolution proceeding, you agree to first attempt to resolve any dispute, claim, or controversy arising out of or relating to these Terms or the Services ("Dispute") informally by contacting us at legal@brainheal.in. We will attempt to resolve the Dispute within 30 days of receiving your notice.</p>
+              <p>Before initiating any formal dispute resolution proceeding, you agree to first attempt to resolve any dispute, claim, or controversy arising out of or relating to these Terms or the Services ("Dispute") informally by contacting us at help@brainheal.in. We will attempt to resolve the Dispute within 30 days of receiving your notice.</p>
               <h3>11.2 Binding Arbitration</h3>
               <p>If a Dispute cannot be resolved informally within 30 days, you and BrainHeal agree that the Dispute shall be resolved exclusively through final and binding arbitration, rather than in court. The arbitration shall be conducted by a sole arbitrator in accordance with the Arbitration and Conciliation Act, 1996 (as amended). The seat and venue of arbitration shall be New Delhi, India. The language of arbitration shall be English.</p>
               <h3>11.3 Class Action Waiver</h3>
@@ -221,7 +221,7 @@ export default function TermsConditions() {
               <h2>18. Contact Information</h2>
               <p>For any questions, concerns, or notices regarding these Terms, please contact us at:</p>
               <ul>
-                <li><strong>Email:</strong> legal@brainheal.in</li>
+                <li><strong>Email:</strong> help@brainheal.in</li>
                 <li><strong>Website:</strong> https://brainheal.in</li>
               </ul>
               <p>By using BrainHeal, you acknowledge that you have read these Terms and Conditions in their entirety and agree to be bound by them.</p>

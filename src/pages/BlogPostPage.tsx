@@ -192,7 +192,7 @@ export default function BlogPostPage() {
                 <button className="px-6 py-2.5 bg-[#FF5722] text-white font-bold rounded-r-full text-sm hover:bg-[#e64a19] transition-colors">Submit</button>
               </div>
               <h4 className="font-sans text-xl mb-2 text-[#FF5722] font-bold">Have a question?</h4>
-              <p className="text-sm text-gray-400 mb-6">Reach us at <a href="mailto:hello@brainheal.in" className="underline">hello@brainheal.in</a></p>
+              <p className="text-sm text-gray-400 mb-6">Reach us at <a href="mailto:help@brainheal.in" className="underline">help@brainheal.in</a></p>
             </div>
             
             <div>

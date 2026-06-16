@@ -144,7 +144,7 @@ export default function PrivacyPolicy() {
               <h2>11. Contact Us</h2>
               <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
               <ul>
-                <li><strong>Email:</strong> privacy@brainheal.in</li>
+                <li><strong>Email:</strong> help@brainheal.in</li>
                 <li><strong>Website:</strong> https://brainheal.in</li>
               </ul>
             </section>
