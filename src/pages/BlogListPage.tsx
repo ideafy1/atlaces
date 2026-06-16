@@ -11,25 +11,25 @@ const CATEGORY_CARDS = [
   {
     name: 'Relationships',
     emoji: '💕',
-    photo: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=600',
+    photo: '/blog-images/cat-relationships.png',
     desc: 'Love, trust & heartbreak'
   },
   {
     name: 'Wellness',
     emoji: '🧘',
-    photo: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600',
+    photo: '/blog-images/cat-wellness.png',
     desc: 'Mind, body & soul'
   },
   {
     name: 'Growth',
     emoji: '🌱',
-    photo: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600',
+    photo: '/blog-images/cat-growth.png',
     desc: 'Career & self-growth'
   },
   {
     name: 'Healing',
     emoji: '✨',
-    photo: 'https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?auto=format&fit=crop&q=80&w=600',
+    photo: '/blog-images/cat-healing.png',
     desc: 'Recovery & resilience'
   },
 ];
