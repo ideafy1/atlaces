@@ -218,7 +218,7 @@ export default function BlogListPage() {
       </section>
 
       {/* ── Category Cards ── */}
-      <section className="max-w-[1200px] mx-auto px-4 sm:px-8 -mt-16 relative z-10 mb-20">
+      <section className="max-w-[1200px] mx-auto px-4 sm:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 stagger-children">
           {CATEGORY_CARDS.map((card) => (
             <button
