@@ -72,18 +72,14 @@ export default function BlogPostPage() {
         url={postUrl}
       />
 
-      {/* ── Navbar (Same as List Page) ── */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[72px] flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
-              Brain<span className="font-normal text-gray-500">Heal</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <div className="relative z-[60] ml-2">
-              <ToolbarDock defaultCollapsed={true} />
-            </div>
+      {/* ── Navbar ── */}
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/80">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[64px] flex items-center justify-between">
+          <Link to="/" className="font-sans text-xl font-bold tracking-tight text-black">
+            Brain<span className="font-normal text-gray-400">Heal</span>
+          </Link>
+          <div className="relative z-[60]">
+            <ToolbarDock defaultCollapsed={true} />
           </div>
         </div>
       </nav>

@@ -1,250 +1,333 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowRight, ChevronRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, Clock, User, Eye, Bookmark } from 'lucide-react';
 import Footer from '../components/Footer';
 import SEOHead from '../components/SEOHead';
 import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { blogPosts, BLOG_CATEGORIES, type BlogPost } from '../data/blogPosts';
 
+/* ─────────────── Category card photos ─────────────── */
 const CATEGORY_CARDS = [
-  { name: 'Health Guide', emoji: '📖', gradient: 'from-[#E0C3FC] to-[#8EC5FC]' },
-  { name: 'Playlist', emoji: '🎵', gradient: 'from-[#D9AFD9] to-[#97D9E1]' },
-  { name: 'Mindful Hustle', emoji: '🏃🏻', gradient: 'from-[#8EC5FC] to-[#E0C3FC]' },
-  { name: 'Monthly Updates', emoji: '🗓', gradient: 'from-[#97D9E1] to-[#D9AFD9]' },
+  {
+    name: 'Relationships',
+    emoji: '💕',
+    photo: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&q=80&w=600',
+    desc: 'Love, trust & heartbreak'
+  },
+  {
+    name: 'Wellness',
+    emoji: '🧘',
+    photo: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600',
+    desc: 'Mind, body & soul'
+  },
+  {
+    name: 'Growth',
+    emoji: '🌱',
+    photo: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600',
+    desc: 'Career & self-growth'
+  },
+  {
+    name: 'Healing',
+    emoji: '✨',
+    photo: 'https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?auto=format&fit=crop&q=80&w=600',
+    desc: 'Recovery & resilience'
+  },
 ];
 
-function ArticleCard({ post }: { post: BlogPost }) {
-  const imageUrl = post.heroImage;
+/* ─────────────── Marquee messages ─────────────── */
+const MARQUEE_ITEMS = [
+  { text: "You are enough.", style: "font-semibold" },
+  { text: "✦", style: "text-blue-400 mx-6" },
+  { text: "It's okay to not be okay.", style: "font-normal italic" },
+  { text: "✦", style: "text-purple-400 mx-6" },
+  { text: "Healing is not linear.", style: "font-semibold" },
+  { text: "✦", style: "text-teal-400 mx-6" },
+  { text: "Your feelings are valid.", style: "font-normal italic" },
+  { text: "✦", style: "text-pink-400 mx-6" },
+  { text: "Take it one breath at a time.", style: "font-semibold" },
+  { text: "✦", style: "text-indigo-400 mx-6" },
+  { text: "Progress, not perfection.", style: "font-normal italic" },
+  { text: "✦", style: "text-cyan-400 mx-6" },
+  { text: "You deserve peace.", style: "font-semibold" },
+  { text: "✦", style: "text-violet-400 mx-6" },
+  { text: "Small steps still count.", style: "font-normal italic" },
+  { text: "✦", style: "text-emerald-400 mx-6" },
+];
 
+/* ─────────────── Article Card (Material Design 3 inspired) ─────────────── */
+function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
   return (
     <Link
       to={`/breathe/${post.slug}`}
-      className="group block bg-white h-full flex flex-col"
+      className="group block"
+      style={{ animationDelay: `${index * 0.06}s` }}
     >
-      <div className="w-full aspect-[4/3] overflow-hidden bg-gray-100 mb-4">
-        <img 
-          src={imageUrl} 
+      {/* Image container with rounded corners like M3 */}
+      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100 mb-5 shadow-sm">
+        <img
+          src={post.heroImage}
           alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
+        {/* Category pill overlay */}
+        <div className="absolute top-4 left-4">
+          <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[11px] font-bold text-gray-800 shadow-sm">
+            {post.category}
+          </span>
+        </div>
       </div>
-      <h3 className="font-sans text-[17px] font-bold text-gray-900 leading-snug mb-3 pr-4 group-hover:text-red-500 transition-colors line-clamp-3">
+
+      {/* Meta row: author + read time + icons */}
+      <div className="flex items-center gap-3 mb-3 text-[12px] text-gray-500 font-medium">
+        <span className="inline-flex items-center gap-1">
+          <User size={13} strokeWidth={2} />
+          {post.author.name}
+        </span>
+        <span className="w-[3px] h-[3px] rounded-full bg-gray-300"></span>
+        <span className="inline-flex items-center gap-1">
+          <Clock size={13} strokeWidth={2} />
+          {post.readTime}
+        </span>
+        <span className="ml-auto inline-flex items-center gap-2 text-gray-400">
+          <Bookmark size={14} strokeWidth={1.5} className="hover:text-gray-600 transition-colors cursor-pointer" />
+          <Eye size={14} strokeWidth={1.5} />
+        </span>
+      </div>
+
+      {/* Title */}
+      <h3 className="font-sans text-[16px] sm:text-[17px] font-bold text-gray-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
         {post.title}
       </h3>
-      <div className="mt-auto flex items-center text-sm font-semibold text-gray-900 group-hover:text-red-500 transition-colors">
-        Read more <span className="ml-1 text-red-500 text-lg leading-none">›</span>
+
+      {/* Excerpt */}
+      <p className="text-[13px] text-gray-500 leading-relaxed line-clamp-2 mb-4">
+        {post.excerpt}
+      </p>
+
+      {/* Read more link */}
+      <div className="inline-flex items-center gap-1.5 text-[13px] font-bold text-blue-600 group-hover:gap-3 transition-all duration-300">
+        Read story
+        <ArrowRight size={14} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </Link>
   );
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN PAGE
+   ═══════════════════════════════════════════════════════════════════════════ */
 export default function BlogListPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAllArticles, setShowAllArticles] = useState(false);
   const navigate = useNavigate();
 
-  const filteredPosts = activeCategory === 'All' 
-    ? blogPosts 
+  const filteredPosts = activeCategory === 'All'
+    ? blogPosts
     : blogPosts.filter(p => p.category === activeCategory);
 
   useEffect(() => { window.scrollTo({ top: 0 }); }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] font-sans">
+    <div className="min-h-screen bg-white font-sans">
       <SEOHead
-        title="Breathe by Brain Heal - Stories, Healing & Real Talk"
-        description="Breathe is Brain Heal India's space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love - we talk about it all. No judgment, just healing."
+        title="Breathe by Brain Heal — Stories, Healing & Real Talk"
+        description="Breathe is Brain Heal India's space for real stories, practical advice, and gentle wisdom. Breakups, anxiety, loneliness, self-love — we talk about it all. No judgment, just healing."
         url="https://brainheal.in/breathe"
       />
 
       {/* ── Marquee Banner ── */}
-      <div className="w-full bg-[#FCF8F3] border-b border-gray-200 overflow-hidden py-2.5">
-        <div className="whitespace-nowrap animate-[marquee_20s_linear_infinite] flex items-center justify-around text-xs font-semibold tracking-wide text-black uppercase">
-          <span>Breathe. Relax. Heal. You are in a safe space.</span>
-          <span className="hidden sm:inline">Breathe. Relax. Heal. You are in a safe space.</span>
-          <span className="hidden md:inline">Breathe. Relax. Heal. You are in a safe space.</span>
-          <span className="hidden lg:inline">Breathe. Relax. Heal. You are in a safe space.</span>
+      <div className="w-full bg-[#f5f7ff] border-b border-gray-100 overflow-hidden py-2.5">
+        <div className="whitespace-nowrap animate-[marquee_40s_linear_infinite] flex items-center text-[12px] tracking-widest text-gray-600 uppercase" style={{ fontFamily: 'var(--font-dm)' }}>
+          {/* Duplicate for seamless loop */}
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
+            <span key={i} className={item.style}>{item.text}</span>
+          ))}
         </div>
       </div>
 
       {/* ── Navbar ── */}
-      <nav className="sticky top-0 z-50 bg-white border-b border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[72px] flex items-center justify-between">
-          <div className="flex items-center gap-10">
-            <Link to="/" className="font-sans text-2xl font-bold tracking-tight text-black">
-              Brain<span className="font-normal text-gray-500">Heal</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-6">
-            <div className="relative z-[60] ml-2">
-              <ToolbarDock defaultCollapsed={true} />
-            </div>
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100/80">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[64px] flex items-center justify-between">
+          <Link to="/" className="font-sans text-xl font-bold tracking-tight text-black">
+            Brain<span className="font-normal text-gray-400">Heal</span>
+          </Link>
+          <div className="relative z-[60]">
+            <ToolbarDock defaultCollapsed={true} />
           </div>
         </div>
       </nav>
 
-      {/* ── Hero ── */}
-      <div className="relative w-full h-[500px] sm:h-[600px] bg-gradient-to-br from-[#8A2BE2] via-[#FF69B4] to-[#FFA500] flex flex-col items-center justify-center text-center px-4">
-        <h1 className="font-sans text-[3.5rem] sm:text-[5rem] font-bold tracking-tight text-white leading-tight mb-6">
-          Find your peace of mind
-        </h1>
-        <p className="text-white text-[15px] sm:text-[17px] font-medium max-w-2xl mx-auto leading-relaxed mb-12">
-          Welcome to Breathe. A safe space for real stories, practical advice, and gentle wisdom. Take a moment for yourself today.
-        </p>
-        <ArrowDown className="text-white/80 animate-bounce" size={32} strokeWidth={1.5} />
-      </div>
+      {/* ── Hero Section ── */}
+      <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#e8f0fe] via-[#d2e3fc] to-[#c2d9ff]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-24 sm:py-32 lg:py-40">
+          <div className="max-w-3xl">
+            {/* Overline */}
+            <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm text-[12px] font-bold text-blue-700 tracking-wide uppercase mb-8 border border-blue-100/60">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              Breathe by BrainHeal
+            </div>
 
-      {/* ── Category Cards (Overlapping) ── */}
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-8 -mt-24 relative z-10 mb-24">
-        <div className="bg-white rounded-[32px] p-6 sm:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-            {CATEGORY_CARDS.map((card, idx) => (
+            {/* Main heading */}
+            <h1 className="animate-fade-in-up font-sans text-[2.8rem] sm:text-[4rem] lg:text-[4.5rem] font-bold tracking-tight text-gray-900 leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
+              Find your
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                peace of mind.
+              </span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="animate-fade-in-up text-gray-600 text-[16px] sm:text-[18px] font-medium max-w-xl leading-relaxed mb-10" style={{ animationDelay: '0.2s', fontFamily: 'var(--font-dm)' }}>
+              A quiet corner of the internet for real stories, practical advice, and gentle wisdom. No judgment here. Just space to breathe and be.
+            </p>
+
+            {/* CTA */}
+            <div className="animate-fade-in-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
               <button
-                key={card.name}
-                onClick={() => setActiveCategory(activeCategory === card.name ? 'All' : card.name)}
-                className="group relative aspect-square sm:aspect-[4/5] rounded-3xl overflow-hidden text-left transition-transform duration-300 hover:-translate-y-2 border border-gray-100 shadow-sm"
+                onClick={() => document.getElementById('healing-guides')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-gray-900 text-white text-[14px] font-bold rounded-full hover:bg-black transition-all duration-300 hover:shadow-lg hover:shadow-gray-900/20 hover:-translate-y-0.5 active:translate-y-0"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-90`}></div>
-                <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
-                <div className="relative h-full p-5 sm:p-6 flex flex-col justify-between">
-                  <h3 className="font-sans text-lg sm:text-xl font-bold text-gray-900 leading-tight">
-                    {card.name} <span className="font-normal">{card.emoji}</span>
-                  </h3>
-                  <div className="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center text-white backdrop-blur-sm group-hover:bg-white group-hover:text-black transition-colors">
-                    <ArrowRight size={16} />
+                Start reading
+                <ArrowRight size={16} strokeWidth={2.5} />
+              </button>
+              <button
+                onClick={() => navigate('/therapy')}
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/70 backdrop-blur-sm text-gray-800 text-[14px] font-bold rounded-full border border-gray-200/80 hover:bg-white hover:border-gray-300 transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Talk to someone
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* Decorative blurred shapes */}
+        <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-blue-300/30 blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-10 right-40 w-56 h-56 rounded-full bg-purple-300/20 blur-3xl pointer-events-none"></div>
+        <div className="absolute top-40 right-1/3 w-40 h-40 rounded-full bg-indigo-200/30 blur-2xl pointer-events-none"></div>
+      </section>
+
+      {/* ── Category Cards ── */}
+      <section className="max-w-[1200px] mx-auto px-4 sm:px-8 -mt-16 relative z-10 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 stagger-children">
+          {CATEGORY_CARDS.map((card) => (
+            <button
+              key={card.name}
+              onClick={() => {
+                setActiveCategory(activeCategory === card.name ? 'All' : card.name);
+                setShowAllArticles(true);
+                document.getElementById('healing-guides')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className={`group relative aspect-[3/2] sm:aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${activeCategory === card.name ? 'ring-2 ring-blue-500 ring-offset-2' : ''}`}
+            >
+              <img src={card.photo} alt={card.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="relative h-full p-4 sm:p-6 flex flex-col justify-end">
+                <p className="text-white/70 text-[11px] sm:text-[12px] font-medium mb-1" style={{ fontFamily: 'var(--font-dm)' }}>{card.desc}</p>
+                <h3 className="font-sans text-base sm:text-lg font-bold text-white leading-tight">
+                  {card.name} <span className="ml-1">{card.emoji}</span>
+                </h3>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Healing Guides (Articles) ── */}
+      <section id="healing-guides" className="max-w-[1200px] mx-auto px-4 sm:px-8 py-16 sm:py-24">
+        {/* Section header */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <div>
+            <p className="text-[12px] font-bold text-blue-600 uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-dm)' }}>Stories & Guides</p>
+            <h2 className="font-sans text-[28px] sm:text-[36px] font-bold text-gray-900 leading-tight">
+              Healing Guides
+            </h2>
+            <p className="text-[14px] sm:text-[15px] text-gray-500 mt-3 max-w-md leading-relaxed" style={{ fontFamily: 'var(--font-dm)' }}>
+              Real conversations and expert-backed advice to help you navigate life's toughest moments.
+            </p>
+          </div>
+          <button
+            onClick={() => setShowAllArticles(!showAllArticles)}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all duration-300 shrink-0"
+          >
+            {showAllArticles ? "Show less" : "View all"}
+            <ArrowRight size={14} strokeWidth={2.5} className={`transition-transform duration-300 ${showAllArticles ? 'rotate-90' : ''}`} />
+          </button>
+        </div>
+
+        {/* Category filter pills */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {BLOG_CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-full text-[12px] font-bold transition-all duration-300 ${
+                activeCategory === cat
+                  ? 'bg-gray-900 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Articles grid / slider */}
+        {showAllArticles ? (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 stagger-children">
+            {filteredPosts.map((post, i) => (
+              <ArticleCard key={post.slug} post={post} index={i} />
+            ))}
+          </div>
+        ) : (
+          <div className="flex overflow-x-auto gap-6 sm:gap-8 pb-6 snap-x snap-mandatory no-scrollbar">
+            {filteredPosts.map((post, i) => (
+              <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] snap-start shrink-0">
+                <ArticleCard post={post} index={i} />
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* ── Vibe & Heal (Playlists) ── */}
+      <section className="bg-[#fafbfd] border-t border-gray-100">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-20 sm:py-28">
+          <div className="text-center mb-14">
+            <p className="text-[12px] font-bold text-purple-600 uppercase tracking-widest mb-2" style={{ fontFamily: 'var(--font-dm)' }}>Curated Playlists</p>
+            <h2 className="font-sans text-[28px] sm:text-[36px] font-bold text-gray-900 leading-tight mb-3">
+              Vibe & Heal
+            </h2>
+            <p className="text-[14px] sm:text-[15px] text-gray-500 max-w-md mx-auto" style={{ fontFamily: 'var(--font-dm)' }}>
+              Music is therapy. Tune into playlists designed to calm your anxiety and lift your mood.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+            {[
+              { title: 'Late Night\nThoughts', label: 'Night Owls 🌙', photo: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=600' },
+              { title: 'Morning\nCalm', label: 'Sunrise 🌅', photo: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600' },
+              { title: 'Overcoming\nHeartbreak', label: 'Healing ❤️‍🩹', photo: 'https://images.unsplash.com/photo-1490750967868-88cb4ecb0704?auto=format&fit=crop&q=80&w=600' },
+            ].map((playlist) => (
+              <div key={playlist.label} className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <img src={playlist.photo} alt={playlist.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/10 group-hover:from-black/80 transition-colors duration-500"></div>
+                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-8">
+                  <p className="text-[12px] font-bold text-white/70 tracking-widest uppercase mb-4">BrainHeal</p>
+                  <h3 className="font-sans text-2xl sm:text-3xl font-bold text-white drop-shadow-md whitespace-pre-line mb-8">{playlist.title}</h3>
+                  <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-sm text-gray-900 flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-white transition-all duration-300">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
                   </div>
                 </div>
-              </button>
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/40 backdrop-blur-lg font-bold text-sm text-white z-10 border-t border-white/10">
+                  {playlist.label}
+                </div>
+              </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ── Articles Section (Split Layout) ── */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-16">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          
-          {/* Left: Title & Description */}
-          <div className="lg:w-1/4 shrink-0">
-            <h2 className="font-sans text-[32px] font-bold text-gray-900 mb-4">
-              Healing Guides
-            </h2>
-            <p className="text-[15px] font-medium text-gray-700 leading-relaxed mb-8">
-              Real conversations and expert-backed advice to help you navigate life's toughest moments. Grab a cup of tea and find your calm ☕️
-            </p>
-            <button 
-              onClick={() => setShowAllArticles(!showAllArticles)}
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 text-[13px] font-bold text-gray-900 hover:bg-gray-50 transition-colors"
-            >
-              {showAllArticles ? "Collapse" : "View all"} <span className="text-red-500 text-lg leading-none">›</span>
-            </button>
-          </div>
-
-          {/* Right: Article Grid */}
-          {/* Right: Article Slider / Grid */}
-          <div className="lg:w-3/4 relative">
-            {showAllArticles ? (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-                {filteredPosts.map((post) => (
-                  <ArticleCard key={post.slug} post={post} />
-                ))}
-              </div>
-            ) : (
-              <>
-                <div className="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory no-scrollbar" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                  {filteredPosts.map((post) => (
-                    <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[350px] snap-start shrink-0">
-                      <ArticleCard post={post} />
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Scroll hint for desktop */}
-                <div className="hidden lg:flex items-center justify-end gap-4 mt-8">
-                  <span className="text-sm font-bold text-gray-400">Scroll for more ⟶</span>
-                </div>
-              </>
-            )}
-          </div>
-
-        </div>
-      </div>
-
-      {/* ── Playlists Section (Placeholder for matching design) ── */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-24 border-t border-gray-200">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          
-          <div className="lg:w-1/4 shrink-0">
-            <h2 className="font-sans text-[32px] font-bold text-gray-900 mb-4">
-              Vibe & Heal
-            </h2>
-            <p className="text-[15px] font-medium text-gray-700 leading-relaxed mb-8">
-              Music is therapy. Tune into our carefully curated playlists designed to calm your anxiety and lift your mood 🌸
-            </p>
-            <button className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-gray-300 text-[13px] font-bold text-gray-900 hover:bg-gray-50 transition-colors">
-              View all <span className="text-red-500 text-lg leading-none">›</span>
-            </button>
-          </div>
-
-          <div className="lg:w-3/4">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
-                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
-                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Late Night<br/>Thoughts</h3>
-                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
-                  Night Owls 🌙
-                </div>
-              </div>
-              
-              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
-                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
-                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
-                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Morning<br/>Calm</h3>
-                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
-                  Sunrise 🌅
-                </div>
-              </div>
-
-              <div className="aspect-[4/5] rounded-xl bg-cover bg-center bg-[url('https://images.unsplash.com/photo-1490750967868-88cb4ecb0704?auto=format&fit=crop&q=80&w=600')] p-8 flex flex-col items-center justify-center text-center relative group cursor-pointer overflow-hidden text-white">
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
-                <div className="relative z-10 flex flex-col items-center h-full w-full justify-center">
-                  <p className="text-sm font-bold mb-4 opacity-90">BrainHeal</p>
-                  <h3 className="font-sans text-3xl mb-8 font-bold text-white drop-shadow-md">Overcoming<br/>Heartbreak</h3>
-                  <div className="w-12 h-12 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/60 backdrop-blur-md font-bold text-sm flex items-center justify-between z-10 border-t border-white/10 text-white">
-                  Healing ❤️‍🩹
-                </div>
-              </div>
-            </div>
-            
-            <div className="flex items-center justify-center gap-4 mt-12">
-              <button className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <ChevronRight size={24} className="rotate-180" />
-              </button>
-              <button className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <ChevronRight size={24} />
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Footer is already included */}
       <Footer />
 
       <style>{`
