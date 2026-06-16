@@ -158,7 +158,7 @@ ${urlEntries.join('\n')}
     res.setHeader('Content-Type', 'application/xml');
     res.setHeader(
       'Cache-Control',
-      'public, s-maxage=3600, stale-while-revalidate=1800'
+      'public, s-maxage=60, stale-while-revalidate=30'
     );
 
     return res.status(200).send(sitemap);
