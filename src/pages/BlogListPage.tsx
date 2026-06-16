@@ -120,7 +120,6 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
    ═══════════════════════════════════════════════════════════════════════════ */
 export default function BlogListPage() {
   const [activeCategory, setActiveCategory] = useState('All');
-  const [showAllArticles, setShowAllArticles] = useState(false);
   const navigate = useNavigate();
 
   const filteredPosts = activeCategory === 'All'
@@ -173,7 +172,7 @@ export default function BlogListPage() {
             <h1 className="animate-fade-in-up font-sans text-[2.8rem] sm:text-[4rem] lg:text-[4.5rem] font-bold tracking-tight text-gray-900 leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
               Find your
               <br />
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="text-blue-600">
                 peace of mind.
               </span>
             </h1>
@@ -215,7 +214,6 @@ export default function BlogListPage() {
               key={card.name}
               onClick={() => {
                 setActiveCategory(activeCategory === card.name ? 'All' : card.name);
-                setShowAllArticles(true);
                 document.getElementById('healing-guides')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className={`group relative aspect-[3/2] sm:aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden text-left transition-all duration-500 hover:-translate-y-2 hover:shadow-xl ${activeCategory === card.name ? 'ring-2 ring-blue-500 ring-offset-2' : ''}`}
@@ -246,13 +244,6 @@ export default function BlogListPage() {
               Real conversations and expert-backed advice to help you navigate life's toughest moments.
             </p>
           </div>
-          <button
-            onClick={() => setShowAllArticles(!showAllArticles)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] font-bold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-all duration-300 shrink-0"
-          >
-            {showAllArticles ? "Show less" : "View all"}
-            <ArrowRight size={14} strokeWidth={2.5} className={`transition-transform duration-300 ${showAllArticles ? 'rotate-90' : ''}`} />
-          </button>
         </div>
 
         {/* Category filter pills */}
@@ -272,22 +263,12 @@ export default function BlogListPage() {
           ))}
         </div>
 
-        {/* Articles grid / slider */}
-        {showAllArticles ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 stagger-children">
-            {filteredPosts.map((post, i) => (
-              <ArticleCard key={post.slug} post={post} index={i} />
-            ))}
-          </div>
-        ) : (
-          <div className="flex overflow-x-auto gap-6 sm:gap-8 pb-6 snap-x snap-mandatory no-scrollbar">
-            {filteredPosts.map((post, i) => (
-              <div key={post.slug} className="min-w-[280px] sm:min-w-[320px] lg:min-w-[360px] snap-start shrink-0">
-                <ArticleCard post={post} index={i} />
-              </div>
-            ))}
-          </div>
-        )}
+        {/* Articles grid — always visible */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 stagger-children">
+          {filteredPosts.map((post, i) => (
+            <ArticleCard key={post.slug} post={post} index={i} />
+          ))}
+        </div>
       </section>
 
       {/* ── Vibe & Heal (Playlists) ── */}
