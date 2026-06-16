@@ -341,7 +341,7 @@ function generateBlogListSEO() {
     }))
   };
 
-  return { title, description, url, bodyContent, jsonLd, image: OG_IMAGE };
+  return { title, description, url, bodyContent, jsonLd, image: `${DOMAIN}/og-breathe.png` };
 }
 
 function generateBlogPostSEO(slug) {
@@ -398,7 +398,7 @@ function generateBlogPostSEO(slug) {
     "keywords": post.category
   };
 
-  return { title, description, url, bodyContent, jsonLd, image: OG_IMAGE };
+  return { title, description, url, bodyContent, jsonLd, image: `${DOMAIN}/og-breathe.png` };
 }
 
 // ─── SEO CONTENT GENERATORS PER ROUTE ────────────────────────────────────────
@@ -947,7 +947,8 @@ function buildBotHTML(seo) {
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="${esc(seo.url)}">
-  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="icon" type="image/png" href="${DOMAIN}/favicon.png">
+  <link rel="apple-touch-icon" href="${DOMAIN}/logo.png">
 
   <!-- Geo targeting -->
   <meta name="geo.region" content="IN">
