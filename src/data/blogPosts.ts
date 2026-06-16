@@ -35,7 +35,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Relationships',
     readTime: '8 min read',
     tags: ['Breakups', 'Healing', 'Moving On', 'Mental Health'],
-    heroImage: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/breakup-healing.png',
     content: `
 <p>Let's be real - breakups <em>suck</em>. Whether you were together for 6 months or 6 years, the pain is real. Your brain literally goes through withdrawal, like coming off a drug. And no, you're not being "dramatic."</p>
 
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Overthinking',
     readTime: '7 min read',
     tags: ['Anxiety', 'Overthinking', 'Mindfulness', 'Mental Health'],
-    heroImage: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/overthinking.png',
     content: `
 <p>You know that thing where your brain decides to replay every embarrassing moment of your life at 3 AM? Or when you send a text and immediately spiral into "what if they hate me now?" Yeah. We need to talk about that.</p>
 
@@ -232,7 +232,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Relationships',
     readTime: '9 min read',
     tags: ['Toxic Traits', 'Boundaries', 'Red Flags', 'Relationships'],
-    heroImage: 'https://images.unsplash.com/photo-1543807535-eceef0bc6599?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/toxic-relationship.png',
     content: `
 <p>Let's get one thing straight - love should make you feel <em>safe</em>, not anxious. If being with someone feels like an emotional rollercoaster where the highs are incredible but the lows make you question your sanity... we need to talk.</p>
 
@@ -302,7 +302,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Healing',
     readTime: '7 min read',
     tags: ['Loneliness', 'Connection', 'Mental Health', 'Healing'],
-    heroImage: 'https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/feeling-lonely.png',
     content: `
 <p>Loneliness isn't about being alone. You can be alone and feel perfectly content. You can also be at a party with 50 people and feel like no one in the world understands you.</p>
 
@@ -353,7 +353,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Self-Care',
     readTime: '8 min read',
     tags: ['self love', 'confidence', 'healing', 'self care', 'heartbreak recovery'],
-    heroImage: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/self-love.png',
     content: `
 <p>After a heartbreak, the hardest thing isn't missing them. It's looking in the mirror and wondering - <em>was I not enough?</em></p>
 
@@ -412,7 +412,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Wellness',
     readTime: '7 min read',
     tags: ['anxiety', 'insomnia', 'sleep', 'nighttime anxiety', 'peace of mind', 'racing thoughts'],
-    heroImage: 'https://images.unsplash.com/photo-1511295743512-1678120412b8?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/night-anxiety.png',
     content: `
 <p>11 PM. You get into bed. Close your eyes. And then...</p>
 
@@ -482,7 +482,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Growth',
     readTime: '8 min read',
     tags: ['burnout', 'work stress', 'career anxiety', 'work life balance', 'exhaustion'],
-    heroImage: 'https://images.unsplash.com/photo-1493839932070-652f1e4b8543?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/burnout.png',
     content: `
 <p>There's tired, and then there's <em>tired</em>. The kind where you wake up exhausted. Where the thought of opening your laptop makes your chest tight. Where you've cried in the office bathroom more times than you can count. Where Sunday evening fills you with genuine dread.</p>
 
@@ -543,7 +543,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Relationships',
     readTime: '9 min read',
     tags: ['cheating', 'trust issues', 'infidelity', 'betrayal', 'healing after cheating'],
-    heroImage: 'https://images.unsplash.com/photo-1549421263-504543323032?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/trust-again.png',
     content: `
 <p>Being cheated on is one of those experiences that changes you at a fundamental level. It's not just about losing a partner - it's about losing your faith in love, in people, and worst of all, in your own judgment.</p>
 
@@ -609,7 +609,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Growth',
     readTime: '7 min read',
     tags: ['Quarter Life Crisis', 'Purpose', 'Growth', 'Mental Health'],
-    heroImage: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/feeling-lost.png',
     content: `
 <p>There's a special kind of panic that hits you in your 20s. Everyone on LinkedIn is getting promoted. Your school friends are getting married. Someone you know just bought a car. And you're sitting there thinking - <em>what am I even doing?</em></p>
 
@@ -653,7 +653,7 @@ export const blogPosts: BlogPost[] = [
     category: 'Healing',
     readTime: '8 min read',
     tags: ['emotional expression', 'vulnerability', 'communication', 'emotional intelligence', 'shutting down'],
-    heroImage: 'https://images.unsplash.com/photo-1515023115689-589c33041d3c?auto=format&fit=crop&q=80&w=800',
+    heroImage: '/blog-images/express-emotions.png',
     content: `
 <p>Have you ever been in an argument and your brain just... shuts down? The words are there, somewhere, but they won't come out. So you go silent. You nod. You say "it's fine." And then you spend the next 3 hours replaying the conversation in your head, thinking of everything you SHOULD have said.</p>
 
