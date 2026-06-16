@@ -159,44 +159,59 @@ export default function BlogListPage() {
       </nav>
 
       {/* ── Hero Section ── */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#e8f0fe] via-[#d2e3fc] to-[#c2d9ff]">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-8 py-24 sm:py-32 lg:py-40">
-          <div className="max-w-3xl">
-            {/* Overline */}
-            <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm text-[12px] font-bold text-blue-700 tracking-wide uppercase mb-8 border border-blue-100/60">
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-              Breathe by BrainHeal
-            </div>
+      <section className="relative w-full overflow-hidden">
+        {/* Desktop hero image */}
+        <img
+          src="/blog-images/hero-desktop.png"
+          alt="Breathe - Find your peace of mind"
+          className="hidden sm:block w-full h-[560px] lg:h-[640px] object-cover"
+        />
+        {/* Mobile hero image */}
+        <img
+          src="/blog-images/hero-mobile.png"
+          alt="Breathe - Find your peace of mind"
+          className="sm:hidden w-full h-[520px] object-cover"
+        />
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent sm:from-black/40 sm:via-black/20 sm:to-transparent"></div>
+        {/* Content */}
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 w-full">
+            <div className="max-w-2xl">
+              {/* Overline */}
+              <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-[12px] font-bold text-white tracking-wide uppercase mb-8 border border-white/20">
+                <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                Breathe by BrainHeal
+              </div>
 
-            {/* Main heading */}
-            <h1 className="animate-fade-in-up font-sans text-[2.8rem] sm:text-[4rem] lg:text-[4.5rem] font-bold tracking-tight text-gray-900 leading-[1.08] mb-6" style={{ animationDelay: '0.1s' }}>
-              Find your
-              <br />
-              <span className="text-blue-600">
+              {/* Main heading */}
+              <h1 className="animate-fade-in-up font-sans text-[2.8rem] sm:text-[4rem] lg:text-[4.5rem] font-bold tracking-tight text-white leading-[1.08] mb-6 drop-shadow-lg" style={{ animationDelay: '0.1s' }}>
+                Find your
+                <br />
                 peace of mind.
-              </span>
-            </h1>
+              </h1>
 
-            {/* Subtitle */}
-            <p className="animate-fade-in-up text-gray-600 text-[16px] sm:text-[18px] font-medium max-w-xl leading-relaxed mb-10" style={{ animationDelay: '0.2s', fontFamily: 'var(--font-dm)' }}>
-              A quiet corner of the internet for real stories, practical advice, and gentle wisdom. No judgment here. Just space to breathe and be.
-            </p>
+              {/* Subtitle */}
+              <p className="animate-fade-in-up text-white/85 text-[15px] sm:text-[17px] font-medium max-w-lg leading-relaxed mb-10 drop-shadow-sm" style={{ animationDelay: '0.2s', fontFamily: 'var(--font-dm)' }}>
+                A quiet corner of the internet for real stories, practical advice, and gentle wisdom. No judgment here. Just space to breathe and be.
+              </p>
 
-            {/* CTA */}
-            <div className="animate-fade-in-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
-              <button
-                onClick={() => document.getElementById('healing-guides')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-gray-900 text-white text-[14px] font-bold rounded-full hover:bg-black transition-all duration-300 hover:shadow-lg hover:shadow-gray-900/20 hover:-translate-y-0.5 active:translate-y-0"
-              >
-                Start reading
-                <ArrowRight size={16} strokeWidth={2.5} />
-              </button>
-              <button
-                onClick={() => navigate('/therapy')}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/70 backdrop-blur-sm text-gray-800 text-[14px] font-bold rounded-full border border-gray-200/80 hover:bg-white hover:border-gray-300 transition-all duration-300 hover:-translate-y-0.5"
-              >
-                Talk to someone
-              </button>
+              {/* CTA */}
+              <div className="animate-fade-in-up flex flex-wrap gap-4" style={{ animationDelay: '0.3s' }}>
+                <button
+                  onClick={() => document.getElementById('healing-guides')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-gray-900 text-[14px] font-bold rounded-full hover:bg-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  Start reading
+                  <ArrowRight size={16} strokeWidth={2.5} />
+                </button>
+                <button
+                  onClick={() => navigate('/therapy')}
+                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-white/15 backdrop-blur-md text-white text-[14px] font-bold rounded-full border border-white/30 hover:bg-white/25 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  Talk to someone
+                </button>
+              </div>
             </div>
           </div>
         </div>
