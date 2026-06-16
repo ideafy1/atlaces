@@ -200,10 +200,6 @@ export default function BlogListPage() {
             </div>
           </div>
         </div>
-        {/* Decorative blurred shapes */}
-        <div className="absolute top-20 right-10 w-72 h-72 rounded-full bg-blue-300/30 blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-10 right-40 w-56 h-56 rounded-full bg-purple-300/20 blur-3xl pointer-events-none"></div>
-        <div className="absolute top-40 right-1/3 w-40 h-40 rounded-full bg-indigo-200/30 blur-2xl pointer-events-none"></div>
       </section>
 
       {/* ── Category Cards ── */}
