@@ -12,10 +12,10 @@ export default function Hero() {
   return (
     <div className="relative min-h-[calc(100vh-80px)] w-full bg-[#EAF2F6] font-sans text-brand-black flex flex-col">
       {/* Split Screen Container */}
-      <div className="flex-1 flex flex-col lg:flex-row w-full h-full">
+      <div className="flex-1 flex flex-col-reverse lg:flex-row w-full h-full">
         
         {/* Left Side - Content */}
-        <div className="w-full lg:w-[55%] bg-[#EAF2F6] flex flex-col justify-center px-8 sm:px-12 lg:px-24 py-20 lg:py-0 pt-40 lg:pt-0 relative z-10">
+        <div className="w-full lg:w-[55%] bg-[#EAF2F6] flex flex-col justify-center px-8 sm:px-12 lg:px-24 py-12 lg:py-0 relative z-10">
           <div className="max-w-xl mx-auto lg:mx-0 w-full animate-fade-in-up">
             <h1 
               className="font-sans font-medium text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight text-[#000000]"
