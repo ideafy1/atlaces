@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Home, Brain, Users, Mail, Menu, X, ArrowRight } from 'lucide-react';
+import { Home, Brain, Users, Mail, Menu, X, ArrowRight, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const tabs = [
   { label: 'Home', Icon: Home, path: '/' },
   { label: 'Therapy', Icon: Brain, path: '/therapy' },
   { label: 'Community', Icon: Users, path: '/community' },
+  { label: 'Breathe', Icon: BookOpen, path: '/breathe' },
 ];
 
 interface NavigationProps {

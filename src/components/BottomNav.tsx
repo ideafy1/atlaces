@@ -1,11 +1,12 @@
 import React from 'react';
-import { Home, Brain, Users } from 'lucide-react';
+import { Home, Brain, Users, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const tabs = [
   { label: 'Home', Icon: Home, path: '/' },
   { label: 'Therapy', Icon: Brain, path: '/therapy' },
   { label: 'Community', Icon: Users, path: '/community' },
+  { label: 'Breathe', Icon: BookOpen, path: '/breathe' },
 ];
 
 interface BottomNavProps {

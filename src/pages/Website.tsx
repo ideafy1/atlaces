@@ -9,6 +9,7 @@ import Providers from '../components/Providers';
 import Stats from '../components/Stats';
 import Reviews from '../components/Reviews';
 import Comparison from '../components/Comparison';
+import BreathePromo from '../components/BreathePromo';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import BottomNav from '../components/BottomNav';
@@ -131,6 +132,7 @@ export default function Website({ initialPage = 0 }: WebsiteProps) {
             <Stats />
             <Reviews />
             <Comparison />
+            <BreathePromo />
             <FAQ />
           </main>
           <Footer />
