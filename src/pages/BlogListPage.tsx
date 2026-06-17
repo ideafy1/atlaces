@@ -57,6 +57,28 @@ const MARQUEE_ITEMS = [
 
 /* ─────────────── Article Card (Material Design 3 inspired) ─────────────── */
 function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
+  const [isSaved, setIsSaved] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`saved_breathe_${post.slug}`);
+    if (saved === 'true') setIsSaved(true);
+  }, [post.slug]);
+
+  const handleSave = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const newState = !isSaved;
+    setIsSaved(newState);
+    if (newState) {
+      localStorage.setItem(`saved_breathe_${post.slug}`, 'true');
+    } else {
+      localStorage.removeItem(`saved_breathe_${post.slug}`);
+    }
+  };
+
+  // Deterministic fake view count
+  const viewCount = 1240 + (post.slug.length * 37) + (index * 89);
+
   return (
     <Link
       to={`/breathe/${post.slug}`}
@@ -90,9 +112,18 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
           <Clock size={13} strokeWidth={2} />
           {post.readTime}
         </span>
-        <span className="ml-auto inline-flex items-center gap-2 text-gray-400">
-          <Bookmark size={14} strokeWidth={1.5} className="hover:text-gray-600 transition-colors cursor-pointer" />
-          <Eye size={14} strokeWidth={1.5} />
+        <span className="ml-auto inline-flex items-center gap-3 text-gray-400">
+          <button 
+            onClick={handleSave}
+            className={`transition-colors cursor-pointer hover:text-black flex items-center ${isSaved ? 'text-black' : ''}`}
+            aria-label="Save story"
+          >
+            <Bookmark size={15} strokeWidth={1.5} fill={isSaved ? "currentColor" : "none"} />
+          </button>
+          <span className="flex items-center gap-1">
+            <Eye size={15} strokeWidth={1.5} />
+            <span className="text-[11px] font-semibold">{viewCount.toLocaleString()}</span>
+          </span>
         </span>
       </div>
 
