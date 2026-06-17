@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, Clock, User, Eye, Bookmark } from 'lucide-react';
 import Footer from '../components/Footer';
+import BottomNav from '../components/BottomNav';
 import SEOHead from '../components/SEOHead';
 import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { blogPosts, BLOG_CATEGORIES, type BlogPost } from '../data/blogPosts';
@@ -321,6 +322,11 @@ export default function BlogListPage() {
       </section>
 
       <Footer />
+
+      {/* Mobile bottom nav */}
+      <div className="md:hidden">
+        <BottomNav active={3} onChange={() => {}} />
+      </div>
 
       <style>{`
         @keyframes marquee {

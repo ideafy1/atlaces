@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
+import BottomNav from '../components/BottomNav';
 import SEOHead from '../components/SEOHead';
 import { ToolbarDock } from '../components/ui/toolbar-dock';
 import { getBlogBySlug, getRelatedPosts, type BlogPost } from '../data/blogPosts';
@@ -239,6 +240,11 @@ export default function BlogPostPage() {
           </div>
 
         </div>
+      </div>
+
+      {/* Mobile bottom nav */}
+      <div className="md:hidden">
+        <BottomNav active={3} onChange={() => {}} />
       </div>
 
       {/* ── Prose Styles ── */}
