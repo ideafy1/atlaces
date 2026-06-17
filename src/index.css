@@ -3,14 +3,16 @@
 @import "./styles/theme.css";
 
 @theme {
-  --font-instrument: "Instrument Serif", serif;
-  --font-inter: "Inter", sans-serif;
+  --font-instrument: "Sora", sans-serif;
+  --font-inter: "Sora", sans-serif;
   --font-sans: "Sora", sans-serif;
   --font-dm: "DM Sans", sans-serif;
   
   --color-brand-black: #000000;
-  --color-brand-gray: #6F6F6F;
+  --color-brand-gray: #000000;
   --color-brand-white: #FFFFFF;
+  --color-brand-primary: #20759A;
+  --color-brand-secondary: #4D93B3;
 }
 
 /* Smooth scroll globally */

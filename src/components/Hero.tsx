@@ -1,83 +1,77 @@
-import React, { useState } from 'react';
-import VideoBackground from './VideoBackground';
-import Navigation from './Navigation';
+import React from 'react';
 import { useData } from '../DataContext';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import GsapButton from './GsapButton';
 
-interface HeroProps {
-  activePage?: number;
-  onPageChange?: (page: number) => void;
-}
+import { useNavigate } from 'react-router-dom';
 
-export default function Hero({ activePage, onPageChange }: HeroProps) {
+export default function Hero() {
   const { data } = useData();
-  const hero = data.hero;
-  const [btnHover, setBtnHover] = useState(false);
-
+  const navigate = useNavigate();
+  
   return (
-    <div className="relative min-h-screen w-full bg-brand-white font-inter text-brand-black overflow-hidden flex flex-col">
-      <VideoBackground />
-      
-      <div className="relative z-10 flex flex-col flex-1">
-        <Navigation activePage={activePage} onPageChange={onPageChange} />
+    <div className="relative min-h-[calc(100vh-80px)] w-full bg-[#EAF2F6] font-sans text-brand-black flex flex-col">
+      {/* Split Screen Container */}
+      <div className="flex-1 flex flex-col lg:flex-row w-full h-full">
         
-        <div 
-          className="flex flex-col items-center justify-center text-center px-6 flex-1"
-          style={{ paddingBottom: '10rem' }} 
-        >
-          <h1 
-            itemProp="headline"
-            className="font-instrument font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl max-w-5xl animate-fade-rise mx-auto"
-            style={{ lineHeight: 1.05, letterSpacing: '-2px' }}
-          >
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">{hero.title}</span>{' '}
-            {hero.subtitle}{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500">{hero.highlight}</span>
-          </h1>
-          
-          <p className="text-brand-gray text-base sm:text-lg max-w-2xl mt-8 leading-relaxed animate-fade-rise-delay mx-auto">
-            {hero.text}
-          </p>
-          
-          {/* CTA Button with immersive transition */}
-          <button
-            className="group mt-12 relative animate-fade-rise-delay-2"
-            onClick={() => onPageChange?.(1)}
-            onMouseEnter={() => setBtnHover(true)}
-            onMouseLeave={() => setBtnHover(false)}
-          >
-            <div
-              className="relative flex items-center gap-3 bg-brand-black text-white rounded-full px-10 py-5 md:px-14 md:py-6 text-base md:text-lg font-medium overflow-hidden transition-all duration-500"
-              style={{
-                boxShadow: btnHover 
-                  ? '0 20px 60px rgba(0,0,0,0.3), 0 0 0 2px rgba(0,0,0,0.1)' 
-                  : '0 4px 20px rgba(0,0,0,0.15)',
-                transform: btnHover ? 'scale(1.05)' : 'scale(1)',
-              }}
+        {/* Left Side - Content */}
+        <div className="w-full lg:w-[55%] bg-[#EAF2F6] flex flex-col justify-center px-8 sm:px-12 lg:px-24 py-20 lg:py-0 pt-40 lg:pt-0 relative z-10">
+          <div className="max-w-xl mx-auto lg:mx-0 w-full animate-fade-in-up">
+            <h1 
+              className="font-sans font-medium text-4xl sm:text-5xl lg:text-6xl mb-6 tracking-tight text-[#000000]"
+              style={{ lineHeight: 1.1 }}
             >
-              {/* Shine effect */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{
-                  background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 45%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 55%, transparent 60%)',
-                  backgroundSize: '200% 100%',
-                  animation: btnHover ? 'shine 1.5s ease-in-out' : 'none',
-                }}
-              />
-              <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-500" />
-              <span className="relative z-10">{hero.buttonText}</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              Space to figure<br />things out
+            </h1>
+            
+            <div className="flex flex-col gap-3.5 mb-8 text-base text-[#000000]">
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#20759A] flex-shrink-0" />
+                <span>Convenient access anytime, anywhere</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#20759A] flex-shrink-0" />
+                <span>Professional support from verified therapists</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="w-5 h-5 text-[#20759A] flex-shrink-0" />
+                <span>Affordable options tailored to your needs</span>
+              </div>
             </div>
-          </button>
+            
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <GsapButton
+                onClick={() => navigate('/therapy')}
+                variant="solid"
+                className="w-full sm:w-auto px-6 py-3 text-sm"
+                aria-label="Get started with BrainHeal therapy"
+              >
+                Get started
+              </GsapButton>
+              <GsapButton
+                onClick={() => navigate('/therapy')}
+                variant="outline"
+                className="w-full sm:w-auto px-6 py-3 text-sm border border-[#20759A] text-[#000000]"
+                aria-label="Find a verified therapist"
+              >
+                Find a therapist
+              </GsapButton>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <style>{`
-        @keyframes shine {
-          0% { background-position: 200% 0; }
-          100% { background-position: -200% 0; }
-        }
-      `}</style>
+        {/* Right Side - Image */}
+        <div className="w-full lg:w-[45%] relative min-h-[50vh] lg:min-h-screen">
+          <div className="absolute inset-0 bg-[#322E29]/10 z-10 mix-blend-multiply pointer-events-none" />
+          <img 
+            src="/hero-therapist.png" 
+            alt="Compassionate therapist" 
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: 'center top' }}
+          />
+        </div>
+        
+      </div>
     </div>
   );
 }
