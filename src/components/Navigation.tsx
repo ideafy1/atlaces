@@ -45,7 +45,7 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
       {/* Top bar inside menu */}
       <div className="flex justify-between items-center px-6 py-5">
         <div className="flex items-center gap-3" onClick={() => handleNav(0)}>
-          <img src="/logo.png" alt="BrainHeal" className="w-10 h-10 rounded-full object-cover" />
+          <img src="/logo.svg" alt="BrainHeal" className="w-10 h-10 object-contain drop-shadow-sm" />
           <span className="font-instrument text-2xl text-brand-black">BrainHeal</span>
         </div>
         <button onClick={() => setIsOpen(false)} className="p-2 -mr-2" aria-label="Close menu">
@@ -107,9 +107,9 @@ export default function Navigation({ activePage = 0, onPageChange }: NavigationP
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => handleNav(0)}>
             <img
-              src="/logo.png"
+              src="/logo.svg"
               alt="BrainHeal Logo"
-              className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover"
+              className="w-10 h-10 md:w-11 md:h-11 object-contain drop-shadow-sm"
               loading="eager"
             />
             <div className="flex flex-col">

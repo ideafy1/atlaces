@@ -255,7 +255,7 @@ export default function Admin() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
         <form onSubmit={handlePinSubmit} className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm text-center border border-gray-100">
-          <img src="/logo.png" alt="BrainHeal" className="w-16 h-16 rounded-full mx-auto mb-4 object-cover" />
+          <img src="/logo.svg" alt="BrainHeal" className="w-16 h-16 mx-auto mb-4 object-contain" />
           <div className="font-instrument text-3xl mb-1 text-brand-black">Admin Panel</div>
           <p className="text-gray-500 text-sm mb-8">Enter your secure access code</p>
           <input
@@ -286,7 +286,7 @@ export default function Admin() {
       <div className="bg-brand-black text-white sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="" className="w-8 h-8 rounded-full object-cover" />
+            <img src="/logo.svg" alt="" className="w-8 h-8 object-contain" />
             <span className="font-instrument text-xl">Admin Panel</span>
           </div>
           <div className="flex items-center gap-3">

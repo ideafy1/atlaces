@@ -155,7 +155,7 @@ export default function BookingFlow({ therapistName, therapistImage, therapistTi
         currency: 'INR',
         name: 'BrainHeal',
         description: 'Therapy Session Booking',
-        image: '/logo.png',
+        image: '/logo.svg',
         handler: async function (response: any) {
           try {
             const bookingId = response.razorpay_payment_id;

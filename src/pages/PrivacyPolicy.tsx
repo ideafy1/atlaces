@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-brand-gray hover:text-brand-black transition-colors">
               <ArrowLeft className="w-4 h-4" /> Back
             </button>
-            <img src="/logo.png" alt="BrainHeal" className="w-8 h-8 rounded-full cursor-pointer" onClick={() => navigate('/')} />
+            <img src="/logo.svg" alt="BrainHeal" className="w-8 h-8 cursor-pointer object-contain" onClick={() => navigate('/')} />
           </div>
         </div>
 

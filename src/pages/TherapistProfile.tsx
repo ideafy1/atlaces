@@ -219,7 +219,7 @@ export default function TherapistProfile() {
             <button onClick={() => navigate('/therapy')} className="flex items-center gap-2 text-sm font-medium text-white hover:text-white/80 bg-black/20 px-4 py-2 rounded-full backdrop-blur-md transition-all hover:scale-105">
               <ArrowLeft className="w-4 h-4" /> Back
             </button>
-            <img src="/logo.png" alt="BrainHeal" className="w-10 h-10 rounded-full cursor-pointer shadow-lg hover:scale-110 transition-transform" onClick={() => navigate('/')} />
+            <img src="/logo.svg" alt="BrainHeal" className="w-10 h-10 cursor-pointer shadow-lg hover:scale-110 transition-transform object-contain" onClick={() => navigate('/')} />
           </div>
         </div>
 
